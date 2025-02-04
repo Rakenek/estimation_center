@@ -17,7 +17,7 @@ export async function createUser(formData: FormData) {
       data: { name, city, imageUrl },
     });
 
-    revalidatePath("/users"); // Refresh the user list after adding a new user
+    revalidatePath("/search"); // Refresh the user list after adding a new user
   } catch (error) {
     console.error(error);
     throw new Error("Failed to create user");
