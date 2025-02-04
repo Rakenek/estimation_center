@@ -1,5 +1,5 @@
-import React from 'react';
-import Card from './Card';
+import React from "react";
+import Card from "./Card";
 
 interface ListOfInvestmentsProps {
   data: any;
@@ -15,7 +15,7 @@ export default function ListOfInvestments({ data }: ListOfInvestmentsProps) {
               key={item.name}
               city={item.city}
               name={item.name}
-              imageUrl={item.image}
+              imageUrl={item.imageUrl}
             />
           );
         })}

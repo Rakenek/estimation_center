@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useRouter } from 'next/navigation';
-import React from 'react';
+import { useRouter } from "next/navigation";
+import React from "react";
 
 export default function ExploreButton() {
   const router = useRouter();
@@ -9,7 +9,7 @@ export default function ExploreButton() {
   return (
     <button
       onClick={() => {
-        router.push('/dashboard');
+        router.push("/search");
       }}
       className="px-6 py-2 bg-primaryDark text-white font-semibold rounded-lg hover:bg-primary focus:outline-none animate-moveInFromLeft"
     >
