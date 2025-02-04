@@ -24,7 +24,7 @@ export default function DashboardElement({ projects }: DashboardElementProps) {
           filterdata(value);
         }}
       />
-      <ListOfInvestments data={filteredData} />
+      <ListOfInvestments projects={filteredData} />
     </div>
   );
 }

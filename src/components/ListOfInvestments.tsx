@@ -2,14 +2,16 @@ import React from "react";
 import Card from "./Card";
 
 interface ListOfInvestmentsProps {
-  data: any;
+  projects: { id: string; name: string; city: string; imageUrl: string }[];
 }
 
-export default function ListOfInvestments({ data }: ListOfInvestmentsProps) {
+export default function ListOfInvestments({
+  projects,
+}: ListOfInvestmentsProps) {
   return (
     <div className="flex items-center justify-center py-12">
       <div className="flex flex-wrap items-center justify-start w-5/6 gap-6">
-        {data.map((item: any) => {
+        {projects.map((item) => {
           return (
             <Card
               key={item.name}
