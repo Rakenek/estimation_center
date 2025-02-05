@@ -13,9 +13,90 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Role {
+  ADMIN
+  USER
+  GUEST
+}
+
+enum City {
+  Krakow
+  Warsaw
+  Wroclaw
+  Gdansk
+  Poznan
+  Katowice
+  Lodz
+}
+
+model User {
+  id       String    @id @default(uuid())
+  email    String    @unique
+  name     String?
+  role     Role      @default(USER)
+  password String
+  projects Project[]
+}
+
 model Project {
-  id    String @id @default(uuid())
-  name  String @unique
-  city String
-  imageUrl String
+  id        String      @id @default(uuid())
+  name      String      @unique
+  city      City
+  imageUrl  String
+  userId    String
+  costId    String
+  user      User        @relation(fields: [userId], references: [id])
+  parameter Parameters? @relation
+  cost      Cost?       @relation
+}
+
+model Parameters {
+  id                         String  @id @default(uuid())
+  powDzialki                 Float
+  powNadziemia               Float
+  powPodziemia               Float
+  powNiezabudowanaDzialki    Float
+  powElewacji                Float
+  powDachow                  Float
+  powNetto                   Float
+  powNettoPodziemia          Float
+  powNettoNadziemia          Float
+  pum                        Float
+  puu                        Float
+  pumpuu                     Float
+  powWspolneNadziemia        Float
+  liczbaMiejscParkingowych   Float
+  liczbaParkliftow           Float
+  iloscMieszkan              Float
+  sredniaPowMieszkania       Float
+  udzialPowWspolnejNadziemia Float
+  powPodziemiaDoPUMPUU       Float
+  projectId                  String  @unique
+  project                    Project @relation(fields: [projectId], references: [id])
+}
+
+model Cost {
+  id                           String  @id @default(uuid())
+  przygotowanieGruntu          Float
+  robotyZiemne                 Float
+  konstrukcjaPodziemia         Float
+  konstrukcjaNadziemia         Float
+  elewacje                     Float
+  dachy                        Float
+  wykonczenieNadziemia         Float
+  wykonczeniePodziamia         Float
+  windy                        Float
+  instalacjeKlimatyzacyjne     Float
+  instalacjeWodnoKanalizacyjne Float
+  instalacjeGazowe             Float
+  instalacjeElektryczne        Float
+  instalacjeTeletechniczne     Float
+  infrastruktura               Float
+  dfa                          Float
+  sieci                        Float
+  kosztyBudowy                 Float
+  bhp                          Float
+  offsetPozaDzialka            Float
+  projectId                    String  @unique
+  project                      Project @relation(fields: [projectId], references: [id])
 }

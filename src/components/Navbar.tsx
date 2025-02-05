@@ -8,7 +8,7 @@ export default function Navbar() {
       <div className="px-5">
         <Image src={logo} alt="sdf" width={100} height={100} />
       </div>
-      <div className="px-5">Kamil</div>
+      <div className="px-5">User</div>
     </>
   );
 }
