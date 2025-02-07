@@ -1,8 +1,9 @@
 import React from "react";
 import Card from "./Card";
+import { City } from "@prisma/client";
 
 interface ListOfInvestmentsProps {
-  projects: { id: string; name: string; city: string; imageUrl: string }[];
+  projects: { id: string; name: string; city: City; imageUrl: string }[];
 }
 
 export default function ListOfInvestments({
@@ -14,7 +15,8 @@ export default function ListOfInvestments({
         {projects.map((item) => {
           return (
             <Card
-              key={item.name}
+              key={item.id}
+              id={item.id}
               city={item.city}
               name={item.name}
               imageUrl={item.imageUrl}

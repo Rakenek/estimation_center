@@ -1,12 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { createUser } from "../../actions/actions";
+// import { createUser } from "../../actions/actions";
 
 export default function UserForm() {
   const [message, setMessage] = useState("");
 
   async function handleSubmit(formData: FormData) {
+    const createUser = (formData: FormData) => {
+      console.log(formData);
+    };
+
     try {
       await createUser(formData);
       setMessage("User added successfully!");

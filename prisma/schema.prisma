@@ -20,13 +20,13 @@ enum Role {
 }
 
 enum City {
-  Krakow
-  Warsaw
-  Wroclaw
-  Gdansk
-  Poznan
+  Kraków
+  Warszawa
+  Wrocław
+  Gdańsk
+  Poznań
   Katowice
-  Lodz
+  Łódź
 }
 
 model User {
