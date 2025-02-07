@@ -2,12 +2,12 @@ import ProjectDetails from "@/components/ProjectDetails";
 import { prisma } from "@/lib/prisma";
 
 interface ProjectPageProps {
-  params: { projectId: string };
+  params: Promise<{ projectId: string }>;
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   try {
-    const { projectId } = params;
+    const { projectId } = await params;
     const project = await prisma.project.findUnique({
       where: { id: projectId },
     });
