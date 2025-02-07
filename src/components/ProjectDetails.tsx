@@ -3,9 +3,9 @@ import { Project, Cost, Parameters } from "@prisma/client";
 import { camelCaseToSpaces } from "@/lib/customFunctions";
 
 interface ProjectDetailsProps {
-  project: Project | null;
-  cost: Cost | null;
-  parameters: Parameters | null;
+  project: Project;
+  cost: Cost;
+  parameters: Parameters;
 }
 
 export default function ProjectDetails({
@@ -15,6 +15,7 @@ export default function ProjectDetails({
 }: ProjectDetailsProps) {
   return (
     <>
+      <h2>{project.name}</h2>
       <div>
         <h2>Parametry</h2>
         {Object.entries(parameters).map(([key, value]) => {
