@@ -1,6 +1,5 @@
 import { Parameters } from "@prisma/client";
 import React from "react";
-import { snakeToTitleCase } from "../lib/customFunctions";
 
 interface BuildingProps {
   parameters: Parameters;
