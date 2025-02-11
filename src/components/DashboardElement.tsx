@@ -2,10 +2,10 @@
 import SearchBar from "@/components/SearchBar";
 import React, { useState } from "react";
 import ListOfInvestments from "@/components/ListOfInvestments";
-import { City } from "@prisma/client";
+import { Project } from "@prisma/client";
 
 interface DashboardElementProps {
-  projects: { id: string; name: string; city: City; imageUrl: string }[];
+  projects: Project[];
 }
 
 export default function DashboardElement({ projects }: DashboardElementProps) {

@@ -12,10 +12,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       where: { id: projectId },
     });
     const cost = await prisma.cost.findUnique({
-      where: { projectId: projectId },
+      where: { project_id: projectId },
     });
     const parameters = await prisma.parameters.findUnique({
-      where: { projectId: projectId },
+      where: { project_id: projectId },
     });
 
     console.log(project, cost, parameters);

@@ -1,6 +1,8 @@
-export function camelCaseToSpaces(str: string): string {
+export function snakeToTitleCase(str: string): string {
   return str
-    .replace(/([a-z0-9])([A-Z])/g, "$1 $2") // Adds space between lowercase and uppercase letters
-    .replace(/([A-Z])([A-Z][a-z])/g, "$1 $2") // Handles cases where there are multiple uppercase letters
-    .toLowerCase(); // Converts the entire string to lowercase
+    .split("_") // Split the string by underscores
+    .map(
+      (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() // Capitalize first letter, lowercase the rest
+    )
+    .join(" "); // Join the words with a space in between
 }

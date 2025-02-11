@@ -19,20 +19,10 @@ enum Role {
   GUEST
 }
 
-enum City {
-  Kraków
-  Warszawa
-  Wrocław
-  Gdańsk
-  Poznań
-  Katowice
-  Łódź
-}
-
 model User {
   id       String    @id @default(uuid())
   email    String    @unique
-  name     String?
+  name     String
   role     Role      @default(USER)
   password String
   projects Project[]
@@ -41,62 +31,63 @@ model User {
 model Project {
   id        String      @id @default(uuid())
   name      String      @unique
-  city      City
-  imageUrl  String
-  userId    String
-  costId    String
-  user      User        @relation(fields: [userId], references: [id])
+  city      String
+  image_url  String
+  user_id    String
+  user      User        @relation(fields: [user_id], references: [id])
   parameter Parameters? @relation
   cost      Cost?       @relation
 }
 
 model Parameters {
   id                         String  @id @default(uuid())
-  powDzialki                 Float
-  powNadziemia               Float
-  powPodziemia               Float
-  powNiezabudowanaDzialki    Float
-  powElewacji                Float
-  powDachow                  Float
-  powNetto                   Float
-  powNettoPodziemia          Float
-  powNettoNadziemia          Float
-  pum                        Float
-  puu                        Float
-  pumpuu                     Float
-  powWspolneNadziemia        Float
-  liczbaMiejscParkingowych   Float
-  liczbaParkliftow           Float
-  iloscMieszkan              Float
-  sredniaPowMieszkania       Float
-  udzialPowWspolnejNadziemia Float
-  powPodziemiaDoPUMPUU       Float
-  projectId                  String  @unique
-  project                    Project @relation(fields: [projectId], references: [id])
+  powierzchnia_dzialki                    Float
+  powierzchnia_nadziemia                  Float
+  powierzchnia_podziemia                  Float
+  powierzchnia_niezabudowana_dzialki      Float
+  powierzchnia_dachow                     Float
+  powierzchnia_elewacji                   Float
+  powierzchnia_netto                      Float
+  powierzchnia_netto_podziemia            Float
+  powierzchnia_netto_nadziemia            Float
+  pum_i_puu                               Float
+  pum                                     Float
+  puu                                     Float
+  powierzchnie_wspolne_nadziemia          Float
+  powierzchnia_garazu_w_nadziemiu         Float
+  liczba_kondygnacji                      Float
+  liczba_miejsc_parkingowych              Float
+  liczba_parkliftow                       Float
+  ilosc_mieszkan                          Float
+  srednia_powierzchnia_mieszkania         Float
+  udzial_powierzchni_wspolnych_nadziemia  Float
+  pow_podziemia_do_pum_i_puu              Float
+  project_id                               String  @unique
+  project                               Project @relation(fields: [project_id], references: [id])
 }
 
 model Cost {
   id                           String  @id @default(uuid())
-  przygotowanieGruntu          Float
-  robotyZiemne                 Float
-  konstrukcjaPodziemia         Float
-  konstrukcjaNadziemia         Float
-  elewacje                     Float
-  dachy                        Float
-  wykonczenieNadziemia         Float
-  wykonczeniePodziamia         Float
-  windy                        Float
-  instalacjeKlimatyzacyjne     Float
-  instalacjeWodnoKanalizacyjne Float
-  instalacjeGazowe             Float
-  instalacjeElektryczne        Float
-  instalacjeTeletechniczne     Float
-  infrastruktura               Float
-  dfa                          Float
-  sieci                        Float
-  kosztyBudowy                 Float
-  bhp                          Float
-  offsetPozaDzialka            Float
-  projectId                    String  @unique
-  project                      Project @relation(fields: [projectId], references: [id])
+  przygotowanie_gruntu            Float
+  roboty_ziemne                   Float
+  konstrukcja_podziemia           Float
+  konstrukcja_nadziemia           Float
+  elewacje                        Float
+  dachy                           Float
+  wykonczenie_nadziemia           Float
+  wykonczenie_podziemia           Float
+  windy                           Float
+  instalacje_klimatyzacyjne       Float
+  instalacje_wodno_kanalizacyjne  Float
+  instalacje_gazowe               Float
+  instalacje_elektryczne          Float
+  instalacje_teletechniczne       Float
+  infrastruktura                  Float
+  dfa                             Float
+  sieci                           Float
+  koszty_budowy                   Float
+  bhp                             Float
+  offset_poza_dzialka             Float
+  project_id                      String  @unique
+  project                         Project @relation(fields: [project_id], references: [id])
 }
