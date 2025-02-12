@@ -3,89 +3,144 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
-  // Create a User
-  const user = await prisma.user.create({
-    data: {
-      email: "admin@example.com",
-      name: "Admin User",
-      password: "securepassword", // Make sure to hash passwords in production
-      role: "ADMIN", // Use your defined enum value here
-    },
-  });
+  console.log("Seeding database...");
 
-  // Create a Project
-  const project = await prisma.project.create({
-    data: {
-      name: "Project One",
-      city: "Kraków",
-      image_url:
-        "https://plus.unsplash.com/premium_vector-1724310048248-d6b52e189969?q=80&w=2360&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      user_id: user.id, // Linking the project to the user
-    },
-  });
+  // Create users
+  const users = await Promise.all([
+    prisma.user.create({
+      data: {
+        email: "admin@example.com",
+        name: "Admin User",
+        role: "ADMIN",
+        password: "securepassword",
+      },
+    }),
+    prisma.user.create({
+      data: {
+        email: "user@example.com",
+        name: "Regular User",
+        role: "USER",
+        password: "securepassword",
+      },
+    }),
+    prisma.user.create({
+      data: {
+        email: "guest@example.com",
+        name: "Guest User",
+        role: "GUEST",
+        password: "securepassword",
+      },
+    }),
+  ]);
 
-  // Create Parameters for the project
-  const parameters = await prisma.parameters.create({
-    data: {
-      powierzchnia_dzialki: 5000.0,
-      powierzchnia_nadziemia: 3000.0,
-      powierzchnia_podziemia: 1500.0,
-      powierzchnia_niezabudowana_dzialki: 2500.0,
-      powierzchnia_dachow: 800.0,
-      powierzchnia_elewacji: 1000.0,
-      powierzchnia_netto: 5000.0,
-      powierzchnia_netto_podziemia: 1000.0,
-      powierzchnia_netto_nadziemia: 4000.0,
-      pum_i_puu: 1.2,
-      pum: 1000.0,
-      puu: 1200.0,
-      powierzchnie_wspolne_nadziemia: 500.0,
-      powierzchnia_garazu_w_nadziemiu: 100.0,
-      liczba_kondygnacji: 5,
-      liczba_miejsc_parkingowych: 50,
-      liczba_parkliftow: 2,
-      ilosc_mieszkan: 200,
-      srednia_powierzchnia_mieszkania: 50.0,
-      udzial_powierzchni_wspolnych_nadziemia: 0.2,
-      pow_podziemia_do_pum_i_puu: 0.8,
-      project_id: project.id, // Linking the parameters to the project
-    },
-  });
+  // Create projects
+  const projects = await Promise.all([
+    prisma.project.create({
+      data: {
+        name: "Project Alpha",
+        city: "New York",
+        image_url:
+          "https://plus.unsplash.com/premium_vector-1724310048248-d6b52e189969?q=80&w=2360&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        status: "Active",
+        n03_do_PUM: 6000,
+        user_id: users[0].id,
+      },
+    }),
+    prisma.project.create({
+      data: {
+        name: "Project Beta",
+        city: "Los Angeles",
+        image_url:
+          "https://plus.unsplash.com/premium_vector-1724310048248-d6b52e189969?q=80&w=2360&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        status: "Planning",
+        n03_do_PUM: 6100,
+        user_id: users[1].id,
+      },
+    }),
+    prisma.project.create({
+      data: {
+        name: "Project Gamma",
+        city: "Chicago",
+        image_url:
+          "https://plus.unsplash.com/premium_vector-1724310048248-d6b52e189969?q=80&w=2360&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        status: "Completed",
+        n03_do_PUM: 6200,
+        user_id: users[2].id,
+      },
+    }),
+  ]);
 
-  // Create Cost for the project
-  const cost = await prisma.cost.create({
-    data: {
-      przygotowanie_gruntu: 2000.0,
-      roboty_ziemne: 1500.0,
-      konstrukcja_podziemia: 3000.0,
-      konstrukcja_nadziemia: 5000.0,
-      elewacje: 2000.0,
-      dachy: 1000.0,
-      wykonczenie_nadziemia: 2000.0,
-      wykonczenie_podziemia: 1500.0,
-      windy: 1000.0,
-      instalacje_klimatyzacyjne: 1500.0,
-      instalacje_wodno_kanalizacyjne: 500.0,
-      instalacje_gazowe: 300.0,
-      instalacje_elektryczne: 1000.0,
-      instalacje_teletechniczne: 400.0,
-      infrastruktura: 2000.0,
-      dfa: 1500.0,
-      sieci: 1000.0,
-      koszty_budowy: 25000.0,
-      bhp: 500.0,
-      offset_poza_dzialka: 300.0,
-      project_id: project.id, // Linking the cost to the project
-    },
-  });
+  // Create parameters
+  await Promise.all(
+    projects.map((project) =>
+      prisma.parameters.create({
+        data: {
+          powierzchnia_dzialki: 1000,
+          powierzchnia_nadziemia: 500,
+          powierzchnia_podziemia: 200,
+          powierzchnia_niezabudowana_dzialki: 300,
+          powierzchnia_dachow: 150,
+          powierzchnia_elewacji: 250,
+          powierzchnia_netto: 600,
+          powierzchnia_netto_podziemia: 100,
+          powierzchnia_netto_nadziemia: 500,
+          pum_i_puu: 400,
+          pum: 300,
+          puu: 100,
+          powierzchnie_wspolne_nadziemia: 80,
+          powierzchnia_garazu_w_nadziemiu: 50,
+          liczba_kondygnacji: 10,
+          liczba_miejsc_parkingowych: 20,
+          liczba_parkliftow: 5,
+          ilosc_mieszkan: 30,
+          srednia_powierzchnia_mieszkania: 50,
+          udzial_powierzchni_wspolnych_nadziemia: 10,
+          pow_podziemia_do_pum_i_puu: 5,
+          project_id: project.id,
+        },
+      })
+    )
+  );
 
-  console.log("Seed data has been inserted successfully!");
+  // Create costs
+  await Promise.all(
+    projects.map((project) =>
+      prisma.cost.create({
+        data: {
+          n01: 10000,
+          n03: 5000,
+          roboty_ziemne: 20000,
+          konstrukcja_podziemia: 30000,
+          konstrukcja_nadziemia: 40000,
+          elewacje: 15000,
+          dachy: 10000,
+          wykonczenie_nadziemia: 25000,
+          wykonczenie_podziemia: 20000,
+          windy: 5000,
+          instalacje_klimatyzacyjne: 10000,
+          instalacje_wodno_kanalizacyjne: 8000,
+          instalacje_gazowe: 6000,
+          instalacje_elektryczne: 12000,
+          instalacje_teletechniczne: 7000,
+          infrastruktura: 15000,
+          dfa: 5000,
+          sieci: 6000,
+          koszty_budowy: 200000,
+          bhp: 5000,
+          offset_poza_dzialka: 7000,
+          project_id: project.id,
+        },
+      })
+    )
+  );
+
+  console.log("Seeding completed!");
 }
 
-// Run the main function to seed data
 main()
   .catch((e) => {
-    throw e;
+    console.error("Error seeding the database:", e);
+    process.exit(1);
   })
   .finally(async () => {
     await prisma.$disconnect();

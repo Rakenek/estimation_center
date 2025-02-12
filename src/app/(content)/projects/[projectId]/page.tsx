@@ -18,8 +18,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       where: { project_id: projectId },
     });
 
-    console.log(project, cost, parameters);
-
     return (
       <div>
         <h1>Project: {project?.name}</h1>

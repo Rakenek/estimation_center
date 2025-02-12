@@ -7,9 +7,18 @@ type CardProps = {
   city: string;
   name: string;
   imageUrl: string;
+  status: string;
+  n03: number;
 };
 
-const Card: React.FC<CardProps> = ({ id, city, name, imageUrl }) => {
+const Card: React.FC<CardProps> = ({
+  id,
+  city,
+  name,
+  imageUrl,
+  status,
+  n03,
+}) => {
   return (
     <Link href={`/projects/${id}`}>
       <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white">
@@ -23,6 +32,8 @@ const Card: React.FC<CardProps> = ({ id, city, name, imageUrl }) => {
         <div className="p-4">
           <h2 className="text-xl font-semibold text-gray-900">{name}</h2>
           <p className="mt-2 text-gray-600">{city}</p>
+          <p className="mt-2 text-gray-600">N03: {n03} PLN</p>
+          <p className="mt-2 text-gray-600">Status: {status}</p>
         </div>
       </div>
     </Link>

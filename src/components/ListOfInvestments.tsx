@@ -20,6 +20,8 @@ export default function ListOfInvestments({
               city={item.city}
               name={item.name}
               imageUrl={item.image_url}
+              status={item.status}
+              n03={item.n03_do_PUM}
             />
           );
         })}

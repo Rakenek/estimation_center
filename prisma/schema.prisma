@@ -29,14 +29,16 @@ model User {
 }
 
 model Project {
-  id        String      @id @default(uuid())
-  name      String      @unique
-  city      String
-  image_url  String
-  user_id    String
-  user      User        @relation(fields: [user_id], references: [id])
-  parameter Parameters? @relation
-  cost      Cost?       @relation
+  id              String      @id @default(uuid())
+  name            String      @unique
+  city            String
+  image_url       String
+  status          String
+  n03_do_PUM      Float
+  user_id         String
+  user            User        @relation(fields: [user_id], references: [id])
+  parameter       Parameters? @relation
+  cost            Cost?       @relation
 }
 
 model Parameters {
@@ -68,7 +70,8 @@ model Parameters {
 
 model Cost {
   id                           String  @id @default(uuid())
-  przygotowanie_gruntu            Float
+  n01                             Float
+  n03                             Float
   roboty_ziemne                   Float
   konstrukcja_podziemia           Float
   konstrukcja_nadziemia           Float

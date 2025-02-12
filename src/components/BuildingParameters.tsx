@@ -6,12 +6,6 @@ interface BuildingProps {
 }
 
 const BuildingParameters: React.FC<BuildingProps> = ({ parameters }) => {
-  // Dummy data for the table
-  const data = Array.from({ length: 20 }, (_, index) => ({
-    col1: `Row ${index + 1} Col 1`,
-    col2: `Row ${index + 1} Col 2`,
-  }));
-
   return (
     <div className="overflow-x-auto max-w-96 mx-auto mt-10">
       <table className="min-w-full table-auto bg-white shadow-lg rounded-lg">
@@ -129,22 +123,6 @@ const BuildingParameters: React.FC<BuildingProps> = ({ parameters }) => {
             </td>
             <td className="px-6 py-4 text-sm text-gray-800 text-center">
               {parameters.powierzchnia_garazu_w_nadziemiu}
-            </td>
-          </tr>
-          <tr className="border-b hover:bg-gray-50">
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              Liczba_kondygnacji
-            </td>
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              {parameters.liczba_kondygnacji}
-            </td>
-          </tr>
-          <tr className="border-b hover:bg-gray-50">
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              Liczba miejsc parkingowych w budynku
-            </td>
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              {parameters.liczba_miejsc_parkingowych}
             </td>
           </tr>
           <tr className="border-b hover:bg-gray-50">

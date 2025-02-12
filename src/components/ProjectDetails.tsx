@@ -13,7 +13,6 @@ export default function ProjectDetails({
   cost,
   parameters,
 }: ProjectDetailsProps) {
-  console.log(project, cost, parameters);
   return (
     <>
       <BuildingParameters parameters={parameters} />

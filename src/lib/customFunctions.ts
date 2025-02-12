@@ -6,3 +6,6 @@ export function snakeToTitleCase(str: string): string {
     )
     .join(" "); // Join the words with a space in between
 }
+export function cn(...classes: (string | boolean)[]) {
+  return classes.filter(Boolean).join(" ");
+}
