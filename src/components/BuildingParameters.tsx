@@ -1,11 +1,42 @@
 import { Parameters } from "@prisma/client";
 import React from "react";
+import TableRow from "./TableRow";
 
 interface BuildingProps {
   parameters: Parameters;
 }
 
 const BuildingParameters: React.FC<BuildingProps> = ({ parameters }) => {
+  const labels = [
+    "id",
+    "Powierzchnia działki",
+    "Powierzchnia nadziemia",
+    "Powierzchnia podziemia",
+    "Powierzchnia niezabudowana działki",
+    "Powierzchnia dachów",
+    "Powierzchnia elewacji",
+    "Powierzchnia netto",
+    "Powierzchnia netto podziemia",
+    "Powierzchnia netto nadziemia",
+    "PUM + PUU",
+    "PUM",
+    "PUU",
+    "Powierzchnie wspólne nadziemia",
+    "Powierzchnia gażu w nadziemiu",
+    "Liczba kondygnacji",
+    "Liczba miejsc parkingowych w budynkku",
+    "Liczba mieszkań",
+    "Średnia powierzchnia mieszkania",
+    "Udział powierzchni wspólnych nadziemia",
+    "Powierzchnia podziemia / PUM+PUU",
+    "id projektu",
+  ];
+  const parameterTable = Object.entries(parameters)
+    .map(([key, value], index) => {
+      return { propertyName: labels[index], value };
+    })
+    .slice(1, -2);
+
   return (
     <div className="overflow-x-auto max-w-96 mx-auto mt-10">
       <table className="min-w-full table-auto bg-white shadow-lg rounded-lg">
@@ -17,162 +48,13 @@ const BuildingParameters: React.FC<BuildingProps> = ({ parameters }) => {
           </tr>
         </thead>
         <tbody>
-          <tr className="border-b hover:bg-gray-50">
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              Powierzchnia działki
-            </td>
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              {parameters.powierzchnia_dzialki}
-            </td>
-          </tr>
-          <tr className="border-b hover:bg-gray-50">
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              Powierzchnia nadziemia
-            </td>
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              {parameters.powierzchnia_nadziemia}
-            </td>
-          </tr>
-          <tr className="border-b hover:bg-gray-50">
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              Powierzchnia podziemia
-            </td>
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              {parameters.powierzchnia_podziemia}
-            </td>
-          </tr>
-          <tr className="border-b hover:bg-gray-50">
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              Powierzchnia niezabudowana działki
-            </td>
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              {parameters.powierzchnia_niezabudowana_dzialki}
-            </td>
-          </tr>
-          <tr className="border-b hover:bg-gray-50">
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              Powierzchnia dachów
-            </td>
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              {parameters.powierzchnia_dachow}
-            </td>
-          </tr>
-          <tr className="border-b hover:bg-gray-50">
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              Powierzchnia elewacji
-            </td>
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              {parameters.powierzchnia_elewacji}
-            </td>
-          </tr>
-          <tr className="border-b hover:bg-gray-50">
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              Powierzchnia netto
-            </td>
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              {parameters.powierzchnia_netto}
-            </td>
-          </tr>
-          <tr className="border-b hover:bg-gray-50">
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              Powierzchnia netto podziemia
-            </td>
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              {parameters.powierzchnia_netto_podziemia}
-            </td>
-          </tr>
-          <tr className="border-b hover:bg-gray-50">
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              Powierzchnia netto nadziemia
-            </td>
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              {parameters.powierzchnia_netto_nadziemia}
-            </td>
-          </tr>
-          <tr className="border-b hover:bg-gray-50">
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              PUM + PUU
-            </td>
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              {parameters.pum_i_puu}
-            </td>
-          </tr>
-          <tr className="border-b hover:bg-gray-50">
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">PUM</td>
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              {parameters.pum}
-            </td>
-          </tr>
-          <tr className="border-b hover:bg-gray-50">
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">PUU</td>
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              {parameters.puu}
-            </td>
-          </tr>
-          <tr className="border-b hover:bg-gray-50">
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              Powierzchnie wspólne nadziemia
-            </td>
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              {parameters.powierzchnie_wspolne_nadziemia}
-            </td>
-          </tr>
-          <tr className="border-b hover:bg-gray-50">
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              Powierzchnia garażu w nadziemiu
-            </td>
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              {parameters.powierzchnia_garazu_w_nadziemiu}
-            </td>
-          </tr>
-          <tr className="border-b hover:bg-gray-50">
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              Liczba kondygnacji
-            </td>
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              {parameters.liczba_kondygnacji}
-            </td>
-          </tr>
-          <tr className="border-b hover:bg-gray-50">
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              Liczba miejsc parkingowych w budynku
-            </td>
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              {parameters.liczba_miejsc_parkingowych}
-            </td>
-          </tr>
-          <tr className="border-b hover:bg-gray-50">
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              Liczba mieszkań
-            </td>
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              {parameters.ilosc_mieszkan}
-            </td>
-          </tr>
-          <tr className="border-b hover:bg-gray-50">
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              Średnia powierzchnia mieszkania
-            </td>
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              {parameters.srednia_powierzchnia_mieszkania}
-            </td>
-          </tr>
-          <tr className="border-b hover:bg-gray-50">
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              Udział powierzchni wspólnych nadziemia
-            </td>
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              {parameters.udzial_powierzchni_wspolnych_nadziemia}
-            </td>
-          </tr>
-          <tr className="border-b hover:bg-gray-50">
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              Powierzchnia podziemia / PUM+PUU
-            </td>
-            <td className="px-6 py-4 text-sm text-gray-800 text-center">
-              {parameters.pow_podziemia_do_pum_i_puu}
-            </td>
-          </tr>
+          {parameterTable.map((parameter) => (
+            <TableRow
+              key={parameter.propertyName}
+              label={parameter.propertyName}
+              value={parameter.value}
+            />
+          ))}
         </tbody>
       </table>
     </div>

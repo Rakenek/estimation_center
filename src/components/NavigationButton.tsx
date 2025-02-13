@@ -13,6 +13,8 @@ const SidebarButton: React.FC<SidebarButtonProps> = ({ href, text }) => {
   const pathname = usePathname();
   const isActive = pathname === href;
 
+  console.log(pathname, href);
+
   return (
     <Link
       href={href}
@@ -21,7 +23,7 @@ const SidebarButton: React.FC<SidebarButtonProps> = ({ href, text }) => {
         isActive ? "bg-gray-700 text-white" : "text-gray-300 hover:bg-gray-700"
       )}
     >
-      <span className="text-sm">{text}</span>
+      <span>{text}</span>
     </Link>
   );
 };
