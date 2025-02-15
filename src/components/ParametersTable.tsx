@@ -35,7 +35,11 @@ const ParametersTable: React.FC<ParametersTableProps> = ({ parameters }) => {
 
   const parameterTable = remappingKeys(parameters, labels, 1, -2);
 
-  return <Table dataTable={parameterTable} tableName="Parametry inwestycji" />;
+  return (
+    <div>
+      <Table dataTable={parameterTable} tableName="Parametry inwestycji" />
+    </div>
+  );
 };
 
 export default ParametersTable;

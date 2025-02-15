@@ -8,7 +8,7 @@ interface TableProps {
 
 export default function Table({ dataTable, tableName }: TableProps) {
   return (
-    <div className="overflow-x-auto max-w-96 mx-auto mt-10">
+    <div className="overflow-x-auto max-w-96 mx-auto">
       <table className="min-w-full table-auto bg-white shadow-lg rounded-lg">
         <thead>
           <tr className="bg-gray-100 text-left text-sm font-medium text-gray-700">

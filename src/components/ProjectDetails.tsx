@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import SidebarV2 from "./Sidebar";
+import Sidebar from "./Sidebar";
 import ParametersTable from "./ParametersTable";
 import { Cost, Parameters } from "@prisma/client";
 import CostTable from "./CostTable";
@@ -14,10 +14,10 @@ export default function ProjectDetailsPage({
   parameters,
   cost,
 }: ProjectDetailsPageProp) {
-  const [isParameterShown, setIsParameterShown] = useState(false);
-  const [isCostShown, setIsCostShown] = useState(false);
+  const [isCostShown, setIsCostShown] = useState(true);
   const [isCostToPumShown, setIsCostToPumShown] = useState(false);
   const [isCostToNettShown, setIsCostToNettShown] = useState(false);
+  const [isParameterShown, setIsParameterShown] = useState(false);
 
   const toggleParameterShown = () => {
     setIsParameterShown(!isParameterShown);
@@ -40,10 +40,9 @@ export default function ProjectDetailsPage({
   ];
 
   return (
-    <div className="flex">
-      <SidebarV2 togglers={togglers} />
-
-      <div className="flex grow items-start justify-start">
+    <>
+      <Sidebar togglers={togglers} />
+      <div className="flex gap-4 items-start justify-center">
         {isCostShown ? (
           <CostTable cost={cost} tableName="Koszt inwestycji [PLN]" />
         ) : null}
@@ -63,6 +62,6 @@ export default function ProjectDetailsPage({
         ) : null}
         {isParameterShown ? <ParametersTable parameters={parameters} /> : null}
       </div>
-    </div>
+    </>
   );
 }
