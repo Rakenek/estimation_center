@@ -1,5 +1,5 @@
 import React from "react";
-import BuildingParameters from "@/components/BuildingParameters";
+import ParametersTable from "@/components/ParametersTable";
 import { prisma } from "@/lib/prisma";
 
 interface ParametersPageProps {
@@ -14,7 +14,7 @@ export default async function ParametersPage({ params }: ParametersPageProps) {
   });
   return (
     <div>
-      <BuildingParameters parameters={parameters} />
+      <ParametersTable parameters={parameters} />
     </div>
   );
 }

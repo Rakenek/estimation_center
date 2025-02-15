@@ -1,5 +1,16 @@
+import CostTable from "@/components/CostTable";
+import { prisma } from "@/lib/prisma";
 import React from "react";
 
-export default function CostPage() {
-  return <div>ProjectCostPage</div>;
+interface CostPageProps {
+  params: Promise<{ projectId: string }>;
+}
+
+export default async function CostPage({ params }: CostPageProps) {
+  const { projectId } = await params;
+  const cost = await prisma.cost.findUnique({
+    where: { project_id: projectId },
+  });
+
+  return <CostTable cost={cost} tableName={"Koszt inwestycji [PLN]"} />;
 }
