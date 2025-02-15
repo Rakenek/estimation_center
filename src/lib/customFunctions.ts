@@ -35,3 +35,7 @@ export function divide(
   });
   return newDataTable;
 }
+
+export function delay(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
