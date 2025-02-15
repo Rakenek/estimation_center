@@ -4,12 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/customFunctions"; // Optional utility for Tailwind classes
 
-interface SidebarButtonProps {
+interface NavigationButtonProps {
   href: string;
   text: string;
 }
 
-const SidebarButton: React.FC<SidebarButtonProps> = ({ href, text }) => {
+const NavigationButton: React.FC<NavigationButtonProps> = ({ href, text }) => {
   const pathname = usePathname();
   const isActive = pathname === href;
 
@@ -28,4 +28,4 @@ const SidebarButton: React.FC<SidebarButtonProps> = ({ href, text }) => {
   );
 };
 
-export default SidebarButton;
+export default NavigationButton;
