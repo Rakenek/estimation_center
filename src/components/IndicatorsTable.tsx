@@ -9,7 +9,7 @@ interface CostTableProps {
   divider?: number;
 }
 
-export default function CostTable({
+export default function IndicatorsTable({
   cost,
   tableName,
   divider = 1,

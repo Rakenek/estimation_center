@@ -1,7 +1,7 @@
-import DashboardElement from "@/components/DashboardElement";
-import LoadingSpinner from "@/components/LoadingSpinner";
-import { prisma } from "@/lib/prisma";
-import { Suspense } from "react";
+import DashboardElement from '@/components/DashboardElement';
+import LoadingSpinner from '@/components/LoadingSpinner';
+import { prisma } from '@/lib/prisma';
+import { Suspense } from 'react';
 
 async function Dashboard() {
   try {
