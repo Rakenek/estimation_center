@@ -25,15 +25,25 @@ export function remappingKeys(
 
 export function divide(
   dataTable: { name: string; value: string | number }[],
-  divider: number
+  divider: number | number[]
 ) {
-  const newDataTable = dataTable.map((item) => {
-    return {
-      name: item.name,
-      value: Math.round(+item.value / divider).toLocaleString("fr-FR"),
-    };
-  });
-  return newDataTable;
+  if (typeof divider === "number") {
+    const newDataTable = dataTable.map((item) => {
+      return {
+        name: item.name,
+        value: Math.round(+item.value / divider).toLocaleString("fr-FR"),
+      };
+    });
+    return newDataTable;
+  } else {
+    const newDataTable = dataTable.map((item, index) => {
+      return {
+        name: item.name,
+        value: Math.round(+item.value / divider[index]).toLocaleString("fr-FR"),
+      };
+    });
+    return newDataTable;
+  }
 }
 
 export function delay(ms: number) {

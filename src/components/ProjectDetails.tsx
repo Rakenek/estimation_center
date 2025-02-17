@@ -1,10 +1,9 @@
-'use client';
-import React, { useState } from 'react';
-import Sidebar from './Sidebar';
-import ParametersTable from './ParametersTable';
-import { Cost, Parameters } from '@prisma/client';
-import CostTable from './CostTable';
-import IndicatorsTable from './IndicatorsTable';
+"use client";
+import React, { useState } from "react";
+import Sidebar from "./Sidebar";
+import ParametersTable from "./ParametersTable";
+import { Cost, Parameters } from "@prisma/client";
+import CostTable, { dividerType } from "./CostTable";
 
 interface ProjectDetailsPageProp {
   parameters: Parameters;
@@ -46,11 +45,11 @@ export default function ProjectDetailsPage({
   ];
 
   const labels = [
-    'Koszt inwestycji [PLN]',
-    'Koszt do PUM [PLN/PUM]',
-    'Koszt do Netto [PLN/Netto]',
-    'Miarodajne wskaźniki',
-    'Parametry inwestycji',
+    "Koszt inwestycji [PLN]",
+    "Koszt do PUM [PLN/PUM]",
+    "Koszt do Netto [PLN/Netto]",
+    "Miarodajne wskaźniki",
+    "Parametry inwestycji",
   ];
 
   const sidebarData = togglers.map((toggler, index) => {
@@ -62,27 +61,34 @@ export default function ProjectDetailsPage({
       <Sidebar sidebarData={sidebarData} />
       <div className="flex flex-wrap gap-4 items-start justify-center">
         {isCostShown ? (
-          <CostTable cost={cost} tableName="Koszt inwestycji [PLN]" />
+          <CostTable
+            cost={cost}
+            parameters={parameters}
+            tableName="Koszt inwestycji [PLN]"
+          />
         ) : null}
         {isCostToPumShown ? (
           <CostTable
             cost={cost}
-            divider={parameters.pum}
+            parameters={parameters}
             tableName="Koszt inwestycji do PUM [PLN/PUM]"
+            divider={dividerType.PUMPUU}
           />
         ) : null}
         {isCostToNettShown ? (
           <CostTable
             cost={cost}
-            divider={parameters.powierzchnia_netto}
+            parameters={parameters}
             tableName="Koszt inwestycji do Netto [PLN/NETTO]"
+            divider={dividerType.NETTO}
           />
         ) : null}
         {isIndicatorShown ? (
-          <IndicatorsTable
+          <CostTable
             cost={cost}
-            divider={parameters.powierzchnia_netto}
+            parameters={parameters}
             tableName="Wskaźniki miarodajne"
+            divider={dividerType.INDICATORS}
           />
         ) : null}
         {isParameterShown ? <ParametersTable parameters={parameters} /> : null}
