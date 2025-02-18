@@ -1,7 +1,7 @@
-import { prisma } from "@/lib/prisma";
-import React, { Suspense } from "react";
-import ProjectDetails from "@/components/ProjectDetails";
-import LoadingSpinner from "@/components/LoadingSpinner";
+import { prisma } from '@/lib/prisma';
+import React, { Suspense } from 'react';
+import ProjectDetails from '@/components/ProjectDetails';
+import LoadingSpinner from '@/components/LoadingSpinner';
 
 interface ProjectPageProps {
   params: Promise<{ projectId: string }>;
@@ -22,6 +22,7 @@ async function Details({ projectId }: DetailsProps) {
     const project = await prisma.project.findUnique({
       where: { id: projectId },
     });
+    console.log(project);
     if (cost === null || parameters == null || project == null)
       return (
         <h1 className="flex grow text-4xl items-center justify-center">

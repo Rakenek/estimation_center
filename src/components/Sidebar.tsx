@@ -11,9 +11,6 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ sidebarData }: SidebarProps) {
-  const params = useParams();
-  console.log(params);
-
   return (
     <aside>
       {sidebarData.map((item, index) => {
@@ -27,17 +24,6 @@ export default function Sidebar({ sidebarData }: SidebarProps) {
           />
         );
       })}
-      {/* <SidebarButton
-        text={'Koszt inwestycji [PLN]'}
-        onClick={togglers[0]}
-        active
-      />
-      <SidebarButton text={'Koszt do PUM [PLN/PUM]'} onClick={togglers[1]} />
-      <SidebarButton
-        text={'Koszt do Netto [PLN/Netto]'}
-        onClick={togglers[2]}
-      />
-      <SidebarButton text={'Parametry inwestycji'} onClick={togglers[3]} /> */}
     </aside>
   );
 }
