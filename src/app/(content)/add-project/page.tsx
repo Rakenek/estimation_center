@@ -33,9 +33,10 @@ const ExcelUploadForm = () => {
       const workbook = XLSX.read(data, { type: 'array' });
       const sheetName = workbook.SheetNames[0]; // Get the first sheet name
       const sheet = workbook.Sheets[sheetName];
-      const json = XLSX.utils.sheet_to_json(sheet, { header: 1 }); // Convert sheet to JSON (rows)
+      const json: string[][] = XLSX.utils.sheet_to_json(sheet, { header: 1 }); // Convert sheet to JSON (rows)
       // Populate form data using the first row of values from Excel (skip header row)
       console.log(json);
+
       setFormData({
         name: json[1]?.[0] || '', // Assuming data starts from the second row
         city: json[1]?.[1] || '',
