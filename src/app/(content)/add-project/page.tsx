@@ -1,19 +1,19 @@
 // app/excel-upload/page.tsx
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import * as XLSX from 'xlsx';
+import { createProject } from "@/actions/actions";
+import React, { useState } from "react";
+import * as XLSX from "xlsx";
 
 const ExcelUploadForm = () => {
   // State to store form data and file
   const [formData, setFormData] = useState({
-    name: '',
-    city: '',
-    image_url: '',
-    status: '',
-    n03_do_PUM: '',
+    name: "",
+    city: "",
+    image_url: "",
+    status: "",
+    n03_do_PUM: "",
   }); // Initially empty form fields
-  console.log(formData);
   const [file, setFile] = useState<File | null>(null);
 
   // Handle file input change
@@ -30,7 +30,7 @@ const ExcelUploadForm = () => {
     const reader = new FileReader();
     reader.onload = (e) => {
       const data = e.target?.result;
-      const workbook = XLSX.read(data, { type: 'array' });
+      const workbook = XLSX.read(data, { type: "array" });
       const sheetName = workbook.SheetNames[0]; // Get the first sheet name
       const sheet = workbook.Sheets[sheetName];
       const json: string[][] = XLSX.utils.sheet_to_json(sheet, { header: 1 }); // Convert sheet to JSON (rows)
@@ -38,11 +38,11 @@ const ExcelUploadForm = () => {
       console.log(json);
 
       setFormData({
-        name: json[1]?.[0] || '', // Assuming data starts from the second row
-        city: json[1]?.[1] || '',
-        image_url: json[1]?.[2] || '',
-        status: json[1]?.[3] || '',
-        n03_do_PUM: json[1]?.[4] || '',
+        name: json[1]?.[0] || "", // Assuming data starts from the second row
+        city: json[1]?.[1] || "",
+        image_url: json[1]?.[2] || "",
+        status: json[1]?.[3] || "",
+        n03_do_PUM: json[1]?.[4] || "",
       });
     };
     reader.readAsArrayBuffer(file);
@@ -58,10 +58,6 @@ const ExcelUploadForm = () => {
   };
 
   // Handle submit (e.g., send data to a backend)
-  const handleSubmit = () => {
-    // For now, just log the data to the console
-    console.log('Form submitted with data:', formData);
-  };
 
   return (
     <div className="p-4 max-w-lg mx-auto">
@@ -78,7 +74,7 @@ const ExcelUploadForm = () => {
       />
 
       {/* Form with empty values initially */}
-      <form className="space-y-4">
+      <form action={createProject} className="space-y-4">
         {/* Name */}
         <div>
           <label className="text-sm font-medium" htmlFor="name">
@@ -151,15 +147,10 @@ const ExcelUploadForm = () => {
             className="border p-2 rounded w-full text-black"
           />
         </div>
+        <button className="mt-4 p-2 bg-blue-500 text-white rounded">
+          Submit Data
+        </button>
       </form>
-
-      {/* Submit button */}
-      <button
-        onClick={handleSubmit}
-        className="mt-4 p-2 bg-blue-500 text-white rounded"
-      >
-        Submit Data
-      </button>
     </div>
   );
 };
