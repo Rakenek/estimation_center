@@ -4,6 +4,8 @@ import Sidebar from "./Sidebar";
 import ParametersTable from "./ParametersTable";
 import { Cost, Parameters } from "@prisma/client";
 import CostTable, { dividerType } from "./CostTable";
+import { redirect } from "next/navigation";
+import { useParams } from "next/navigation";
 
 interface ProjectDetailsPageProp {
   parameters: Parameters;
@@ -19,6 +21,8 @@ export default function ProjectDetailsPage({
   const [isCostToNettShown, setIsCostToNettShown] = useState(false);
   const [isIndicatorShown, setIsIndicatorShown] = useState(false);
   const [isParameterShown, setIsParameterShown] = useState(false);
+  const params = useParams<{ projectId: string }>();
+  const { projectId } = params;
 
   const toggleCostShown = () => {
     setIsCostShown(!isCostShown);
@@ -35,6 +39,9 @@ export default function ProjectDetailsPage({
   const toggleParameterShown = () => {
     setIsParameterShown(!isParameterShown);
   };
+  const toggleEdit = () => {
+    redirect(`/projects/${projectId}/edit-project`);
+  };
 
   const togglers = [
     toggleCostShown,
@@ -42,6 +49,7 @@ export default function ProjectDetailsPage({
     toggleCostToNettShown,
     toggleIndicatorShown,
     toggleParameterShown,
+    toggleEdit,
   ];
 
   const labels = [
@@ -50,6 +58,7 @@ export default function ProjectDetailsPage({
     "Koszt do Netto [PLN/Netto]",
     "Miarodajne wskaźniki",
     "Parametry inwestycji",
+    "Edytuj",
   ];
 
   const sidebarData = togglers.map((toggler, index) => {
