@@ -1,3 +1,5 @@
+import { prisma } from "./prisma";
+
 export function snakeToTitleCase(str: string): string {
   return str
     .split("_") // Split the string by underscores
@@ -48,4 +50,13 @@ export function divide(
 
 export function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export function getKeys() {
+  const dbKeys = [
+    ...Object.keys(prisma.project.fields).slice(1, -1),
+    ...Object.keys(prisma.parameters.fields).slice(1, -1),
+    ...Object.keys(prisma.cost.fields).slice(1, -1),
+  ];
+  return dbKeys;
 }

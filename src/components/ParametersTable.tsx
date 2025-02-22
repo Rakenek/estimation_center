@@ -25,7 +25,8 @@ const ParametersTable: React.FC<ParametersTableProps> = ({ parameters }) => {
     "Powierzchnie wspólne nadziemia",
     "Powierzchnia gażu w nadziemiu",
     "Liczba kondygnacji",
-    "Liczba miejsc parkingowych w budynkku",
+    "Liczba miejsc parkingowych w budynku",
+    "Liczba parkliftów",
     "Liczba mieszkań",
     "Średnia powierzchnia mieszkania",
     "Udział powierzchni wspólnych nadziemia",
@@ -33,7 +34,7 @@ const ParametersTable: React.FC<ParametersTableProps> = ({ parameters }) => {
     "id projektu",
   ];
 
-  const parameterTable = remappingKeys(parameters, labels, 1, -2);
+  const parameterTable = remappingKeys(parameters, labels, 1, -1);
 
   return (
     <div>
