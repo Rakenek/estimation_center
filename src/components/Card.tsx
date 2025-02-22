@@ -33,7 +33,14 @@ const Card: React.FC<CardProps> = ({
           <h2 className="text-xl font-semibold text-gray-900">{name}</h2>
           <p className="mt-2 text-gray-600">{city}</p>
           <p className="mt-2 text-gray-600">N03: {n03} PLN</p>
-          <p className="mt-2 text-gray-600">Status: {status}</p>
+          <p
+            className={`mt-2 text-gray-600 ${
+              status === "Active" ? "text-green-600" : ""
+            } ${status === "Planning" ? "text-blue-600" : ""}
+            ${status === "Completed" ? "text-red-600" : ""}`}
+          >
+            Status: {status}
+          </p>
         </div>
       </div>
     </Link>

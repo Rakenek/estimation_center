@@ -113,15 +113,16 @@ const ExcelUploadForm = () => {
     errors: { form: "" },
     success: "",
   });
+  const [formData, setFormData] = useState(initialState);
+
+  const [file, setFile] = useState<File | null>(null);
 
   if (state.success?.length > 0) {
+    setFormData(initialState);
     redirect("/search");
   }
 
   // State to store form data and file
-  const [formData, setFormData] = useState(initialState);
-
-  const [file, setFile] = useState<File | null>(null);
 
   // Handle file input change
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -164,8 +165,8 @@ const ExcelUploadForm = () => {
   };
 
   return (
-    <div className="p-4 max-w-lg mx-auto">
-      <h2 className="text-2xl font-semibold mb-4">
+    <div className="p-4 ">
+      <h2 className="text-2xl font-semibold mb-4 flex justify-center items-center">
         Upload Excel File and Enter Data
       </h2>
 
@@ -184,30 +185,61 @@ const ExcelUploadForm = () => {
       )}
 
       {/* Button to upload Excel file */}
-      <input
-        type="file"
-        accept=".xlsx, .xls"
-        onChange={handleFileChange}
-        className="border p-2 mb-4"
-      />
+      <div className="flex justify-center items-center">
+        <input
+          type="file"
+          accept=".xlsx, .xls"
+          onChange={handleFileChange}
+          className="border p-2 mb-4"
+        />
+      </div>
 
       {/* Form with controlled inputs */}
 
       {/* Submit button */}
       <form action={formAction} className="space-y-4">
-        {Object.keys(formData).map((key, index) => (
-          <FormInput
-            key={key}
-            label={formLabels[index]}
-            name={key}
-            value={formData[key as keyof typeof formData]}
-            onChange={handleInputChange}
-          />
-        ))}
-
-        <button className="mt-4 p-2 bg-blue-500 text-white rounded">
-          Submit Data
-        </button>
+        <div className="flex justify-center items-center">
+          <button className="mt-4 p-2 bg-blue-500 text-white rounded">
+            Submit Data
+          </button>
+        </div>
+        <div className="flex justify-center items-center">
+          <div className="grid grid-cols-4 gap-5 ">
+            {Object.keys(formData).map((key, index) => {
+              return (
+                <React.Fragment key={key}>
+                  {index === 0 && (
+                    <div className=" col-span-4 text-2xl font-semibold">
+                      Projekt
+                    </div>
+                  )}
+                  {index === 5 && (
+                    <div className="mt-10 col-span-4 text-2xl font-semibold">
+                      Parametry inwestycji
+                    </div>
+                  )}
+                  {index === 26 && (
+                    <div className="mt-10 col-span-4 text-2xl font-semibold">
+                      Koszty
+                    </div>
+                  )}
+                  <FormInput
+                    key={key}
+                    label={formLabels[index]}
+                    name={key}
+                    value={formData[key as keyof typeof formData]}
+                    onChange={handleInputChange}
+                  />
+                </React.Fragment>
+              );
+            })}
+          </div>
+        </div>
+        <div className="flex justify-center items-center">
+          <button className="mt-4 p-2 bg-blue-500 text-white rounded">
+            Submit Data
+          </button>
+        </div>
       </form>
     </div>
   );

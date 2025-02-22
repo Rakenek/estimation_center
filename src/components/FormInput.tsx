@@ -14,7 +14,7 @@ export default function FormInput({
   onChange,
 }: FormInputProps) {
   return (
-    <div>
+    <div className="max-w-xs">
       <label className="text-sm font-medium" htmlFor="image_url">
         {label}
       </label>
