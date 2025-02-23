@@ -1,13 +1,49 @@
-"use client";
-import { createProject } from "@/actions/actions";
+import { createProject, updateProject } from "@/actions/actions";
 import ProjectDataForm from "@/components/ProjectDataForm";
-import React from "react";
-import { useActionState } from "react";
+import { prisma } from "@/lib/prisma";
 
-export default function EditProjectPage() {
-  const [state, formAction] = useActionState(createProject, {
-    errors: { form: "" },
-    success: "",
+import React from "react";
+
+interface EditProjectPageProps {
+  params: Promise<{ projectId: string }>;
+}
+
+export default async function EditProjectPage({
+  params,
+}: EditProjectPageProps) {
+  const { projectId } = await params;
+  const project = await prisma.project.findUnique({
+    where: {
+      id: projectId,
+    },
   });
-  return <ProjectDataForm state={state} formAction={formAction} />;
+  delete project["id"];
+  delete project["user_id"];
+
+  const parameters = await prisma.parameters.findUnique({
+    where: { project_id: projectId },
+  });
+  delete parameters["id"];
+  delete parameters["project_id"];
+
+  const cost = await prisma.cost.findUnique({
+    where: {
+      project_id: projectId,
+    },
+  });
+  delete cost["id"];
+  delete cost["project_id"];
+
+  const newInitialData = {
+    ...project,
+    ...parameters,
+    ...cost,
+  };
+
+  return (
+    <ProjectDataForm
+      action={updateProject.bind(null, projectId)}
+      newInitialData={newInitialData}
+    />
+  );
 }

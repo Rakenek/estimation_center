@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+"use client";
+import React, { useActionState, useEffect, useState } from "react";
 import * as XLSX from "xlsx";
 import FormInput from "./FormInput";
 import { redirect } from "next/navigation";
+import { Cost, Parameters, Project } from "@prisma/client";
 
 const formLabels = [
   "Nazwa",
@@ -53,7 +55,57 @@ const formLabels = [
   "Offset podza działką",
 ];
 
-const initialState = {
+interface initialStateInterface {
+  name: string;
+  city: string;
+  image_url: string;
+  status: string;
+  n03_do_PUM: string | number;
+  powierzchnia_dzialki: string | number;
+  powierzchnia_nadziemia: string | number;
+  powierzchnia_podziemia: string | number;
+  powierzchnia_niezabudowana_dzialki: string | number;
+  powierzchnia_dachow: string | number;
+  powierzchnia_elewacji: string | number;
+  powierzchnia_netto: string | number;
+  powierzchnia_netto_podziemia: string | number;
+  powierzchnia_netto_nadziemia: string | number;
+  pum_i_puu: string | number;
+  pum: string | number;
+  puu: string | number;
+  powierzchnie_wspolne_nadziemia: string | number;
+  powierzchnia_garazu_w_nadziemiu: string | number;
+  liczba_kondygnacji: string | number;
+  liczba_miejsc_parkingowych: string | number;
+  liczba_parkliftow: string | number;
+  ilosc_mieszkan: string | number;
+  srednia_powierzchnia_mieszkania: string | number;
+  udzial_powierzchni_wspolnych_nadziemia: string | number;
+  pow_podziemia_do_pum_i_puu: string | number;
+  n01: string | number;
+  n03: string | number;
+  roboty_ziemne: string | number;
+  konstrukcja_podziemia: string | number;
+  konstrukcja_nadziemia: string | number;
+  elewacje: string | number;
+  dachy: string | number;
+  wykonczenie_nadziemia: string | number;
+  wykonczenie_podziemia: string | number;
+  windy: string | number;
+  instalacje_klimatyzacyjne: string | number;
+  instalacje_wodno_kanalizacyjne: string | number;
+  instalacje_gazowe: string | number;
+  instalacje_elektryczne: string | number;
+  instalacje_teletechniczne: string | number;
+  infrastruktura: string | number;
+  dfa: string | number;
+  sieci: string | number;
+  koszty_budowy: string | number;
+  bhp: string | number;
+  offset_poza_dzialka: string | number;
+}
+
+const initialState: initialStateInterface = {
   name: "",
   city: "",
   image_url: "",
@@ -104,19 +156,33 @@ const initialState = {
 };
 
 interface ProjectDataFormProps {
-  state: {
-    errors?: { form: string };
-    success?: string;
-  };
-  formAction: (payload: FormData) => void;
+  action: (
+    prevState: { errors?: { form: string }; success?: string },
+    formData: FormData
+  ) => Promise<{ errors?: { form: string }; success?: string }>;
+  newInitialData?: (Project & Parameters & Cost) | null;
 }
 
 export default function ProjectDataForm({
-  state,
-  formAction,
+  action,
+  newInitialData = null,
 }: ProjectDataFormProps) {
+  useEffect(() => {
+    if (newInitialData) {
+      setFormData({ ...initialState, ...newInitialData });
+    }
+  }, [newInitialData]);
+
   const [formData, setFormData] = useState(initialState);
   const [file, setFile] = useState<File | null>(null);
+  const [state, formAction] = useActionState(action, {
+    errors: { form: "" },
+    success: "",
+  });
+
+  const resetForm = () => {
+    setFormData(initialState);
+  };
 
   if (state.success?.length > 0) {
     setFormData(initialState);
@@ -198,6 +264,15 @@ export default function ProjectDataForm({
           <button className="mt-4 p-2 bg-blue-500 text-white rounded">
             Submit Data
           </button>
+          <button
+            type="button"
+            onClick={() => {
+              resetForm();
+            }}
+            className="mt-4 p-2 bg-red-500 text-white rounded"
+          >
+            Reset Data
+          </button>
         </div>
         <div className="flex justify-center items-center">
           <div className="grid grid-cols-4 gap-5 ">
@@ -234,6 +309,15 @@ export default function ProjectDataForm({
         <div className="flex justify-center items-center">
           <button className="mt-4 p-2 bg-blue-500 text-white rounded">
             Submit Data
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              resetForm();
+            }}
+            className="mt-4 p-2 bg-red-500 text-white rounded"
+          >
+            Reset Data
           </button>
         </div>
       </form>
