@@ -1,6 +1,7 @@
 import React from "react";
 
 interface FormInputProps {
+  readOnly: boolean;
   type: string;
   label: string;
   name: string;
@@ -9,6 +10,7 @@ interface FormInputProps {
 }
 
 export default function FormInput({
+  readOnly,
   type,
   label,
   name,
@@ -21,6 +23,7 @@ export default function FormInput({
         {label}
       </label>
       <input
+        readOnly={readOnly}
         type={type}
         id={name}
         name={name}

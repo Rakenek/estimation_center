@@ -4,6 +4,7 @@ import * as XLSX from "xlsx";
 import FormInput from "./FormInput";
 import { redirect } from "next/navigation";
 import { Cost, Parameters, Project } from "@prisma/client";
+import UploadImage from "./UploadImage";
 
 const formLabels = [
   "Nazwa",
@@ -179,9 +180,14 @@ export default function ProjectDataForm({
     errors: { form: "" },
     success: "",
   });
-
+  const [cloudinaryImg, setCloudinaryImg] = useState("");
+  // console.log(formData);
   const resetForm = () => {
     setFormData(initialState);
+  };
+
+  const handleDataFromChild = (data: string) => {
+    setCloudinaryImg(data);
   };
 
   if (state.success?.length > 0) {
@@ -266,6 +272,9 @@ export default function ProjectDataForm({
           className="border p-2 mb-4"
         />
       </div>
+      <div>
+        <UploadImage handleDataFromChild={handleDataFromChild} />
+      </div>
 
       {/* Form with controlled inputs */}
 
@@ -308,10 +317,20 @@ export default function ProjectDataForm({
                   )}
                   <FormInput
                     key={key}
+                    readOnly={key === "img_url" ? true : false}
                     type={type}
                     label={formLabels[index]}
                     name={key}
-                    value={formData[key as keyof typeof formData]}
+                    // value={formData[key as keyof typeof formData]}
+                    value={
+                      key !== "image_url"
+                        ? formData[key as keyof typeof formData]
+                        : cloudinaryImg
+                        ? cloudinaryImg
+                        : newInitialData
+                        ? newInitialData.image_url
+                        : "https://plus.unsplash.com/premium_vector-1724310048248-d6b52e189969?q=80&w=2360&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    }
                     onChange={handleInputChange}
                   />
                 </React.Fragment>

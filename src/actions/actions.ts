@@ -62,6 +62,7 @@ export async function createProject(
 ): Promise<{ errors?: { form: string }; success?: string }> {
   try {
     const formDataObject = Object.fromEntries(formData.entries());
+    console.log(formDataObject);
 
     // Extract required fields
 
