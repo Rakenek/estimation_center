@@ -36,7 +36,7 @@ const Card: React.FC<CardProps> = ({
           <p
             className={`mt-2 text-gray-600 ${
               status === "Active" ? "text-green-600" : ""
-            } ${status === "Planning" ? "text-blue-700" : ""}
+            } ${status === "Planning" ? "text-purple-600" : ""}
             ${status === "Completed" ? "text-red-600" : ""}`}
           >
             Status: {status}

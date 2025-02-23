@@ -1,6 +1,7 @@
 import React from "react";
 
 interface FormInputProps {
+  type: string;
   label: string;
   name: string;
   value: string | number;
@@ -8,6 +9,7 @@ interface FormInputProps {
 }
 
 export default function FormInput({
+  type,
   label,
   name,
   value,
@@ -19,11 +21,12 @@ export default function FormInput({
         {label}
       </label>
       <input
-        type="text"
+        type={type}
         id={name}
         name={name}
         value={value}
         onChange={onChange}
+        required
         className="border p-2 rounded w-full text-black"
       />
     </div>

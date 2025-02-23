@@ -31,7 +31,7 @@ const formLabels = [
   "Liczba mieszkań",
   "Średnia powierzchnia mieszkania",
   "Udział powierzchni wspólnych nadziemia",
-  "Powierzchnia podziemia PUM i PUU",
+  "Powierzchnia podziemia / PUM i PUU",
   "n01",
   "n03",
   "Roboty ziemne",
@@ -228,8 +228,19 @@ export default function ProjectDataForm({
 
   return (
     <div className="p-4 ">
+      {newInitialData === null && (
+        <h1 className="text-4xl font-semibold mb-4 flex justify-center items-center">
+          Dodaj nowy projekt
+        </h1>
+      )}
+      {newInitialData !== null && (
+        <h1 className="text-4xl font-semibold mb-4 flex justify-center items-center">
+          Edytujesz projekt: {newInitialData.name}
+        </h1>
+      )}
+
       <h2 className="text-2xl font-semibold mb-4 flex justify-center items-center">
-        Upload Excel File and Enter Data
+        Wczytaj dane z pliku Excel
       </h2>
 
       {/* Display error message */}
@@ -260,7 +271,7 @@ export default function ProjectDataForm({
 
       {/* Submit button */}
       <form action={formAction} className="space-y-4">
-        <div className="flex justify-center items-center">
+        <div className="flex gap-5 justify-center items-center">
           <button className="mt-4 p-2 bg-blue-500 text-white rounded">
             Submit Data
           </button>
@@ -277,6 +288,7 @@ export default function ProjectDataForm({
         <div className="flex justify-center items-center">
           <div className="grid grid-cols-4 gap-5 ">
             {Object.keys(formData).map((key, index) => {
+              const type = index < 4 ? "text" : "number";
               return (
                 <React.Fragment key={key}>
                   {index === 0 && (
@@ -296,6 +308,7 @@ export default function ProjectDataForm({
                   )}
                   <FormInput
                     key={key}
+                    type={type}
                     label={formLabels[index]}
                     name={key}
                     value={formData[key as keyof typeof formData]}
@@ -306,7 +319,7 @@ export default function ProjectDataForm({
             })}
           </div>
         </div>
-        <div className="flex justify-center items-center">
+        <div className="flex  gap-5  justify-center items-center">
           <button className="mt-4 p-2 bg-blue-500 text-white rounded">
             Submit Data
           </button>
