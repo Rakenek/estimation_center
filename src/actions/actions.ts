@@ -352,7 +352,7 @@ export async function updateProject(
         };
       }
     }
-
+    revalidatePath("/search");
     return { success: "Projekt z sukcesem utworzony" };
   } catch (error) {
     console.error("❌ Database error:", error);
