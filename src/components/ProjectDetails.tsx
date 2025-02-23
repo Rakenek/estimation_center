@@ -42,6 +42,9 @@ export default function ProjectDetailsPage({
   const toggleEdit = () => {
     redirect(`/projects/${projectId}/edit-project`);
   };
+  const toggleDelete = () => {
+    redirect(`/projects/${projectId}/delete-project`);
+  };
 
   const togglers = [
     toggleCostShown,
@@ -50,6 +53,7 @@ export default function ProjectDetailsPage({
     toggleIndicatorShown,
     toggleParameterShown,
     toggleEdit,
+    toggleDelete,
   ];
 
   const labels = [
@@ -59,6 +63,7 @@ export default function ProjectDetailsPage({
     "Miarodajne wskaźniki",
     "Parametry inwestycji",
     "Edytuj",
+    "Usuń",
   ];
 
   const sidebarData = togglers.map((toggler, index) => {

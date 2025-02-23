@@ -1,7 +1,8 @@
-'use client';
-import React from 'react';
-import SidebarButton from './SidebarButton';
-import { useParams } from 'next/navigation';
+"use client";
+import React from "react";
+import SidebarButton from "./SidebarButton";
+import { useParams } from "next/navigation";
+import DeleteProjectButton from "./DeleteProjectButton";
 
 interface SidebarProps {
   sidebarData: {

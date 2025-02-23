@@ -360,3 +360,36 @@ export async function updateProject(
     }; // ✅ Handle errors gracefully
   }
 }
+
+export async function deleteProject(
+  prevState: { errors?: { form: string }; success?: string },
+  formData: FormData
+): Promise<{ errors?: { form: string }; success?: string }> {
+  try {
+    const projectId = formData.get("projectId") as string;
+    await prisma.parameters.delete({
+      where: {
+        project_id: projectId,
+      },
+    });
+    await prisma.cost.delete({
+      where: {
+        project_id: projectId,
+      },
+    });
+    await prisma.project.delete({
+      where: {
+        id: projectId,
+      },
+    });
+
+    console.log("✅ Project deleted successfully");
+    revalidatePath("/search");
+    return { success: "Projekt z sukcesem usunięty" };
+  } catch (error) {
+    console.error("❌ Database error:", error);
+    return {
+      errors: { form: "Coś poszło nie tak, spróbuj później" },
+    };
+  }
+}
