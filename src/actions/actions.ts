@@ -79,6 +79,20 @@ export async function createProject(
       }
     }
 
+    const existingProject = await prisma.project.findUnique({
+      where: {
+        name: formDataObject.name as string, // Assuming 'name' is the column to check
+      },
+    });
+
+    if (existingProject) {
+      return {
+        errors: {
+          form: `Projekt o nazwie "${formDataObject.name}" aktualnie istnieje. Zmień nazwę projektu na unikalna`,
+        },
+      };
+    }
+
     const createdProject = await prisma.project.create({
       data: {
         name: formDataObject.name as string,
