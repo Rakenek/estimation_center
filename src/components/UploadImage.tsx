@@ -23,6 +23,7 @@ export default function UploadImage({ handleDataFromChild }: UploadImageProps) {
 
     const data = await response.json();
     if (data.url) {
+      console.log(data);
       setImageUrl(data.url);
       handleDataFromChild(data.url);
     }

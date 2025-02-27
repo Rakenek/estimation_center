@@ -1,0 +1,13 @@
+###Delete IMG
+
+DELETE http://localhost:3000/api/delete-image
+Content-Type: application/json
+
+{
+    "publicId":"my-nextjs-project/zhhgc5rb2q1ajdogqmj3"
+}
+
+###Delete IMG
+
+DELETE http://localhost:3000/api/delete-image?publicId=my-nextjs-project%2Fhxozlbk7r99v1iefgshh
+Content-Type: application/json

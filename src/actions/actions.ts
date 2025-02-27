@@ -1,5 +1,6 @@
 "use server";
 
+import { getPublicIdFromUrl } from "@/lib/customFunctions";
 import { PrismaClient } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
@@ -62,7 +63,6 @@ export async function createProject(
 ): Promise<{ errors?: { form: string }; success?: string }> {
   try {
     const formDataObject = Object.fromEntries(formData.entries());
-    console.log(formDataObject);
 
     // Extract required fields
 
@@ -362,12 +362,33 @@ export async function updateProject(
   }
 }
 
+const handleDelete = async (publicId: string) => {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  console.log(`public id${publicId}`);
+  try {
+    const response = await fetch(`${baseUrl}/api/delete-image`, {
+      method: "DELETE",
+      body: JSON.stringify({ publicId }),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    const data = await response.json();
+
+    console.log(data?.message);
+  } catch (error) {
+    console.error("Error deleting image:", error);
+  }
+};
+
 export async function deleteProject(
   prevState: { errors?: { form: string }; success?: string },
   formData: FormData
 ): Promise<{ errors?: { form: string }; success?: string }> {
   try {
     const projectId = formData.get("projectId") as string;
+    const selectedProject = await prisma.project.findUnique({
+      where: { id: projectId },
+    });
     await prisma.parameters.delete({
       where: {
         project_id: projectId,
@@ -383,6 +404,12 @@ export async function deleteProject(
         id: projectId,
       },
     });
+    if (
+      selectedProject.image_url !==
+      "https://res.cloudinary.com/duv2kieyz/image/upload/v1740656853/my-nextjs-project/sg05cnm7lcq9ccu2jyvb.jpg"
+    ) {
+      await handleDelete(getPublicIdFromUrl(selectedProject.image_url));
+    }
 
     console.log("✅ Project deleted successfully");
     revalidatePath("/search");

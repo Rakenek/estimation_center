@@ -60,3 +60,15 @@ export function getKeys() {
   ];
   return dbKeys;
 }
+
+export function getPublicIdFromUrl(secureUrl: string): string | null {
+  const regex =
+    /https:\/\/res\.cloudinary\.com\/[^\/]+\/image\/upload\/[^\/]+\/(.*)\..+/;
+  const match = secureUrl.match(regex);
+
+  if (match && match[1]) {
+    return match[1]; // Return the public_id
+  }
+
+  return null; // Return null if the URL doesn't match the expected format
+}

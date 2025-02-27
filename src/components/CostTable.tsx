@@ -38,7 +38,8 @@ export default function CostTable({
       parameters.powierzchnia_netto_podziemia,
       parameters.powierzchnia_netto_nadziemia,
       parameters.powierzchnia_elewacji,
-      parameters.powierzchnia_dachow,
+      parameters.powierzchnia_dachow +
+        (parameters.powierzchnia_podziemia - parameters.powierzchnia_nadziemia),
       parameters.powierzchnia_netto_nadziemia,
       parameters.powierzchnia_netto_podziemia,
       parameters.pum_i_puu,

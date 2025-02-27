@@ -1,6 +1,7 @@
 import DeleteProjectButton from "@/components/DeleteProjectButton";
 import { prisma } from "@/lib/prisma";
 import React from "react";
+import { getPublicIdFromUrl } from "../../../../../lib/customFunctions";
 
 export default async function DeleteProjectPage({
   params,
@@ -13,6 +14,7 @@ export default async function DeleteProjectPage({
       id: projectId,
     },
   });
+
   return (
     <div className="flex flex-col mt-64 items-center justify-center">
       <h1 className="text-4xl mb-10">

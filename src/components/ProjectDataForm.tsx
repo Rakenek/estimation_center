@@ -181,7 +181,7 @@ export default function ProjectDataForm({
     success: "",
   });
   const [cloudinaryImg, setCloudinaryImg] = useState("");
-  // console.log(formData);
+
   const resetForm = () => {
     setFormData(initialState);
   };
@@ -249,6 +249,16 @@ export default function ProjectDataForm({
         Wczytaj dane z pliku Excel
       </h2>
 
+      {/* Button to upload Excel file */}
+      <div className="flex justify-center items-center">
+        <input
+          type="file"
+          accept=".xlsx, .xls"
+          onChange={handleFileChange}
+          className="border p-2 mb-4"
+        />
+      </div>
+
       {/* Display error message */}
       {state.errors?.form && (
         <div className="bg-red-100 text-red-700 p-2 rounded mb-4">
@@ -262,19 +272,6 @@ export default function ProjectDataForm({
           {state.success}
         </div>
       )}
-
-      {/* Button to upload Excel file */}
-      <div className="flex justify-center items-center">
-        <input
-          type="file"
-          accept=".xlsx, .xls"
-          onChange={handleFileChange}
-          className="border p-2 mb-4"
-        />
-      </div>
-      <div>
-        <UploadImage handleDataFromChild={handleDataFromChild} />
-      </div>
 
       {/* Form with controlled inputs */}
 
@@ -294,6 +291,7 @@ export default function ProjectDataForm({
             Reset Data
           </button>
         </div>
+
         <div className="flex justify-center items-center">
           <div className="grid grid-cols-4 gap-5 ">
             {Object.keys(formData).map((key, index) => {
@@ -317,7 +315,7 @@ export default function ProjectDataForm({
                   )}
                   <FormInput
                     key={key}
-                    readOnly={key === "img_url" ? true : false}
+                    readOnly={key === "image_url" ? true : false}
                     type={type}
                     label={formLabels[index]}
                     name={key}
@@ -329,7 +327,7 @@ export default function ProjectDataForm({
                         ? cloudinaryImg
                         : newInitialData
                         ? newInitialData.image_url
-                        : "https://plus.unsplash.com/premium_vector-1724310048248-d6b52e189969?q=80&w=2360&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        : "https://res.cloudinary.com/duv2kieyz/image/upload/v1740656853/my-nextjs-project/sg05cnm7lcq9ccu2jyvb.jpg"
                     }
                     onChange={handleInputChange}
                   />
@@ -338,6 +336,17 @@ export default function ProjectDataForm({
             })}
           </div>
         </div>
+
+        {/* Button to upload img file */}
+        <div className="pt-16">
+          <h2 className="flex justify-center items-center text-2xl font-semibold mb-4 ">
+            Wczytaj obraz projektu (opcjonalnie)
+          </h2>
+          <div className="flex justify-center items-center">
+            <UploadImage handleDataFromChild={handleDataFromChild} />
+          </div>
+        </div>
+
         <div className="flex  gap-5  justify-center items-center">
           <button className="mt-4 p-2 bg-blue-500 text-white rounded">
             Submit Data

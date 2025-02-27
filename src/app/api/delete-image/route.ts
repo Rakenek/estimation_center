@@ -1,14 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { v2 as cloudinary } from "cloudinary";
+import { cloudinary } from "@/lib/cloudinary";
 
-// Configure Cloudinary (this should ideally be in a separate lib file)
-cloudinary.config({
-  cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
-
-export async function POST(req: NextRequest) {
+export async function DELETE(req: NextRequest) {
   try {
     const { publicId } = await req.json(); // Expecting public_id from the client
 
