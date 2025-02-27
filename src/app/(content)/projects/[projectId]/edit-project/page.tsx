@@ -1,4 +1,4 @@
-import { createProject, updateProject } from "@/actions/actions";
+import { updateProject } from "@/actions/actions";
 import ProjectDataForm from "@/components/ProjectDataForm";
 import { prisma } from "@/lib/prisma";
 

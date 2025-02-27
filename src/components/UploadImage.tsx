@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 interface UploadImageProps {
@@ -30,7 +31,7 @@ export default function UploadImage({ handleDataFromChild }: UploadImageProps) {
   };
 
   return (
-    <div className="p-4">
+    <div className="flex justify-center items-center p-4">
       <input
         type="file"
         accept="image/*"
@@ -38,10 +39,12 @@ export default function UploadImage({ handleDataFromChild }: UploadImageProps) {
         className="mb-4"
       />
       {imageUrl && (
-        <img
+        <Image
           src={imageUrl}
           alt="Uploaded image"
-          className="max-w-full h-auto rounded"
+          width={100}
+          height={150}
+          className="rounded"
         />
       )}
     </div>

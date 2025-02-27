@@ -1,7 +1,6 @@
 import DeleteProjectButton from "@/components/DeleteProjectButton";
 import { prisma } from "@/lib/prisma";
 import React from "react";
-import { getPublicIdFromUrl } from "../../../../../lib/customFunctions";
 
 export default async function DeleteProjectPage({
   params,

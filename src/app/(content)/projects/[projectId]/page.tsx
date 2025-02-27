@@ -2,8 +2,6 @@ import { prisma } from "@/lib/prisma";
 import React, { Suspense } from "react";
 import ProjectDetails from "@/components/ProjectDetails";
 import LoadingSpinner from "@/components/LoadingSpinner";
-import { Parameters, Prisma } from "@prisma/client";
-import { getKeys } from "@/lib/customFunctions";
 
 interface ProjectPageProps {
   params: Promise<{ projectId: string }>;

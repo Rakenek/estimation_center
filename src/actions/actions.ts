@@ -3,7 +3,6 @@
 import { getPublicIdFromUrl } from "@/lib/customFunctions";
 import { PrismaClient } from "@prisma/client";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 
 const prisma = new PrismaClient(); // ✅ Use a single Prisma instance
 
