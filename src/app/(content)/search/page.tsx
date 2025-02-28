@@ -1,7 +1,7 @@
-import DashboardElement from '@/components/DashboardElement';
-import LoadingSpinner from '@/components/LoadingSpinner';
-import { prisma } from '@/lib/prisma';
-import { Suspense } from 'react';
+import DashboardElement from "@/components/DashboardElement";
+import LoadingSpinner from "@/components/LoadingSpinner";
+import { prisma } from "@/lib/prisma";
+import { Suspense } from "react";
 
 async function Dashboard() {
   try {
@@ -13,7 +13,7 @@ async function Dashboard() {
   }
 }
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
   return (
     <Suspense fallback={<LoadingSpinner />}>
       <Dashboard />
