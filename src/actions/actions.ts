@@ -1,5 +1,6 @@
 "use server";
 
+import { auth } from "@/auth";
 import { getPublicIdFromUrl } from "@/lib/customFunctions";
 import { PrismaClient } from "@prisma/client";
 import { revalidatePath } from "next/cache";
@@ -433,4 +434,9 @@ export async function deleteProject(
       errors: { form: "Coś poszło nie tak, spróbuj później" },
     };
   }
+}
+
+export async function onGetUserAction() {
+  const session = await auth();
+  return session?.user?.name ?? null;
 }

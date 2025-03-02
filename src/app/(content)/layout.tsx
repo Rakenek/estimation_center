@@ -16,6 +16,7 @@ export default function DashboardLayout({
       <div className="flex justify-between items-center">
         <Navbar />
       </div>
+      <div></div>
       <div className="flex-grow h-screen ">{children}</div>
     </div>
   );
