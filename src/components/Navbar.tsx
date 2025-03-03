@@ -1,10 +1,13 @@
-import React from "react";
-import logo from "@/../public/logo.png";
-import Image from "next/image";
-import Link from "next/link";
-import NavigationButton from "./NavigationButton";
+import React from 'react';
+import logo from '@/../public/logo.png';
+import Image from 'next/image';
+import Link from 'next/link';
+import NavigationButton from './NavigationButton';
+import { auth } from '@/auth';
+import AuthButton from './AuthButton.server';
 
-export default function Navbar() {
+export default async function Navbar() {
+  const session = await auth();
   return (
     <>
       <Link href="/search">
@@ -12,15 +15,17 @@ export default function Navbar() {
           <Image src={logo} alt="sdf" width={100} height={100} />
         </div>
       </Link>
-      <NavigationButton href={`/search`} text={"Wyszukiwarka Projektów"} />
-      <NavigationButton href={`/comparison`} text={"Porównywarka"} />
+      <NavigationButton href={`/search`} text={'Wyszukiwarka Projektów'} />
+      <NavigationButton href={`/comparison`} text={'Porównywarka'} />
       <NavigationButton
         href={`/estimation-generator`}
-        text={"Generator wyceny"}
+        text={'Generator wyceny'}
       />
-      <NavigationButton href={`/add-project`} text={"Dodaj projekt"} />
+      <NavigationButton href={`/add-project`} text={'Dodaj projekt'} />
 
-      <div className="px-5">User</div>
+      <div className="px-5">
+        <AuthButton />
+      </div>
     </>
   );
 }

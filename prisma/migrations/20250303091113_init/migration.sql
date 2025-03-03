@@ -4,7 +4,7 @@ CREATE TYPE "Role" AS ENUM ('ADMIN', 'USER', 'GUEST');
 -- CreateTable
 CREATE TABLE "User" (
     "id" TEXT NOT NULL,
-    "name" TEXT,
+    "username" TEXT,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
     "image" TEXT,
@@ -111,6 +111,9 @@ CREATE TABLE "Cost" (
 
     CONSTRAINT "Cost_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_username_key" ON "User"("username");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");

@@ -19,35 +19,33 @@ enum Role {
   GUEST
 }
 
-
-
 model User {
-  id        String      @id @default(uuid())
-  name      String?
-  email     String   @unique
-  password  String
-  image     String?
-  accounts  Account[]
-  sessions  Session[]
+  id       String    @id @default(uuid())
+  username String?   @unique
+  email    String    @unique
+  password String
+  image    String?
+  accounts Account[]
+  sessions Session[]
   projects Project[]
 }
 
 model Account {
-  id                 Int      @id @default(autoincrement())
-  userId             String
-  provider           String
-  providerAccountId  String   @unique
-  refresh_token      String?
-  access_token       String?
-  expires_at         Int?
-  user               User     @relation(fields: [userId], references: [id])
+  id                Int     @id @default(autoincrement())
+  userId            String
+  provider          String
+  providerAccountId String  @unique
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  user              User    @relation(fields: [userId], references: [id])
 }
 
 model Session {
-  id          Int      @id @default(autoincrement())
-  userId      String
-  expires     DateTime
-  user        User     @relation(fields: [userId], references: [id])
+  id      Int      @id @default(autoincrement())
+  userId  String
+  expires DateTime
+  user    User     @relation(fields: [userId], references: [id])
 }
 
 model VerificationToken {
@@ -56,70 +54,69 @@ model VerificationToken {
   expires    DateTime
 }
 
-
 model Project {
-  id              String      @id @default(uuid())
-  name            String      @unique
-  city            String
-  image_url       String
-  status          String
-  n03_do_PUM      Float
-  user_id         String
-  user            User        @relation(fields: [user_id], references: [id])
-  parameter       Parameters? @relation
-  cost            Cost?       @relation
+  id         String      @id @default(uuid())
+  name       String      @unique
+  city       String
+  image_url  String
+  status     String
+  n03_do_PUM Float
+  user_id    String
+  user       User        @relation(fields: [user_id], references: [id])
+  parameter  Parameters? @relation
+  cost       Cost?       @relation
 }
 
 model Parameters {
-  id                         String  @id @default(uuid())
-  powierzchnia_dzialki                    Float
-  powierzchnia_nadziemia                  Float
-  powierzchnia_podziemia                  Float
-  powierzchnia_niezabudowana_dzialki      Float
-  powierzchnia_dachow                     Float
-  powierzchnia_elewacji                   Float
-  powierzchnia_netto                      Float
-  powierzchnia_netto_podziemia            Float
-  powierzchnia_netto_nadziemia            Float
-  pum_i_puu                               Float
-  pum                                     Float
-  puu                                     Float
-  powierzchnie_wspolne_nadziemia          Float
-  powierzchnia_garazu_w_nadziemiu         Float
-  liczba_kondygnacji                      Float
-  liczba_miejsc_parkingowych              Float
-  liczba_parkliftow                       Float
-  ilosc_mieszkan                          Float
-  srednia_powierzchnia_mieszkania         Float
-  udzial_powierzchni_wspolnych_nadziemia  Float
-  pow_podziemia_do_pum_i_puu              Float
-  project_id                               String  @unique
-  project                               Project @relation(fields: [project_id], references: [id])
+  id                                     String  @id @default(uuid())
+  powierzchnia_dzialki                   Float
+  powierzchnia_nadziemia                 Float
+  powierzchnia_podziemia                 Float
+  powierzchnia_niezabudowana_dzialki     Float
+  powierzchnia_dachow                    Float
+  powierzchnia_elewacji                  Float
+  powierzchnia_netto                     Float
+  powierzchnia_netto_podziemia           Float
+  powierzchnia_netto_nadziemia           Float
+  pum_i_puu                              Float
+  pum                                    Float
+  puu                                    Float
+  powierzchnie_wspolne_nadziemia         Float
+  powierzchnia_garazu_w_nadziemiu        Float
+  liczba_kondygnacji                     Float
+  liczba_miejsc_parkingowych             Float
+  liczba_parkliftow                      Float
+  ilosc_mieszkan                         Float
+  srednia_powierzchnia_mieszkania        Float
+  udzial_powierzchni_wspolnych_nadziemia Float
+  pow_podziemia_do_pum_i_puu             Float
+  project_id                             String  @unique
+  project                                Project @relation(fields: [project_id], references: [id])
 }
 
 model Cost {
-  id                           String  @id @default(uuid())
-  n01                             Float
-  n03                             Float
-  roboty_ziemne                   Float
-  konstrukcja_podziemia           Float
-  konstrukcja_nadziemia           Float
-  elewacje                        Float
-  dachy                           Float
-  wykonczenie_nadziemia           Float
-  wykonczenie_podziemia           Float
-  windy                           Float
-  instalacje_klimatyzacyjne       Float
-  instalacje_wodno_kanalizacyjne  Float
-  instalacje_gazowe               Float
-  instalacje_elektryczne          Float
-  instalacje_teletechniczne       Float
-  infrastruktura                  Float
-  dfa                             Float
-  sieci                           Float
-  koszty_budowy                   Float
-  bhp                             Float
-  offset_poza_dzialka             Float
-  project_id                      String  @unique
-  project                         Project @relation(fields: [project_id], references: [id])
+  id                             String  @id @default(uuid())
+  n01                            Float
+  n03                            Float
+  roboty_ziemne                  Float
+  konstrukcja_podziemia          Float
+  konstrukcja_nadziemia          Float
+  elewacje                       Float
+  dachy                          Float
+  wykonczenie_nadziemia          Float
+  wykonczenie_podziemia          Float
+  windy                          Float
+  instalacje_klimatyzacyjne      Float
+  instalacje_wodno_kanalizacyjne Float
+  instalacje_gazowe              Float
+  instalacje_elektryczne         Float
+  instalacje_teletechniczne      Float
+  infrastruktura                 Float
+  dfa                            Float
+  sieci                          Float
+  koszty_budowy                  Float
+  bhp                            Float
+  offset_poza_dzialka            Float
+  project_id                     String  @unique
+  project                        Project @relation(fields: [project_id], references: [id])
 }
