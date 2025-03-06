@@ -182,10 +182,6 @@ export default function ProjectDataForm({
   });
   const [cloudinaryImg, setCloudinaryImg] = useState("");
 
-  const resetForm = () => {
-    setFormData(initialState);
-  };
-
   const handleDataFromChild = (data: string) => {
     setCloudinaryImg(data);
   };
@@ -279,16 +275,7 @@ export default function ProjectDataForm({
       <form action={formAction} className="space-y-4">
         <div className="flex gap-5 justify-center items-center">
           <button className="mt-4 p-2 bg-blue-500 text-white rounded">
-            Submit Data
-          </button>
-          <button
-            type="button"
-            onClick={() => {
-              resetForm();
-            }}
-            className="mt-4 p-2 bg-red-500 text-white rounded"
-          >
-            Reset Data
+            Wyślij dane
           </button>
         </div>
 
@@ -349,16 +336,7 @@ export default function ProjectDataForm({
 
         <div className="flex  gap-5  justify-center items-center">
           <button className="mt-4 p-2 bg-blue-500 text-white rounded">
-            Submit Data
-          </button>
-          <button
-            type="button"
-            onClick={() => {
-              resetForm();
-            }}
-            className="mt-4 p-2 bg-red-500 text-white rounded"
-          >
-            Reset Data
+            Wyślij Dane
           </button>
         </div>
       </form>

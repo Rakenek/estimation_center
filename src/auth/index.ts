@@ -1,17 +1,20 @@
-import { comparePassword } from '@/lib/bcryptFunctions';
-import { prisma } from '@/lib/prisma';
-import NextAuth, { User, NextAuthConfig } from 'next-auth';
-import Credentials from 'next-auth/providers/credentials';
+import { comparePassword } from "@/lib/bcryptFunctions";
+import { prisma } from "@/lib/prisma";
+import NextAuth, { User, NextAuthConfig } from "next-auth";
+import Credentials from "next-auth/providers/credentials";
 
-export const BASE_PATH = '/api/auth';
+export const BASE_PATH = "/api/auth";
 
 const authOptions: NextAuthConfig = {
   providers: [
     Credentials({
-      name: 'Credentials',
+      name: "Credentials",
       credentials: {
-        username: { label: 'Username', type: 'text', placeholder: 'jsmith' },
-        password: { label: 'Password', type: 'password' },
+        username: {
+          label: "Nazwa użytkownika",
+          type: "text",
+        },
+        password: { label: "Hasło", type: "password" },
       },
       async authorize(credentials): Promise<User | null> {
         const user = await prisma.user.findUnique({
@@ -33,6 +36,9 @@ const authOptions: NextAuthConfig = {
     }),
   ],
   basePath: BASE_PATH,
+  pages: {
+    signIn: "/auth/signin", // 🔥 Custom login page
+  },
   secret: process.env.NEXTAUTH_SECRET,
 };
 

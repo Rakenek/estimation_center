@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { auth, BASE_PATH } from "@/auth";
 
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|auth/signin).*)"],
 };
 
 export default auth((req) => {
@@ -18,3 +18,5 @@ export default auth((req) => {
     );
   }
 });
+
+// export default function auth() {}
