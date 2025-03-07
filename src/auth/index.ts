@@ -17,21 +17,26 @@ const authOptions: NextAuthConfig = {
         password: { label: "Hasło", type: "password" },
       },
       async authorize(credentials): Promise<User | null> {
-        const user = await prisma.user.findUnique({
-          where: {
-            username: credentials.username as string, // ✅ Correctly using 'where'
-          },
-        });
-        if (user) {
-          const isPassCorrect: boolean = await comparePassword(
-            credentials.password as string,
-            user.password
-          );
-          if (isPassCorrect) {
-            return { id: user.id, name: user.username, email: user.email };
+        try {
+          const user = await prisma.user.findUnique({
+            where: {
+              username: credentials.username as string, // ✅ Correctly using 'where'
+            },
+          });
+          if (user) {
+            const isPassCorrect: boolean = await comparePassword(
+              credentials.password as string,
+              user.password
+            );
+            if (isPassCorrect) {
+              return { id: user.id, name: user.username, email: user.email };
+            }
           }
+          return null;
+        } catch (e) {
+          console.error("Error", e);
+          return null;
         }
-        return null;
       },
     }),
   ],

@@ -1,18 +1,18 @@
 "use client";
-import { useSession } from "next-auth/react";
+import { useSession, signIn, signOut } from "next-auth/react";
 
-import { signIn, signOut } from "@/auth/helpers";
+// import { signIn, signOut } from "@/auth/helpers";
 import Button from "@/components/Button";
 
 export default function AuthButtonClient() {
   const session = useSession();
+  console.log(session);
 
   return session?.data?.user ? (
     <Button
       onClick={async () => {
-        console.log("zero");
-        await signOut();
-        await signIn();
+        await signOut({ redirect: true });
+        // await signIn();
       }}
     >
       {session?.data?.user?.name} : Sign Out

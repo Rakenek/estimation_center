@@ -1,11 +1,17 @@
-'use server';
-
-import { signIn as naSignIn, signOut as naSignOut } from '.';
+import {
+  signIn as nextAuthSignIn,
+  signOut as nextAuthSignOut,
+} from "next-auth/react";
 
 export async function signIn() {
-  await naSignIn();
+  try {
+    await nextAuthSignIn(); // ✅ Correctly call signIn()
+  } catch (error) {
+    console.error("Sign-in error:", error);
+  }
 }
 
 export async function signOut() {
-  await naSignOut();
+  console.log("logout");
+  await nextAuthSignOut({ redirect: true }); // ✅ Correctly call signOut()
 }
