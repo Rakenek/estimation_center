@@ -8,6 +8,7 @@ export default function SignInPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/search";
@@ -15,12 +16,15 @@ export default function SignInPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+    setLoading(true);
 
     const result = await signIn("credentials", {
       username,
       password,
       redirect: false, // Prevent default redirect
     });
+
+    setLoading(false);
 
     if (result?.error) {
       setError("Invalid username or password");
@@ -51,8 +55,16 @@ export default function SignInPage() {
             className="border p-2 rounded"
             required
           />
-          <button type="submit" className="bg-blue-600 text-white p-2 rounded">
-            Zaloguj się
+          <button
+            disabled={loading}
+            type="submit"
+            className={`bg-blue-500 text-white p-2 rounded  ${
+              loading ? "bg-blue-950" : ""
+            }`}
+          >
+            {loading
+              ? "Loguje..." // Loading spinner
+              : "Zaloguj się"}
           </button>
         </form>
       </div>

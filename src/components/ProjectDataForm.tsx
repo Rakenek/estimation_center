@@ -175,6 +175,7 @@ export default function ProjectDataForm({
   }, [newInitialData]);
 
   const [formData, setFormData] = useState(initialState);
+  const [loading, setLoading] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [state, formAction] = useActionState(action, {
     errors: { form: "" },
@@ -274,9 +275,19 @@ export default function ProjectDataForm({
       {/* Submit button */}
       <form action={formAction} className="space-y-4">
         <div className="flex gap-5 justify-center items-center">
-          <button className="mt-4 p-2 bg-blue-500 text-white rounded">
-            Wyślij dane
-          </button>
+          <div
+            onClick={() => {
+              setLoading(true);
+            }}
+          >
+            <button
+              className={`mt-4 p-2 bg-blue-500 text-white rounded ${
+                loading ? "bg-blue-950" : ""
+              }`}
+            >
+              {loading ? "Wysyłam dane..." : "Wyślij dane"}
+            </button>
+          </div>
         </div>
 
         <div className="flex justify-center items-center">

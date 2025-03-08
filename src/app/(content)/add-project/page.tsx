@@ -1,8 +1,8 @@
-import { createProject } from '@/actions/actions';
+import { createProject } from "@/actions/actions";
 
-import ProjectDataForm from '@/components/ProjectDataForm';
+import ProjectDataForm from "@/components/ProjectDataForm";
 
-import React from 'react';
+import React from "react";
 
 const AddProjectPage = () => {
   return <ProjectDataForm action={createProject} />;
