@@ -2,9 +2,10 @@
 import { deleteProject } from "@/actions/actions";
 import { redirect, useParams } from "next/navigation";
 
-import React, { useActionState } from "react";
+import React, { useActionState, useState } from "react";
 
 export default function DeleteProjectButton() {
+  const [loading, setIsLoading] = useState(false);
   const props = useParams<{ projectId: string }>();
   const { projectId } = props;
 
@@ -22,9 +23,11 @@ export default function DeleteProjectButton() {
       <input type="hidden" name="projectId" value={projectId} />
       <button
         type="submit"
-        className="flex w-full items-center gap-3 p-3 transition-all duration-200 bg-red-700"
+        className={`flex w-full items-center gap-3 px-5 py-2 rounded transition-all duration-200  ${
+          loading ? "bg-red-900" : "bg-red-500"
+        }`}
       >
-        USUŃ
+        {loading ? "USUWAM" : "USUŃ"}
       </button>
       {state.errors.form && (
         <p className="text-red-500 text-sm">{state.errors.form}</p>

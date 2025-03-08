@@ -10,6 +10,10 @@ export default async function middleware(req: NextAuthRequest) {
   const session = await auth();
   const reqUrl = new URL(req.url);
 
+  if (reqUrl.pathname === "/") {
+    return NextResponse.next();
+  }
+
   if (!session) {
     return NextResponse.redirect(
       new URL(
