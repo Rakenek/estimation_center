@@ -34,14 +34,24 @@ export default function CostTable({
     divideBy = [
       parameters.pum_i_puu,
       parameters.pum_i_puu,
-      parameters.powierzchnia_netto_podziemia,
+      parameters.powierzchnia_zabudowy_podziemia +
+        parameters.powierzchnia_zabudowy_nadziemia_poza_obrysem_podziemia,
+      parameters.powierzchnia_zabudowy_podziemia,
+      parameters.powierzchnia_zabudowy_podziemia,
+      parameters.powierzchnia_zabudowy_podziemia +
+        parameters.powierzchnia_zabudowy_nadziemia_poza_obrysem_podziemia,
+      parameters.powierzchnia_zabudowy_podziemia +
+        parameters.powierzchnia_zabudowy_nadziemia_poza_obrysem_podziemia,
       parameters.powierzchnia_netto_podziemia,
       parameters.powierzchnia_netto_nadziemia,
       parameters.powierzchnia_elewacji,
       parameters.powierzchnia_dachow +
-        (parameters.powierzchnia_podziemia - parameters.powierzchnia_nadziemia),
-      parameters.powierzchnia_netto_nadziemia,
+        (parameters.powierzchnia_zabudowy_podziemia +
+          parameters.powierzchnia_zabudowy_nadziemia_poza_obrysem_podziemia -
+          parameters.powierzchnia_zabudowy_nadziemia),
       parameters.powierzchnia_netto_podziemia,
+      parameters.powierzchnia_netto_nadziemia,
+      parameters.pum_i_puu,
       parameters.pum_i_puu,
       parameters.powierzchnia_netto,
       parameters.powierzchnia_netto,
@@ -49,7 +59,7 @@ export default function CostTable({
       parameters.powierzchnia_netto,
       parameters.powierzchnia_netto,
       parameters.powierzchnia_niezabudowana_dzialki,
-      parameters.powierzchnia_niezabudowana_dzialki,
+      parameters.pum_i_puu,
       parameters.pum_i_puu,
       parameters.pum_i_puu,
       parameters.pum_i_puu,
@@ -62,7 +72,19 @@ export default function CostTable({
     `N01${divider === dividerType.INDICATORS ? " +[PLN/PUM]" : ""}`,
     `N03${divider === dividerType.INDICATORS ? " +[PLN/PUM]" : ""}`,
     `Roboty ziemne${
-      divider === dividerType.INDICATORS ? " +[PLN/NETTO PODZIEMIA]" : ""
+      divider === dividerType.INDICATORS ? " +[PLN/POW FUNDAMENTÓW]" : ""
+    }`,
+    `Zabezpieczenie wykopów${
+      divider === dividerType.INDICATORS ? " +[PLN/ZABUDOWY PODZIEMIA]" : ""
+    }`,
+    `Ściany szczelinowe${
+      divider === dividerType.INDICATORS ? " +[PLN/ZABUDOWY PODZIEMIA]" : ""
+    }`,
+    `Roboty palowe${
+      divider === dividerType.INDICATORS ? " +[PLN/POW FUNDAMENTÓW]" : ""
+    }`,
+    `Prace fundamentowe${
+      divider === dividerType.INDICATORS ? " +[PLN/POW FUNDAMENTÓW]" : ""
     }`,
     `Konstrukcja podziemia${
       divider === dividerType.INDICATORS ? " +[PLN/NETTO PODZIEMIA]" : ""
@@ -81,6 +103,7 @@ export default function CostTable({
       divider === dividerType.INDICATORS ? " +[PLN/NETTO PODZIEMIA]" : ""
     }`,
     `Windy${divider === dividerType.INDICATORS ? " +[PLN/NETTO PUM]" : ""}`,
+    `Parklifty${divider === dividerType.INDICATORS ? " +[PLN/NETTO PUM]" : ""}`,
     `Instalacje klimatyzacyjne${
       divider === dividerType.INDICATORS ? " +[PLN/NETTO]" : ""
     }`,

@@ -10,9 +10,7 @@ export default async function middleware(req: NextAuthRequest) {
   const session = await auth();
   const reqUrl = new URL(req.url);
 
-  console.log("Session in Middleware:", session); // 🔥 Log session info
   if (!session) {
-    console.log("Redirecting to sign-in...");
     return NextResponse.redirect(
       new URL(
         `${BASE_PATH}/signin?callbackUrl=${encodeURIComponent(

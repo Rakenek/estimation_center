@@ -6,7 +6,6 @@ import Button from "@/components/Button";
 
 export default function AuthButtonClient() {
   const session = useSession();
-  console.log(session);
 
   return session?.data?.user ? (
     <Button

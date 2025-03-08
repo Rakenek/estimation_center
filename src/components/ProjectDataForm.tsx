@@ -15,6 +15,7 @@ const formLabels = [
   "Powierzchnia działki",
   "Powierzchnia zabudowy nadziemia",
   "Powierzchnia zabudowy podziemia",
+  "Zabudowa nadziemia poza obrysem podziemia",
   "Powierzchnia niezabudowana działki",
   "Powierzchnia dachów",
   "Powierzchnia elewacji",
@@ -27,7 +28,7 @@ const formLabels = [
   "Powierzchnie wspólne nadziemia",
   "Powierzchnia garazu w nadziemiu",
   "Liczba kondygnacji",
-  "Liczba miejsc parkingowych",
+  "Liczba miejsc parkingowych w budynku",
   "Liczba parkliftów",
   "Liczba mieszkań",
   "Średnia powierzchnia mieszkania",
@@ -36,6 +37,10 @@ const formLabels = [
   "n01",
   "n03",
   "Roboty ziemne",
+  "Zabezpieczenie wykopów",
+  "Ściany szczelinowe",
+  "Roboty palowe",
+  "Prace fundamentowe",
   "Konstrukcja podziemia",
   "Konstrukcja nadziemia",
   "Elewacje",
@@ -43,6 +48,7 @@ const formLabels = [
   "Wykończenie nadziemia",
   "Wykończenie podziemia",
   "Windy",
+  "Parklifty",
   "Instalacje klimatyzacyjne",
   "Instalacje wodno-kanalizacyjne",
   "Instalacje gazowe",
@@ -63,8 +69,9 @@ interface initialStateInterface {
   status: string;
   n03_do_PUM: string | number;
   powierzchnia_dzialki: string | number;
-  powierzchnia_nadziemia: string | number;
-  powierzchnia_podziemia: string | number;
+  powierzchnia_zabudowy_nadziemia: string | number;
+  powierzchnia_zabudowy_podziemia: string | number;
+  powierzchnia_zabudowy_nadziemia_poza_obrysem_podziemia: string | number;
   powierzchnia_niezabudowana_dzialki: string | number;
   powierzchnia_dachow: string | number;
   powierzchnia_elewacji: string | number;
@@ -77,7 +84,7 @@ interface initialStateInterface {
   powierzchnie_wspolne_nadziemia: string | number;
   powierzchnia_garazu_w_nadziemiu: string | number;
   liczba_kondygnacji: string | number;
-  liczba_miejsc_parkingowych: string | number;
+  liczba_miejsc_parkingowych_w_budynku: string | number;
   liczba_parkliftow: string | number;
   ilosc_mieszkan: string | number;
   srednia_powierzchnia_mieszkania: string | number;
@@ -86,6 +93,10 @@ interface initialStateInterface {
   n01: string | number;
   n03: string | number;
   roboty_ziemne: string | number;
+  zabezpieczenie_wykopow: string | number;
+  sciany_szczelinowe: string | number;
+  roboty_palowe: string | number;
+  prace_fundamentowe: string | number;
   konstrukcja_podziemia: string | number;
   konstrukcja_nadziemia: string | number;
   elewacje: string | number;
@@ -93,6 +104,7 @@ interface initialStateInterface {
   wykonczenie_nadziemia: string | number;
   wykonczenie_podziemia: string | number;
   windy: string | number;
+  parklifty: string | number;
   instalacje_klimatyzacyjne: string | number;
   instalacje_wodno_kanalizacyjne: string | number;
   instalacje_gazowe: string | number;
@@ -113,8 +125,9 @@ const initialState: initialStateInterface = {
   status: "",
   n03_do_PUM: "",
   powierzchnia_dzialki: "",
-  powierzchnia_nadziemia: "",
-  powierzchnia_podziemia: "",
+  powierzchnia_zabudowy_nadziemia: "",
+  powierzchnia_zabudowy_podziemia: "",
+  powierzchnia_zabudowy_nadziemia_poza_obrysem_podziemia: "",
   powierzchnia_niezabudowana_dzialki: "",
   powierzchnia_dachow: "",
   powierzchnia_elewacji: "",
@@ -127,7 +140,7 @@ const initialState: initialStateInterface = {
   powierzchnie_wspolne_nadziemia: "",
   powierzchnia_garazu_w_nadziemiu: "",
   liczba_kondygnacji: "",
-  liczba_miejsc_parkingowych: "",
+  liczba_miejsc_parkingowych_w_budynku: "",
   liczba_parkliftow: "",
   ilosc_mieszkan: "",
   srednia_powierzchnia_mieszkania: "",
@@ -136,6 +149,10 @@ const initialState: initialStateInterface = {
   n01: "",
   n03: "",
   roboty_ziemne: "",
+  zabezpieczenie_wykopow: "",
+  sciany_szczelinowe: "",
+  roboty_palowe: "",
+  prace_fundamentowe: "",
   konstrukcja_podziemia: "",
   konstrukcja_nadziemia: "",
   elewacje: "",
@@ -143,6 +160,7 @@ const initialState: initialStateInterface = {
   wykonczenie_nadziemia: "",
   wykonczenie_podziemia: "",
   windy: "",
+  parklifty: "",
   instalacje_klimatyzacyjne: "",
   instalacje_wodno_kanalizacyjne: "",
   instalacje_gazowe: "",

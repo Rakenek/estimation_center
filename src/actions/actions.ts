@@ -15,8 +15,9 @@ const requiredFields = [
   "status",
   "n03_do_PUM",
   "powierzchnia_dzialki",
-  "powierzchnia_nadziemia",
-  "powierzchnia_podziemia",
+  "powierzchnia_zabudowy_nadziemia",
+  "powierzchnia_zabudowy_podziemia",
+  "powierzchnia_zabudowy_nadziemia_poza_obrysem_podziemia",
   "powierzchnia_niezabudowana_dzialki",
   "powierzchnia_dachow",
   "powierzchnia_elewacji",
@@ -29,7 +30,7 @@ const requiredFields = [
   "powierzchnie_wspolne_nadziemia",
   "powierzchnia_garazu_w_nadziemiu",
   "liczba_kondygnacji",
-  "liczba_miejsc_parkingowych",
+  "liczba_miejsc_parkingowych_w_budynku",
   "liczba_parkliftow",
   "ilosc_mieszkan",
   "srednia_powierzchnia_mieszkania",
@@ -38,6 +39,10 @@ const requiredFields = [
   "n01",
   "n03",
   "roboty_ziemne",
+  "zabezpieczenie_wykopow",
+  "sciany_szczelinowe",
+  "roboty_palowe",
+  "prace_fundamentowe",
   "konstrukcja_podziemia",
   "konstrukcja_nadziemia",
   "elewacje",
@@ -45,6 +50,7 @@ const requiredFields = [
   "wykonczenie_nadziemia",
   "wykonczenie_podziemia",
   "windy",
+  "parklifty",
   "instalacje_klimatyzacyjne",
   "instalacje_wodno_kanalizacyjne",
   "instalacje_gazowe",
@@ -64,6 +70,7 @@ export async function createProject(
 ): Promise<{ errors?: { form: string }; success?: string }> {
   try {
     const formDataObject = Object.fromEntries(formData.entries());
+    console.log(formDataObject);
 
     // Extract required fields
 
@@ -110,11 +117,14 @@ export async function createProject(
         powierzchnia_dzialki: parseFloat(
           formDataObject.powierzchnia_dzialki as string
         ),
-        powierzchnia_nadziemia: parseFloat(
-          formDataObject.powierzchnia_nadziemia as string
+        powierzchnia_zabudowy_nadziemia: parseFloat(
+          formDataObject.powierzchnia_zabudowy_nadziemia as string
         ),
-        powierzchnia_podziemia: parseFloat(
-          formDataObject.powierzchnia_podziemia as string
+        powierzchnia_zabudowy_podziemia: parseFloat(
+          formDataObject.powierzchnia_zabudowy_podziemia as string
+        ),
+        powierzchnia_zabudowy_nadziemia_poza_obrysem_podziemia: parseFloat(
+          formDataObject.powierzchnia_zabudowy_nadziemia_poza_obrysem_podziemia as string
         ),
         powierzchnia_niezabudowana_dzialki: parseFloat(
           formDataObject.powierzchnia_niezabudowana_dzialki as string
@@ -146,8 +156,8 @@ export async function createProject(
         liczba_kondygnacji: parseFloat(
           formDataObject.liczba_kondygnacji as string
         ),
-        liczba_miejsc_parkingowych: parseFloat(
-          formDataObject.liczba_miejsc_parkingowych as string
+        liczba_miejsc_parkingowych_w_budynku: parseFloat(
+          formDataObject.liczba_miejsc_parkingowych_w_budynku as string
         ),
         liczba_parkliftow: parseFloat(
           formDataObject.liczba_parkliftow as string
@@ -171,6 +181,16 @@ export async function createProject(
         n01: parseFloat(formDataObject.n01 as string),
         n03: parseFloat(formDataObject.n03 as string),
         roboty_ziemne: parseFloat(formDataObject.roboty_ziemne as string),
+        zabezpieczenie_wykopow: parseFloat(
+          formDataObject.zabezpieczenie_wykopow as string
+        ),
+        sciany_szczelinowe: parseFloat(
+          formDataObject.sciany_szczelinowe as string
+        ),
+        roboty_palowe: parseFloat(formDataObject.roboty_palowe as string),
+        prace_fundamentowe: parseFloat(
+          formDataObject.prace_fundamentowe as string
+        ),
         konstrukcja_podziemia: parseFloat(
           formDataObject.konstrukcja_podziemia as string
         ),
@@ -186,6 +206,7 @@ export async function createProject(
           formDataObject.wykonczenie_podziemia as string
         ),
         windy: parseFloat(formDataObject.windy as string),
+        parklifty: parseFloat(formDataObject.parklifty as string),
         instalacje_klimatyzacyjne: parseFloat(
           formDataObject.instalacje_klimatyzacyjne as string
         ),
@@ -252,11 +273,14 @@ export async function updateProject(
         powierzchnia_dzialki: parseFloat(
           formDataObject.powierzchnia_dzialki as string
         ),
-        powierzchnia_nadziemia: parseFloat(
-          formDataObject.powierzchnia_nadziemia as string
+        powierzchnia_zabudowy_nadziemia: parseFloat(
+          formDataObject.powierzchnia_zabudowy_nadziemia as string
         ),
-        powierzchnia_podziemia: parseFloat(
-          formDataObject.powierzchnia_podziemia as string
+        powierzchnia_zabudowy_podziemia: parseFloat(
+          formDataObject.powierzchnia_zabudowy_podziemia as string
+        ),
+        powierzchnia_zabudowy_nadziemia_poza_obrysem_podziemia: parseFloat(
+          formDataObject.powierzchnia_zabudowy_nadziemia_poza_obrysem_podziemia as string
         ),
         powierzchnia_niezabudowana_dzialki: parseFloat(
           formDataObject.powierzchnia_niezabudowana_dzialki as string
@@ -288,8 +312,8 @@ export async function updateProject(
         liczba_kondygnacji: parseFloat(
           formDataObject.liczba_kondygnacji as string
         ),
-        liczba_miejsc_parkingowych: parseFloat(
-          formDataObject.liczba_miejsc_parkingowych as string
+        liczba_miejsc_parkingowych_w_budynku: parseFloat(
+          formDataObject.liczba_miejsc_parkingowych_w_budynku as string
         ),
         liczba_parkliftow: parseFloat(
           formDataObject.liczba_parkliftow as string
@@ -315,6 +339,16 @@ export async function updateProject(
         n01: parseFloat(formDataObject.n01 as string),
         n03: parseFloat(formDataObject.n03 as string),
         roboty_ziemne: parseFloat(formDataObject.roboty_ziemne as string),
+        zabezpieczenie_wykopow: parseFloat(
+          formDataObject.zabezpieczenie_wykopow as string
+        ),
+        sciany_szczelinowe: parseFloat(
+          formDataObject.sciany_szczelinowe as string
+        ),
+        roboty_palowe: parseFloat(formDataObject.roboty_palowe as string),
+        prace_fundamentowe: parseFloat(
+          formDataObject.prace_fundamentowe as string
+        ),
         konstrukcja_podziemia: parseFloat(
           formDataObject.konstrukcja_podziemia as string
         ),
@@ -330,6 +364,7 @@ export async function updateProject(
           formDataObject.wykonczenie_podziemia as string
         ),
         windy: parseFloat(formDataObject.windy as string),
+        parklifty: parseFloat(formDataObject.parklifty as string),
         instalacje_klimatyzacyjne: parseFloat(
           formDataObject.instalacje_klimatyzacyjne as string
         ),

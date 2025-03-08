@@ -44,30 +44,31 @@ model Project {
 }
 
 model Parameters {
-  id                                     String  @id @default(uuid())
-  powierzchnia_dzialki                   Float
-  powierzchnia_nadziemia                 Float
-  powierzchnia_podziemia                 Float
-  powierzchnia_niezabudowana_dzialki     Float
-  powierzchnia_dachow                    Float
-  powierzchnia_elewacji                  Float
-  powierzchnia_netto                     Float
-  powierzchnia_netto_podziemia           Float
-  powierzchnia_netto_nadziemia           Float
-  pum_i_puu                              Float
-  pum                                    Float
-  puu                                    Float
-  powierzchnie_wspolne_nadziemia         Float
-  powierzchnia_garazu_w_nadziemiu        Float
-  liczba_kondygnacji                     Float
-  liczba_miejsc_parkingowych             Float
-  liczba_parkliftow                      Float
-  ilosc_mieszkan                         Float
-  srednia_powierzchnia_mieszkania        Float
-  udzial_powierzchni_wspolnych_nadziemia Float
-  pow_podziemia_do_pum_i_puu             Float
-  project_id                             String  @unique
-  project                                Project @relation(fields: [project_id], references: [id])
+  id                                                      String  @id @default(uuid())
+  powierzchnia_dzialki                                    Float
+  powierzchnia_zabudowy_nadziemia                         Float
+  powierzchnia_zabudowy_podziemia                         Float
+  powierzchnia_zabudowy_nadziemia_poza_obrysem_podziemia  Float
+  powierzchnia_niezabudowana_dzialki                      Float
+  powierzchnia_dachow                                     Float
+  powierzchnia_elewacji                                   Float
+  powierzchnia_netto                                      Float
+  powierzchnia_netto_podziemia                            Float
+  powierzchnia_netto_nadziemia                            Float
+  pum_i_puu                                               Float
+  pum                                                     Float
+  puu                                                     Float
+  powierzchnie_wspolne_nadziemia                          Float
+  powierzchnia_garazu_w_nadziemiu                         Float
+  liczba_kondygnacji                                      Float
+  liczba_miejsc_parkingowych_w_budynku                    Float
+  liczba_parkliftow                                       Float
+  ilosc_mieszkan                                          Float
+  srednia_powierzchnia_mieszkania                         Float
+  udzial_powierzchni_wspolnych_nadziemia                  Float
+  pow_podziemia_do_pum_i_puu                              Float
+  project_id                                              String  @unique
+  project                                                 Project @relation(fields: [project_id], references: [id])
 }
 
 model Cost {
@@ -75,13 +76,18 @@ model Cost {
   n01                            Float
   n03                            Float
   roboty_ziemne                  Float
+  zabezpieczenie_wykopow         Float
+  sciany_szczelinowe             Float
+  roboty_palowe                  Float
+  prace_fundamentowe             Float
   konstrukcja_podziemia          Float
   konstrukcja_nadziemia          Float
   elewacje                       Float
   dachy                          Float
-  wykonczenie_nadziemia          Float
   wykonczenie_podziemia          Float
+  wykonczenie_nadziemia          Float
   windy                          Float
+  parklifty                      Float
   instalacje_klimatyzacyjne      Float
   instalacje_wodno_kanalizacyjne Float
   instalacje_gazowe              Float

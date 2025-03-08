@@ -13,6 +13,7 @@ const ParametersTable: React.FC<ParametersTableProps> = ({ parameters }) => {
     "Powierzchnia działki",
     "Powierzchnia zabudowy nadziemia",
     "Powierzchnia zabudowy podziemia",
+    "Nadziemie poza obrysem podziemia",
     "Powierzchnia niezabudowana działki",
     "Powierzchnia dachów",
     "Powierzchnia elewacji",
