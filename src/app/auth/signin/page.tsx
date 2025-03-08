@@ -24,10 +24,9 @@ export default function SignInPage() {
       redirect: false, // Prevent default redirect
     });
 
-    setLoading(false);
-
     if (result?.error) {
       setError("Invalid username or password");
+      setLoading(false);
     } else {
       router.push(callbackUrl); // Redirect manually
     }

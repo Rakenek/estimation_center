@@ -344,11 +344,20 @@ export default function ProjectDataForm({
             <UploadImage handleDataFromChild={handleDataFromChild} />
           </div>
         </div>
-
-        <div className="flex  gap-5  justify-center items-center">
-          <button className="mt-4 p-2 bg-blue-500 text-white rounded">
-            Wyślij Dane
-          </button>
+        <div className="flex gap-5 justify-center items-center">
+          <div
+            onClick={() => {
+              setLoading(true);
+            }}
+          >
+            <button
+              className={`mt-4 p-2 bg-blue-500 text-white rounded ${
+                loading ? "bg-blue-950" : ""
+              }`}
+            >
+              {loading ? "Wysyłam dane..." : "Wyślij dane"}
+            </button>
+          </div>
         </div>
       </form>
     </div>
