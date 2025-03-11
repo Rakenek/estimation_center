@@ -1,6 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 
 type CardProps = {
   id: string;
@@ -32,12 +32,12 @@ const Card: React.FC<CardProps> = ({
         <div className="p-4">
           <h2 className="text-xl font-semibold text-gray-900">{name}</h2>
           <p className="mt-2 text-gray-600">{city}</p>
-          <p className="mt-2 text-gray-600">N03: {n03} PLN</p>
+          <p className="mt-2 text-gray-600">N03: {Math.round(n03)} PLN</p>
           <p
             className={`mt-2 text-gray-600 ${
-              status === "Active" ? "text-green-600" : ""
-            } ${status === "Planning" ? "text-purple-600" : ""}
-            ${status === "Completed" ? "text-red-600" : ""}`}
+              status === 'Active' ? 'text-green-600' : ''
+            } ${status === 'Planning' ? 'text-purple-600' : ''}
+            ${status === 'Completed' ? 'text-red-600' : ''}`}
           >
             Status: {status}
           </p>

@@ -59,7 +59,8 @@ export default function CostTable({
       parameters.powierzchnia_netto,
       parameters.powierzchnia_netto,
       parameters.powierzchnia_niezabudowana_dzialki,
-      parameters.pum_i_puu,
+      parameters.powierzchnia_niezabudowana_dzialki,
+      parameters.powierzchnia_niezabudowana_dzialki,
       parameters.pum_i_puu,
       parameters.pum_i_puu,
       parameters.pum_i_puu,
@@ -123,6 +124,9 @@ export default function CostTable({
       divider === dividerType.INDICATORS ? ' +[PLN/POW NIEZABUDOWANEJ]' : ''
     }`,
     `DFA${
+      divider === dividerType.INDICATORS ? ' +[PLN/POW NIEZABUDOWANEJ]' : ''
+    }`,
+    `Zieleń${
       divider === dividerType.INDICATORS ? ' +[PLN/POW NIEZABUDOWANEJ]' : ''
     }`,
     `Sieci${divider === dividerType.INDICATORS ? ' +[PLN/PUM]' : ''}`,

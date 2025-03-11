@@ -56,6 +56,7 @@ const formLabels = [
   'Instalacje teletechniczne',
   'Infrastruktura',
   'DFA',
+  'Zieleń',
   'Sieci',
   'Koszty budowy',
   'BHP',
@@ -112,6 +113,7 @@ interface initialStateInterface {
   instalacje_teletechniczne: string | number;
   infrastruktura: string | number;
   dfa: string | number;
+  zielen: string | number;
   sieci: string | number;
   koszty_budowy: string | number;
   bhp: string | number;
@@ -168,6 +170,7 @@ const initialState: initialStateInterface = {
   instalacje_teletechniczne: '',
   infrastruktura: '',
   dfa: '',
+  zielen: '',
   sieci: '',
   koszty_budowy: '',
   bhp: '',

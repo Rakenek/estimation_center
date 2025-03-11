@@ -21,14 +21,13 @@ enum Role {
 
 model User {
   id       String    @id @default(uuid())
-  username String   @unique
+  username String    @unique
   email    String    @unique
   password String
   role     Role
   image    String?
   projects Project[]
 }
-
 
 model Project {
   id         String      @id @default(uuid())
@@ -44,31 +43,31 @@ model Project {
 }
 
 model Parameters {
-  id                                                      String  @id @default(uuid())
-  powierzchnia_dzialki                                    Float
-  powierzchnia_zabudowy_nadziemia                         Float
-  powierzchnia_zabudowy_podziemia                         Float
-  powierzchnia_zabudowy_nadziemia_poza_obrysem_podziemia  Float
-  powierzchnia_niezabudowana_dzialki                      Float
-  powierzchnia_dachow                                     Float
-  powierzchnia_elewacji                                   Float
-  powierzchnia_netto                                      Float
-  powierzchnia_netto_podziemia                            Float
-  powierzchnia_netto_nadziemia                            Float
-  pum_i_puu                                               Float
-  pum                                                     Float
-  puu                                                     Float
-  powierzchnie_wspolne_nadziemia                          Float
-  powierzchnia_garazu_w_nadziemiu                         Float
-  liczba_kondygnacji                                      Float
-  liczba_miejsc_parkingowych_w_budynku                    Float
-  liczba_parkliftow                                       Float
-  ilosc_mieszkan                                          Float
-  srednia_powierzchnia_mieszkania                         Float
-  udzial_powierzchni_wspolnych_nadziemia                  Float
-  pow_podziemia_do_pum_i_puu                              Float
-  project_id                                              String  @unique
-  project                                                 Project @relation(fields: [project_id], references: [id])
+  id                                                     String  @id @default(uuid())
+  powierzchnia_dzialki                                   Float
+  powierzchnia_zabudowy_nadziemia                        Float
+  powierzchnia_zabudowy_podziemia                        Float
+  powierzchnia_zabudowy_nadziemia_poza_obrysem_podziemia Float
+  powierzchnia_niezabudowana_dzialki                     Float
+  powierzchnia_dachow                                    Float
+  powierzchnia_elewacji                                  Float
+  powierzchnia_netto                                     Float
+  powierzchnia_netto_podziemia                           Float
+  powierzchnia_netto_nadziemia                           Float
+  pum_i_puu                                              Float
+  pum                                                    Float
+  puu                                                    Float
+  powierzchnie_wspolne_nadziemia                         Float
+  powierzchnia_garazu_w_nadziemiu                        Float
+  liczba_kondygnacji                                     Float
+  liczba_miejsc_parkingowych_w_budynku                   Float
+  liczba_parkliftow                                      Float
+  ilosc_mieszkan                                         Float
+  srednia_powierzchnia_mieszkania                        Float
+  udzial_powierzchni_wspolnych_nadziemia                 Float
+  pow_podziemia_do_pum_i_puu                             Float
+  project_id                                             String  @unique
+  project                                                Project @relation(fields: [project_id], references: [id])
 }
 
 model Cost {
@@ -95,6 +94,7 @@ model Cost {
   instalacje_teletechniczne      Float
   infrastruktura                 Float
   dfa                            Float
+  zielen                         Float
   sieci                          Float
   koszty_budowy                  Float
   bhp                            Float

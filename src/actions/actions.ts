@@ -1,67 +1,68 @@
-"use server";
+'use server';
 
-import { auth } from "@/auth";
-import { hashPasswordWithSalt } from "@/lib/bcryptFunctions";
-import { getPublicIdFromUrl } from "@/lib/customFunctions";
-import { PrismaClient, Role } from "@prisma/client";
-import { revalidatePath } from "next/cache";
+import { auth } from '@/auth';
+import { hashPasswordWithSalt } from '@/lib/bcryptFunctions';
+import { getPublicIdFromUrl } from '@/lib/customFunctions';
+import { PrismaClient, Role } from '@prisma/client';
+import { revalidatePath } from 'next/cache';
 
 const prisma = new PrismaClient(); // ✅ Use a single Prisma instance
 
 const requiredFields = [
-  "name",
-  "city",
-  "image_url",
-  "status",
-  "n03_do_PUM",
-  "powierzchnia_dzialki",
-  "powierzchnia_zabudowy_nadziemia",
-  "powierzchnia_zabudowy_podziemia",
-  "powierzchnia_zabudowy_nadziemia_poza_obrysem_podziemia",
-  "powierzchnia_niezabudowana_dzialki",
-  "powierzchnia_dachow",
-  "powierzchnia_elewacji",
-  "powierzchnia_netto",
-  "powierzchnia_netto_podziemia",
-  "powierzchnia_netto_nadziemia",
-  "pum_i_puu",
-  "pum",
-  "puu",
-  "powierzchnie_wspolne_nadziemia",
-  "powierzchnia_garazu_w_nadziemiu",
-  "liczba_kondygnacji",
-  "liczba_miejsc_parkingowych_w_budynku",
-  "liczba_parkliftow",
-  "ilosc_mieszkan",
-  "srednia_powierzchnia_mieszkania",
-  "udzial_powierzchni_wspolnych_nadziemia",
-  "pow_podziemia_do_pum_i_puu",
-  "n01",
-  "n03",
-  "roboty_ziemne",
-  "zabezpieczenie_wykopow",
-  "sciany_szczelinowe",
-  "roboty_palowe",
-  "prace_fundamentowe",
-  "konstrukcja_podziemia",
-  "konstrukcja_nadziemia",
-  "elewacje",
-  "dachy",
-  "wykonczenie_nadziemia",
-  "wykonczenie_podziemia",
-  "windy",
-  "parklifty",
-  "instalacje_klimatyzacyjne",
-  "instalacje_wodno_kanalizacyjne",
-  "instalacje_gazowe",
-  "instalacje_elektryczne",
-  "instalacje_teletechniczne",
-  "infrastruktura",
-  "dfa",
-  "sieci",
-  "koszty_budowy",
-  "bhp",
-  "offset_poza_dzialka",
+  'name',
+  'city',
+  'image_url',
+  'status',
+  'n03_do_PUM',
+  'powierzchnia_dzialki',
+  'powierzchnia_zabudowy_nadziemia',
+  'powierzchnia_zabudowy_podziemia',
+  'powierzchnia_zabudowy_nadziemia_poza_obrysem_podziemia',
+  'powierzchnia_niezabudowana_dzialki',
+  'powierzchnia_dachow',
+  'powierzchnia_elewacji',
+  'powierzchnia_netto',
+  'powierzchnia_netto_podziemia',
+  'powierzchnia_netto_nadziemia',
+  'pum_i_puu',
+  'pum',
+  'puu',
+  'powierzchnie_wspolne_nadziemia',
+  'powierzchnia_garazu_w_nadziemiu',
+  'liczba_kondygnacji',
+  'liczba_miejsc_parkingowych_w_budynku',
+  'liczba_parkliftow',
+  'ilosc_mieszkan',
+  'srednia_powierzchnia_mieszkania',
+  'udzial_powierzchni_wspolnych_nadziemia',
+  'pow_podziemia_do_pum_i_puu',
+  'n01',
+  'n03',
+  'roboty_ziemne',
+  'zabezpieczenie_wykopow',
+  'sciany_szczelinowe',
+  'roboty_palowe',
+  'prace_fundamentowe',
+  'konstrukcja_podziemia',
+  'konstrukcja_nadziemia',
+  'elewacje',
+  'dachy',
+  'wykonczenie_nadziemia',
+  'wykonczenie_podziemia',
+  'windy',
+  'parklifty',
+  'instalacje_klimatyzacyjne',
+  'instalacje_wodno_kanalizacyjne',
+  'instalacje_gazowe',
+  'instalacje_elektryczne',
+  'instalacje_teletechniczne',
+  'infrastruktura',
+  'dfa',
+  'zielen',
+  'sieci',
+  'koszty_budowy',
+  'bhp',
+  'offset_poza_dzialka',
 ];
 
 export async function createProject(
@@ -108,7 +109,7 @@ export async function createProject(
         image_url: formDataObject.image_url as string,
         status: formDataObject.status as string,
         n03_do_PUM: parseFloat(formDataObject.n03_do_PUM as string),
-        user_id: "4f5a47fc-51c7-40f4-8492-5405c9a374a9", // Replace with dynamic user_id if needed
+        user_id: '4f5a47fc-51c7-40f4-8492-5405c9a374a9', // Replace with dynamic user_id if needed
       },
     });
 
@@ -224,6 +225,7 @@ export async function createProject(
         ),
         infrastruktura: parseFloat(formDataObject.infrastruktura as string),
         dfa: parseFloat(formDataObject.dfa as string),
+        zielen: parseFloat(formDataObject.zielen as string),
         sieci: parseFloat(formDataObject.sieci as string),
         koszty_budowy: parseFloat(formDataObject.koszty_budowy as string),
         bhp: parseFloat(formDataObject.bhp as string),
@@ -234,13 +236,13 @@ export async function createProject(
       },
     });
 
-    console.log("✅ Project created successfully");
-    revalidatePath("/search");
-    return { success: "Projekt z sukcesem utworzony" }; // ✅ Return success message
+    console.log('✅ Project created successfully');
+    revalidatePath('/search');
+    return { success: 'Projekt z sukcesem utworzony' }; // ✅ Return success message
   } catch (error) {
-    console.error("❌ Database error:", error);
+    console.error('❌ Database error:', error);
     return {
-      errors: { form: "Coś poszło nie tak, spróbuj później" },
+      errors: { form: 'Coś poszło nie tak, spróbuj później' },
     }; // ✅ Handle errors gracefully
   }
 }
@@ -382,6 +384,7 @@ export async function updateProject(
         ),
         infrastruktura: parseFloat(formDataObject.infrastruktura as string),
         dfa: parseFloat(formDataObject.dfa as string),
+        zielen: parseFloat(formDataObject.dfa as string),
         sieci: parseFloat(formDataObject.sieci as string),
         koszty_budowy: parseFloat(formDataObject.koszty_budowy as string),
         bhp: parseFloat(formDataObject.bhp as string),
@@ -402,12 +405,12 @@ export async function updateProject(
         };
       }
     }
-    revalidatePath("/search");
-    return { success: "Projekt z sukcesem utworzony" };
+    revalidatePath('/search');
+    return { success: 'Projekt z sukcesem utworzony' };
   } catch (error) {
-    console.error("❌ Database error:", error);
+    console.error('❌ Database error:', error);
     return {
-      errors: { form: "Coś poszło nie tak, spróbuj później" },
+      errors: { form: 'Coś poszło nie tak, spróbuj później' },
     }; // ✅ Handle errors gracefully
   }
 }
@@ -417,16 +420,16 @@ const handleDelete = async (publicId: string) => {
   console.log(`public id${publicId}`);
   try {
     const response = await fetch(`${baseUrl}/api/delete-image`, {
-      method: "DELETE",
+      method: 'DELETE',
       body: JSON.stringify({ publicId }),
-      headers: { "Content-Type": "application/json" },
+      headers: { 'Content-Type': 'application/json' },
     });
 
     const data = await response.json();
 
     console.log(data?.message);
   } catch (error) {
-    console.error("Error deleting image:", error);
+    console.error('Error deleting image:', error);
   }
 };
 
@@ -435,7 +438,7 @@ export async function deleteProject(
   formData: FormData
 ): Promise<{ errors?: { form: string }; success?: string }> {
   try {
-    const projectId = formData.get("projectId") as string;
+    const projectId = formData.get('projectId') as string;
     const selectedProject = await prisma.project.findUnique({
       where: { id: projectId },
     });
@@ -456,18 +459,18 @@ export async function deleteProject(
     });
     if (
       selectedProject.image_url !==
-      "https://res.cloudinary.com/duv2kieyz/image/upload/v1740656853/my-nextjs-project/sg05cnm7lcq9ccu2jyvb.jpg"
+      'https://res.cloudinary.com/duv2kieyz/image/upload/v1740656853/my-nextjs-project/sg05cnm7lcq9ccu2jyvb.jpg'
     ) {
       await handleDelete(getPublicIdFromUrl(selectedProject.image_url));
     }
 
-    console.log("✅ Project deleted successfully");
-    revalidatePath("/search");
-    return { success: "Projekt z sukcesem usunięty" };
+    console.log('✅ Project deleted successfully');
+    revalidatePath('/search');
+    return { success: 'Projekt z sukcesem usunięty' };
   } catch (error) {
-    console.error("❌ Database error:", error);
+    console.error('❌ Database error:', error);
     return {
-      errors: { form: "Coś poszło nie tak, spróbuj później" },
+      errors: { form: 'Coś poszło nie tak, spróbuj później' },
     };
   }
 }
@@ -483,7 +486,7 @@ export async function createUserAction(
 ) {
   console.log(prevState, formData);
   try {
-    console.log("tworze uzytkownika");
+    console.log('tworze uzytkownika');
     const formDataObject = Object.fromEntries(formData.entries());
     console.log(formDataObject);
     const user = await prisma.user.create({
@@ -495,11 +498,11 @@ export async function createUserAction(
       },
     });
 
-    return { success: "Projekt z sukcesem utworzony" };
+    return { success: 'Projekt z sukcesem utworzony' };
   } catch (error) {
-    console.error("❌ Database error:", error);
+    console.error('❌ Database error:', error);
     return {
-      errors: { form: "Coś poszło nie tak, spróbuj później" },
+      errors: { form: 'Coś poszło nie tak, spróbuj później' },
     };
   }
 }
