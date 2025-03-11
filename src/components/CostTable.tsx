@@ -1,13 +1,13 @@
-import { divide, remappingKeys } from "@/lib/customFunctions";
-import { Cost, Parameters } from "@prisma/client";
-import React from "react";
-import Table from "./Table";
+import { divide, remappingKeys } from '@/lib/customFunctions';
+import { Cost, Parameters } from '@prisma/client';
+import React from 'react';
+import Table from './Table';
 
 export enum dividerType {
-  NONE = "none",
-  PUMPUU = "pumpuu",
-  NETTO = "netto",
-  INDICATORS = "indicators",
+  NONE = 'none',
+  PUMPUU = 'pumpuu',
+  NETTO = 'netto',
+  INDICATORS = 'indicators',
 }
 
 interface CostTableProps {
@@ -68,68 +68,68 @@ export default function CostTable({
   }
 
   const labels = [
-    "id",
-    `N01${divider === dividerType.INDICATORS ? " +[PLN/PUM]" : ""}`,
-    `N03${divider === dividerType.INDICATORS ? " +[PLN/PUM]" : ""}`,
+    'id',
+    `N01${divider === dividerType.INDICATORS ? ' +[PLN/PUM]' : ''}`,
+    `N03${divider === dividerType.INDICATORS ? ' +[PLN/PUM]' : ''}`,
     `Roboty ziemne${
-      divider === dividerType.INDICATORS ? " +[PLN/POW FUNDAMENTÓW]" : ""
+      divider === dividerType.INDICATORS ? ' +[PLN/POW FUNDAMENTÓW]' : ''
     }`,
     `Zabezpieczenie wykopów${
-      divider === dividerType.INDICATORS ? " +[PLN/ZABUDOWY PODZIEMIA]" : ""
+      divider === dividerType.INDICATORS ? ' +[PLN/ZABUDOWY PODZIEMIA]' : ''
     }`,
     `Ściany szczelinowe${
-      divider === dividerType.INDICATORS ? " +[PLN/ZABUDOWY PODZIEMIA]" : ""
+      divider === dividerType.INDICATORS ? ' +[PLN/ZABUDOWY PODZIEMIA]' : ''
     }`,
     `Roboty palowe${
-      divider === dividerType.INDICATORS ? " +[PLN/POW FUNDAMENTÓW]" : ""
+      divider === dividerType.INDICATORS ? ' +[PLN/POW FUNDAMENTÓW]' : ''
     }`,
     `Prace fundamentowe${
-      divider === dividerType.INDICATORS ? " +[PLN/POW FUNDAMENTÓW]" : ""
+      divider === dividerType.INDICATORS ? ' +[PLN/POW FUNDAMENTÓW]' : ''
     }`,
     `Konstrukcja podziemia${
-      divider === dividerType.INDICATORS ? " +[PLN/NETTO PODZIEMIA]" : ""
+      divider === dividerType.INDICATORS ? ' +[PLN/NETTO PODZIEMIA]' : ''
     }`,
     `Konstrukcja nadziemia${
-      divider === dividerType.INDICATORS ? " +[PLN/NETTO NADZIEMIA]" : ""
+      divider === dividerType.INDICATORS ? ' +[PLN/NETTO NADZIEMIA]' : ''
     }`,
     `Elewacje${
-      divider === dividerType.INDICATORS ? " +[PLN/POW ELEWACJI]" : ""
+      divider === dividerType.INDICATORS ? ' +[PLN/POW ELEWACJI]' : ''
     }`,
-    `Dachy${divider === dividerType.INDICATORS ? " +[PLN/POW DACHÓW]" : ""}`,
-    `Wykończenie nadziemia${
-      divider === dividerType.INDICATORS ? " +[PLN/NETTO NADZIEMIA]" : ""
-    }`,
+    `Dachy${divider === dividerType.INDICATORS ? ' +[PLN/POW DACHÓW]' : ''}`,
     `Wykończenie podziemia${
-      divider === dividerType.INDICATORS ? " +[PLN/NETTO PODZIEMIA]" : ""
+      divider === dividerType.INDICATORS ? ' +[PLN/NETTO PODZIEMIA]' : ''
     }`,
-    `Windy${divider === dividerType.INDICATORS ? " +[PLN/NETTO PUM]" : ""}`,
-    `Parklifty${divider === dividerType.INDICATORS ? " +[PLN/NETTO PUM]" : ""}`,
+    `Wykończenie nadziemia${
+      divider === dividerType.INDICATORS ? ' +[PLN/NETTO NADZIEMIA]' : ''
+    }`,
+    `Windy${divider === dividerType.INDICATORS ? ' +[PLN/NETTO PUM]' : ''}`,
+    `Parklifty${divider === dividerType.INDICATORS ? ' +[PLN/NETTO PUM]' : ''}`,
     `Instalacje klimatyzacyjne${
-      divider === dividerType.INDICATORS ? " +[PLN/NETTO]" : ""
+      divider === dividerType.INDICATORS ? ' +[PLN/NETTO]' : ''
     }`,
     `Instalacje wodno-kanalizacyjne${
-      divider === dividerType.INDICATORS ? " +[PLN/NETTO]" : ""
+      divider === dividerType.INDICATORS ? ' +[PLN/NETTO]' : ''
     }`,
     `Instalacje gazowe${
-      divider === dividerType.INDICATORS ? " +[PLN/NETTO]" : ""
+      divider === dividerType.INDICATORS ? ' +[PLN/NETTO]' : ''
     }`,
     `Instalacje elektryczne${
-      divider === dividerType.INDICATORS ? " +[PLN/NETTO]" : ""
+      divider === dividerType.INDICATORS ? ' +[PLN/NETTO]' : ''
     }`,
     `Instalacje teletechniczne${
-      divider === dividerType.INDICATORS ? " +[PLN/NETTO]" : ""
+      divider === dividerType.INDICATORS ? ' +[PLN/NETTO]' : ''
     }`,
     `Infrastruktura${
-      divider === dividerType.INDICATORS ? " +[PLN/POW NIEZABUDOWANEJ]" : ""
+      divider === dividerType.INDICATORS ? ' +[PLN/POW NIEZABUDOWANEJ]' : ''
     }`,
     `DFA${
-      divider === dividerType.INDICATORS ? " +[PLN/POW NIEZABUDOWANEJ]" : ""
+      divider === dividerType.INDICATORS ? ' +[PLN/POW NIEZABUDOWANEJ]' : ''
     }`,
-    `Sieci${divider === dividerType.INDICATORS ? " +[PLN/PUM]" : ""}`,
-    `Koszty budowy${divider === dividerType.INDICATORS ? " +[PLN/PUM]" : ""}`,
-    `BHP${divider === dividerType.INDICATORS ? " +[PLN/PUM]" : ""}`,
+    `Sieci${divider === dividerType.INDICATORS ? ' +[PLN/PUM]' : ''}`,
+    `Koszty budowy${divider === dividerType.INDICATORS ? ' +[PLN/PUM]' : ''}`,
+    `BHP${divider === dividerType.INDICATORS ? ' +[PLN/PUM]' : ''}`,
     `Offset podza działką${
-      divider === dividerType.INDICATORS ? " +[PLN/PUM]" : ""
+      divider === dividerType.INDICATORS ? ' +[PLN/PUM]' : ''
     }`,
     `id projektu`,
   ];
