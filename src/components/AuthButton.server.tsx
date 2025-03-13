@@ -1,7 +1,7 @@
-import { SessionProvider } from "next-auth/react";
-import { BASE_PATH, auth } from "@/auth";
+import { SessionProvider } from 'next-auth/react';
+import { BASE_PATH, auth } from '@/auth';
 
-import AuthButtonClient from "./AuthButton.client";
+import AuthButtonClient from './AuthButton.client';
 
 export default async function AuthButton() {
   const session = await auth();
@@ -11,8 +11,6 @@ export default async function AuthButton() {
       email: session.user.email,
     };
   }
-
-  // console.log(session);
 
   return (
     <SessionProvider basePath={BASE_PATH} session={session}>

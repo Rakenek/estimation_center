@@ -71,7 +71,6 @@ export async function createProject(
 ): Promise<{ errors?: { form: string }; success?: string }> {
   try {
     const formDataObject = Object.fromEntries(formData.entries());
-    console.log(formDataObject);
 
     // Extract required fields
 
@@ -417,7 +416,7 @@ export async function updateProject(
 
 const handleDelete = async (publicId: string) => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-  console.log(`public id${publicId}`);
+
   try {
     const response = await fetch(`${baseUrl}/api/delete-image`, {
       method: 'DELETE',
@@ -486,9 +485,7 @@ export async function createUserAction(
 ) {
   console.log(prevState, formData);
   try {
-    console.log('tworze uzytkownika');
     const formDataObject = Object.fromEntries(formData.entries());
-    console.log(formDataObject);
     const user = await prisma.user.create({
       data: {
         username: formDataObject.username as string,

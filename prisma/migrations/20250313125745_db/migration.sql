@@ -81,6 +81,7 @@ CREATE TABLE "Cost" (
     "instalacje_teletechniczne" DOUBLE PRECISION NOT NULL,
     "infrastruktura" DOUBLE PRECISION NOT NULL,
     "dfa" DOUBLE PRECISION NOT NULL,
+    "zielen" DOUBLE PRECISION NOT NULL,
     "sieci" DOUBLE PRECISION NOT NULL,
     "koszty_budowy" DOUBLE PRECISION NOT NULL,
     "bhp" DOUBLE PRECISION NOT NULL,

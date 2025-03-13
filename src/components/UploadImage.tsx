@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { useState } from "react";
+import Image from 'next/image';
+import { useState } from 'react';
 
 interface UploadImageProps {
   handleDataFromChild: (data: string) => void;
@@ -15,16 +15,15 @@ export default function UploadImage({ handleDataFromChild }: UploadImageProps) {
     if (!file) return;
 
     const formData = new FormData();
-    formData.append("file", file);
+    formData.append('file', file);
 
-    const response = await fetch("/api/upload", {
-      method: "POST",
+    const response = await fetch('/api/upload', {
+      method: 'POST',
       body: formData,
     });
 
     const data = await response.json();
     if (data.url) {
-      console.log(data);
       setImageUrl(data.url);
       handleDataFromChild(data.url);
     }
