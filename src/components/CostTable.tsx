@@ -45,10 +45,7 @@ export default function CostTable({
       parameters.powierzchnia_netto_podziemia,
       parameters.powierzchnia_netto_nadziemia,
       parameters.powierzchnia_elewacji,
-      parameters.powierzchnia_dachow +
-        (parameters.powierzchnia_zabudowy_podziemia +
-          parameters.powierzchnia_zabudowy_nadziemia_poza_obrysem_podziemia -
-          parameters.powierzchnia_zabudowy_nadziemia),
+      parameters.powierzchnia_dachow,
       parameters.powierzchnia_netto_podziemia,
       parameters.powierzchnia_netto_nadziemia,
       parameters.pum_i_puu,
@@ -103,8 +100,8 @@ export default function CostTable({
     `Wykończenie nadziemia${
       divider === dividerType.INDICATORS ? ' +[PLN/NETTO NADZIEMIA]' : ''
     }`,
-    `Windy${divider === dividerType.INDICATORS ? ' +[PLN/NETTO PUM]' : ''}`,
-    `Parklifty${divider === dividerType.INDICATORS ? ' +[PLN/NETTO PUM]' : ''}`,
+    `Windy${divider === dividerType.INDICATORS ? ' +[PLN/PUM]' : ''}`,
+    `Parklifty${divider === dividerType.INDICATORS ? ' +[PLN/PUM]' : ''}`,
     `Instalacje klimatyzacyjne${
       divider === dividerType.INDICATORS ? ' +[PLN/NETTO]' : ''
     }`,
