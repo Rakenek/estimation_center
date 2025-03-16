@@ -12,7 +12,9 @@ export default function TableRow({ label, value }: TableRowParams) {
       <td className="px-6 py-4 text-sm text-gray-800 text-left">
         {separatedLabel[0]}
       </td>
-      <td className="px-6 py-4 text-sm text-gray-800 text-center">{value}</td>
+      <td className="px-6 py-4 text-sm text-gray-800 text-center">
+        {value.toLocaleString("fr-FR")}
+      </td>
       {separatedLabel.length === 2 ? (
         <td className="px-6 py-4 text-sm text-gray-800 text-left">
           {separatedLabel[1]}

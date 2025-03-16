@@ -1,66 +1,67 @@
-'use client';
-import React, { useActionState, useEffect, useState } from 'react';
-import * as XLSX from 'xlsx';
-import FormInput from './FormInput';
-import { redirect } from 'next/navigation';
-import { Cost, Parameters, Project } from '@prisma/client';
-import UploadImage from './UploadImage';
+"use client";
+import React, { useActionState, useEffect, useState } from "react";
+import * as XLSX from "xlsx";
+import FormInput from "./FormInput";
+import { redirect } from "next/navigation";
+import { Cost, Parameters, Project } from "@prisma/client";
+import UploadImage from "./UploadImage";
 
 const formLabels = [
-  'Nazwa',
-  'Miasto',
-  'Adres obrazu',
-  'Status',
-  'Koszt n03/PUM',
-  'Powierzchnia działki',
-  'Powierzchnia zabudowy nadziemia',
-  'Powierzchnia zabudowy podziemia',
-  'Zabudowa nadziemia poza obrysem podziemia',
-  'Powierzchnia niezabudowana działki',
-  'Powierzchnia dachów',
-  'Powierzchnia elewacji',
-  'Powierzchnia netto',
-  'Powierzchnia netto podziemia',
-  'Powierzchnia netto nadziemia',
-  'PUM i PUU',
-  'PUM',
-  'PUU',
-  'Powierzchnie wspólne nadziemia',
-  'Powierzchnia garazu w nadziemiu',
-  'Liczba kondygnacji',
-  'Liczba miejsc parkingowych w budynku',
-  'Liczba parkliftów',
-  'Liczba mieszkań',
-  'Średnia powierzchnia mieszkania',
-  'Udział powierzchni wspólnych nadziemia',
-  'Powierzchnia podziemia / PUM i PUU',
-  'n01',
-  'n03',
-  'Roboty ziemne',
-  'Zabezpieczenie wykopów',
-  'Ściany szczelinowe',
-  'Roboty palowe',
-  'Prace fundamentowe',
-  'Konstrukcja podziemia',
-  'Konstrukcja nadziemia',
-  'Elewacje',
-  'Dachy',
-  'Wykończenie podziemia',
-  'Wykończenie nadziemia',
-  'Windy',
-  'Parklifty',
-  'Instalacje klimatyzacyjne',
-  'Instalacje wodno-kanalizacyjne',
-  'Instalacje gazowe',
-  'Instalacje elektryczne',
-  'Instalacje teletechniczne',
-  'Infrastruktura',
-  'DFA',
-  'Zieleń',
-  'Sieci',
-  'Koszty budowy',
-  'BHP',
-  'Offset podza działką',
+  "Nazwa",
+  "Miasto",
+  "Adres obrazu",
+  "Status",
+  "Koszt n03/PUM",
+  "Powierzchnia działki",
+  "Powierzchnia zabudowy nadziemia",
+  "Powierzchnia zabudowy podziemia",
+  "Zabudowa nadziemia poza obrysem podziemia",
+  "Powierzchnia niezabudowana działki",
+  "Powierzchnia dachów",
+  "Powierzchnia elewacji",
+  "Powierzchnia netto",
+  "Powierzchnia netto podziemia",
+  "Powierzchnia netto nadziemia",
+  "PUM i PUU",
+  "PUM",
+  "PUU",
+  "Powierzchnie wspólne nadziemia",
+  "Powierzchnia garażu w nadziemiu",
+  "Liczba kondygnacji podziemnych",
+  "Liczba kondygnacji nadziemnych",
+  "Liczba miejsc parkingowych w budynku",
+  "Liczba parkliftów",
+  "Liczba mieszkań",
+  "Średnia powierzchnia mieszkania",
+  "Udział powierzchni wspólnych nadziemia",
+  "Powierzchnia podziemia / PUM i PUU",
+  "n01",
+  "n03",
+  "Roboty ziemne",
+  "Zabezpieczenie wykopów",
+  "Ściany szczelinowe",
+  "Roboty palowe",
+  "Prace fundamentowe",
+  "Konstrukcja podziemia",
+  "Konstrukcja nadziemia",
+  "Elewacje",
+  "Dachy",
+  "Wykończenie podziemia",
+  "Wykończenie nadziemia",
+  "Windy",
+  "Parklifty",
+  "Instalacje klimatyzacyjne",
+  "Instalacje wodno-kanalizacyjne",
+  "Instalacje gazowe",
+  "Instalacje elektryczne",
+  "Instalacje teletechniczne",
+  "Infrastruktura",
+  "DFA",
+  "Zieleń",
+  "Sieci",
+  "Koszty budowy",
+  "BHP",
+  "Offset podza działką",
 ];
 
 interface initialStateInterface {
@@ -84,7 +85,8 @@ interface initialStateInterface {
   puu: string | number;
   powierzchnie_wspolne_nadziemia: string | number;
   powierzchnia_garazu_w_nadziemiu: string | number;
-  liczba_kondygnacji: string | number;
+  liczba_kondygnacji_podziemnych: string | number;
+  liczba_kondygnacji_nadziemnych: string | number;
   liczba_miejsc_parkingowych_w_budynku: string | number;
   liczba_parkliftow: string | number;
   ilosc_mieszkan: string | number;
@@ -121,60 +123,61 @@ interface initialStateInterface {
 }
 
 const initialState: initialStateInterface = {
-  name: '',
-  city: '',
-  image_url: '',
-  status: '',
-  n03_do_PUM: '',
-  powierzchnia_dzialki: '',
-  powierzchnia_zabudowy_nadziemia: '',
-  powierzchnia_zabudowy_podziemia: '',
-  powierzchnia_zabudowy_nadziemia_poza_obrysem_podziemia: '',
-  powierzchnia_niezabudowana_dzialki: '',
-  powierzchnia_dachow: '',
-  powierzchnia_elewacji: '',
-  powierzchnia_netto: '',
-  powierzchnia_netto_podziemia: '',
-  powierzchnia_netto_nadziemia: '',
-  pum_i_puu: '',
-  pum: '',
-  puu: '',
-  powierzchnie_wspolne_nadziemia: '',
-  powierzchnia_garazu_w_nadziemiu: '',
-  liczba_kondygnacji: '',
-  liczba_miejsc_parkingowych_w_budynku: '',
-  liczba_parkliftow: '',
-  ilosc_mieszkan: '',
-  srednia_powierzchnia_mieszkania: '',
-  udzial_powierzchni_wspolnych_nadziemia: '',
-  pow_podziemia_do_pum_i_puu: '',
-  n01: '',
-  n03: '',
-  roboty_ziemne: '',
-  zabezpieczenie_wykopow: '',
-  sciany_szczelinowe: '',
-  roboty_palowe: '',
-  prace_fundamentowe: '',
-  konstrukcja_podziemia: '',
-  konstrukcja_nadziemia: '',
-  elewacje: '',
-  dachy: '',
-  wykonczenie_podziemia: '',
-  wykonczenie_nadziemia: '',
-  windy: '',
-  parklifty: '',
-  instalacje_klimatyzacyjne: '',
-  instalacje_wodno_kanalizacyjne: '',
-  instalacje_gazowe: '',
-  instalacje_elektryczne: '',
-  instalacje_teletechniczne: '',
-  infrastruktura: '',
-  dfa: '',
-  zielen: '',
-  sieci: '',
-  koszty_budowy: '',
-  bhp: '',
-  offset_poza_dzialka: '',
+  name: "",
+  city: "",
+  image_url: "",
+  status: "",
+  n03_do_PUM: "",
+  powierzchnia_dzialki: "",
+  powierzchnia_zabudowy_nadziemia: "",
+  powierzchnia_zabudowy_podziemia: "",
+  powierzchnia_zabudowy_nadziemia_poza_obrysem_podziemia: "",
+  powierzchnia_niezabudowana_dzialki: "",
+  powierzchnia_dachow: "",
+  powierzchnia_elewacji: "",
+  powierzchnia_netto: "",
+  powierzchnia_netto_podziemia: "",
+  powierzchnia_netto_nadziemia: "",
+  pum_i_puu: "",
+  pum: "",
+  puu: "",
+  powierzchnie_wspolne_nadziemia: "",
+  powierzchnia_garazu_w_nadziemiu: "",
+  liczba_kondygnacji_podziemnych: "",
+  liczba_kondygnacji_nadziemnych: "",
+  liczba_miejsc_parkingowych_w_budynku: "",
+  liczba_parkliftow: "",
+  ilosc_mieszkan: "",
+  srednia_powierzchnia_mieszkania: "",
+  udzial_powierzchni_wspolnych_nadziemia: "",
+  pow_podziemia_do_pum_i_puu: "",
+  n01: "",
+  n03: "",
+  roboty_ziemne: "",
+  zabezpieczenie_wykopow: "",
+  sciany_szczelinowe: "",
+  roboty_palowe: "",
+  prace_fundamentowe: "",
+  konstrukcja_podziemia: "",
+  konstrukcja_nadziemia: "",
+  elewacje: "",
+  dachy: "",
+  wykonczenie_podziemia: "",
+  wykonczenie_nadziemia: "",
+  windy: "",
+  parklifty: "",
+  instalacje_klimatyzacyjne: "",
+  instalacje_wodno_kanalizacyjne: "",
+  instalacje_gazowe: "",
+  instalacje_elektryczne: "",
+  instalacje_teletechniczne: "",
+  infrastruktura: "",
+  dfa: "",
+  zielen: "",
+  sieci: "",
+  koszty_budowy: "",
+  bhp: "",
+  offset_poza_dzialka: "",
 };
 
 interface ProjectDataFormProps {
@@ -199,10 +202,10 @@ export default function ProjectDataForm({
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [state, formAction] = useActionState(action, {
-    errors: { form: '' },
-    success: '',
+    errors: { form: "" },
+    success: "",
   });
-  const [cloudinaryImg, setCloudinaryImg] = useState('');
+  const [cloudinaryImg, setCloudinaryImg] = useState("");
 
   const handleDataFromChild = (data: string) => {
     setCloudinaryImg(data);
@@ -210,15 +213,15 @@ export default function ProjectDataForm({
 
   if (state.success?.length > 0) {
     setFormData(initialState);
-    redirect('/search');
+    redirect("/search");
   }
 
   const readExcelFile = (file: File) => {
     const reader = new FileReader();
     reader.onload = (e) => {
       const data = e.target?.result;
-      const workbook = XLSX.read(data, { type: 'array' });
-      const sheet = workbook.Sheets['EC'];
+      const workbook = XLSX.read(data, { type: "array" });
+      const sheet = workbook.Sheets["EC"];
       const json: string[][] = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
       const newObj = Object.keys(formData).reduce<typeof initialState>(
@@ -303,10 +306,10 @@ export default function ProjectDataForm({
           >
             <button
               className={`mt-4 p-2 bg-blue-500 text-white rounded ${
-                loading ? 'bg-blue-950' : ''
+                loading ? "bg-blue-950" : ""
               }`}
             >
-              {loading ? 'Wysyłam dane...' : 'Wyślij dane'}
+              {loading ? "Wysyłam dane..." : "Wyślij dane"}
             </button>
           </div>
         </div>
@@ -314,7 +317,7 @@ export default function ProjectDataForm({
         <div className="flex justify-center items-center">
           <div className="grid grid-cols-4 gap-5 ">
             {Object.keys(formData).map((key, index) => {
-              const type = index < 4 ? 'text' : 'number';
+              const type = index < 4 ? "text" : "number";
               return (
                 <React.Fragment key={key}>
                   {index === 0 && (
@@ -327,26 +330,26 @@ export default function ProjectDataForm({
                       Parametry inwestycji
                     </div>
                   )}
-                  {index === 26 && (
+                  {index === 27 && (
                     <div className="mt-10 col-span-4 text-2xl font-semibold">
                       Koszty
                     </div>
                   )}
                   <FormInput
                     key={key}
-                    readOnly={key === 'image_url' ? true : false}
+                    readOnly={key === "image_url" ? true : false}
                     type={type}
                     label={formLabels[index]}
                     name={key}
                     // value={formData[key as keyof typeof formData]}
                     value={
-                      key !== 'image_url'
+                      key !== "image_url"
                         ? formData[key as keyof typeof formData]
                         : cloudinaryImg
                         ? cloudinaryImg
                         : newInitialData
                         ? newInitialData.image_url
-                        : 'https://res.cloudinary.com/duv2kieyz/image/upload/v1740656853/my-nextjs-project/sg05cnm7lcq9ccu2jyvb.jpg'
+                        : "https://res.cloudinary.com/duv2kieyz/image/upload/v1740656853/my-nextjs-project/sg05cnm7lcq9ccu2jyvb.jpg"
                     }
                     onChange={handleInputChange}
                   />
@@ -373,10 +376,10 @@ export default function ProjectDataForm({
           >
             <button
               className={`mt-4 p-2 bg-blue-500 text-white rounded ${
-                loading ? 'bg-blue-950' : ''
+                loading ? "bg-blue-950" : ""
               }`}
             >
-              {loading ? 'Wysyłam dane...' : 'Wyślij dane'}
+              {loading ? "Wysyłam dane..." : "Wyślij dane"}
             </button>
           </div>
         </div>

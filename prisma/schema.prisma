@@ -59,7 +59,8 @@ model Parameters {
   puu                                                    Float
   powierzchnie_wspolne_nadziemia                         Float
   powierzchnia_garazu_w_nadziemiu                        Float
-  liczba_kondygnacji                                     Float
+  liczba_kondygnacji_podziemnych                         Float
+  liczba_kondygnacji_nadziemnych                         Float
   liczba_miejsc_parkingowych_w_budynku                   Float
   liczba_parkliftow                                      Float
   ilosc_mieszkan                                         Float

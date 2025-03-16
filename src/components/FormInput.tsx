@@ -27,7 +27,7 @@ export default function FormInput({
         type={type}
         id={name}
         name={name}
-        value={value}
+        value={typeof value === "number" ? value.toFixed(2) : value}
         onChange={onChange}
         required
         className="border p-2 rounded w-full text-black"
