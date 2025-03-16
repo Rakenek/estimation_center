@@ -147,7 +147,7 @@ export async function generateFlattenedDefaultObject(modelNames: string[]) {
   };
 
   // Create a single object with all model properties flattened
-  //@ts-expect-error
+  //@ts-expect-error: Doesnt have id props
   const flattenedObject: Project & Parameters & Cost = {};
 
   for (const modelName of modelNames) {
