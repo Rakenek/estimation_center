@@ -1,16 +1,16 @@
-import { Cost, Parameters, Project } from '@prisma/client';
-import { prisma } from './prisma';
+import { Cost, Parameters, Project } from "@prisma/client";
+import { prisma } from "./prisma";
 
 export function snakeToTitleCase(str: string): string {
   return str
-    .split('_') // Split the string by underscores
+    .split("_") // Split the string by underscores
     .map(
       (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() // Capitalize first letter, lowercase the rest
     )
-    .join(' '); // Join the words with a space in between
+    .join(" "); // Join the words with a space in between
 }
 export function cn(...classes: (string | boolean)[]) {
-  return classes.filter(Boolean).join(' ');
+  return classes.filter(Boolean).join(" ");
 }
 
 export function remappingKeys(
@@ -30,11 +30,11 @@ export function divide(
   dataTable: { name: string; value: string | number }[],
   divider: number | number[]
 ) {
-  if (typeof divider === 'number') {
+  if (typeof divider === "number") {
     const newDataTable = dataTable.map((item) => {
       return {
         name: item.name,
-        value: Math.round(+item.value / divider).toLocaleString('fr-FR'),
+        value: Math.round(+item.value / divider).toLocaleString("fr-FR"),
       };
     });
     return newDataTable;
@@ -42,7 +42,7 @@ export function divide(
     const newDataTable = dataTable.map((item, index) => {
       return {
         name: item.name,
-        value: Math.round(+item.value / divider[index]).toLocaleString('fr-FR'),
+        value: Math.round(+item.value / divider[index]).toLocaleString("fr-FR"),
       };
     });
     return newDataTable;
@@ -88,14 +88,14 @@ export async function generateDefaultObject(modelName: string) {
   const defaultObject = Object.fromEntries(
     modelFields
       .map(({ column_name, data_type }) => ({ column_name, data_type }))
-      .filter(({ column_name }) => !column_name.includes('id')) // Exclude fields with "id" in the name
+      .filter(({ column_name }) => !column_name.includes("id")) // Exclude fields with "id" in the name
       .map(({ column_name, data_type }) => [
         column_name,
-        data_type.includes('double') ||
-        data_type.includes('numeric') ||
-        data_type.includes('float')
+        data_type.includes("double") ||
+        data_type.includes("numeric") ||
+        data_type.includes("float")
           ? 0 // Set Float fields to 0
-          : '', // Set String fields to ""
+          : "", // Set String fields to ""
       ])
   );
 
@@ -134,20 +134,20 @@ export async function generateFlattenedDefaultObject(modelNames: string[]) {
     return Object.fromEntries(
       modelFields
         .map(({ column_name, data_type }) => ({ column_name, data_type }))
-        .filter(({ column_name }) => !column_name.includes('id')) // Exclude fields with "id" in the name
+        .filter(({ column_name }) => !column_name.includes("id")) // Exclude fields with "id" in the name
         .map(({ column_name, data_type }) => [
           column_name,
-          data_type.includes('double') ||
-          data_type.includes('numeric') ||
-          data_type.includes('float')
+          data_type.includes("double") ||
+          data_type.includes("numeric") ||
+          data_type.includes("float")
             ? 0 // Set Float fields to 0
-            : '', // Set String fields to ""
+            : "", // Set String fields to ""
         ])
     );
   };
 
   // Create a single object with all model properties flattened
-  //@ts-ignore
+  //@ts-expect-error
   const flattenedObject: Project & Parameters & Cost = {};
 
   for (const modelName of modelNames) {
