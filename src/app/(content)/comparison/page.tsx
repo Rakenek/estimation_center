@@ -1,21 +1,20 @@
-import { prisma } from "@/lib/prisma";
-import React from "react";
-import ComparasionSearchBar from "@/components/ComparasionSearchBar";
+import { prisma } from '@/lib/prisma';
+import React from 'react';
+
+import ComparasionDashboard from '@/components/ComparasionDashboard';
 
 export default async function ComparisonPage() {
   try {
     const projects = await prisma.project.findMany();
-    const projectsNames = projects.map((project) => project.name);
+    const cost = await prisma.cost.findMany();
+    const parameters = await prisma.parameters.findMany();
 
     return (
-      <div className="flex">
-        <div className="w-1/2">
-          <ComparasionSearchBar suggestions={projectsNames} />
-        </div>
-        <div className="w-1/2">
-          <ComparasionSearchBar suggestions={projectsNames} />
-        </div>
-      </div>
+      <ComparasionDashboard
+        projects={projects}
+        cost={cost}
+        parameters={parameters}
+      />
     );
   } catch (e) {
     console.error(e);

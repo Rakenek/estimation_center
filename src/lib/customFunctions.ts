@@ -1,16 +1,16 @@
-import { Cost, Parameters, Project } from "@prisma/client";
-import { prisma } from "./prisma";
+import { Cost, Parameters, Project } from '@prisma/client';
+import { prisma } from './prisma';
 
 export function snakeToTitleCase(str: string): string {
   return str
-    .split("_") // Split the string by underscores
+    .split('_') // Split the string by underscores
     .map(
       (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() // Capitalize first letter, lowercase the rest
     )
-    .join(" "); // Join the words with a space in between
+    .join(' '); // Join the words with a space in between
 }
 export function cn(...classes: (string | boolean)[]) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 
 export function remappingKeys(
@@ -30,7 +30,7 @@ export function divide(
   dataTable: { name: string; value: string | number }[],
   divider: number | number[]
 ) {
-  if (typeof divider === "number") {
+  if (typeof divider === 'number') {
     const newDataTable = dataTable.map((item) => {
       return {
         name: item.name,
