@@ -18,8 +18,8 @@ export default async function Navbar() {
       <NavigationButton href={`/search`} text={'Wyszukiwarka Projektów'} />
       <NavigationButton href={`/comparison`} text={'Porównywarka'} />
       <NavigationButton
-        href={`/estimation-generator`}
-        text={'Generator wyceny'}
+        href={`/maket-price-changes`}
+        text={'Cenowe Trendy Rynkowe'}
       />
       <NavigationButton href={`/add-project`} text={'Dodaj projekt'} />
 

@@ -89,7 +89,7 @@ export default function ComparasionDashboard({
           <DropdownMenu options={dropdownOptions} onSelect={onDropdownChange} />
         </div>
         {selectedProject1 && selectedProject2 ? (
-          <div className="pt-[34.5px]">
+          <div className="pt-[34px]">
             <DifferenceTable
               proj1={selectedProject1}
               proj2={selectedProject2}
