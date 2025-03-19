@@ -74,6 +74,57 @@ export function getPublicIdFromUrl(secureUrl: string): string | null {
   return null; // Return null if the URL doesn't match the expected format
 }
 
+export function subtractObjects<T extends Cost>(obj1: T, obj2: T): T {
+  const result = {} as T; // Explicitly define result as T
+
+  for (const key in obj1) {
+    if (obj1.hasOwnProperty(key) && obj2.hasOwnProperty(key)) {
+      if (typeof obj1[key] === 'number' && typeof obj2[key] === 'number') {
+        result[key] = (obj1[key] - obj2[key]) as T[typeof key]; // Type assertion to maintain type safety
+      } else if (
+        typeof obj1[key] === 'string' &&
+        typeof obj2[key] === 'string'
+      ) {
+        result[key] = obj1[key] as T[typeof key];
+      }
+    }
+  }
+
+  return result;
+}
+
+interface Item {
+  name: string;
+  value: number;
+}
+
+export function combineArrays(arr1: Item[], arr2: Item[]): Item[] {
+  // Create a new array to store the result
+  const result: Item[] = [];
+
+  // Loop through arr1 and match with arr2 based on name
+  arr1.forEach((item1) => {
+    // Find the matching item in arr2 based on the 'name'
+    const item2 = arr2.find((item) => item.name === item1.name);
+
+    if (item2) {
+      // If a match is found, subtract values and push the result to the new array
+      result.push({
+        name: item1.name,
+        value: item1.value - item2.value,
+      });
+    } else {
+      // If no match is found, just take the item from arr1
+      result.push({
+        name: item1.name,
+        value: item1.value,
+      });
+    }
+  });
+
+  return result;
+}
+
 // export async function generateDefaultObject(modelName: string) {
 //   // Fetch column names and types dynamically from the database
 //   const modelFields = await prisma.$queryRaw<

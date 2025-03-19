@@ -4,9 +4,14 @@ import TableRow from './TableRow';
 interface TableProps {
   dataTable: { name: string; value: string | number }[];
   tableName: string;
+  differenceTable?: boolean;
 }
 
-export default function Table({ dataTable, tableName }: TableProps) {
+export default function Table({
+  dataTable,
+  tableName,
+  differenceTable = false,
+}: TableProps) {
   return (
     <div className="overflow-x-auto max-w-xl mx-auto">
       <table className="min-w-full table-auto bg-white shadow-lg rounded-lg">
@@ -26,6 +31,7 @@ export default function Table({ dataTable, tableName }: TableProps) {
               key={dataElement.name}
               label={dataElement.name}
               value={dataElement.value}
+              differenceTable={differenceTable}
             />
           ))}
         </tbody>

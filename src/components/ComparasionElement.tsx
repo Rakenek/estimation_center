@@ -8,7 +8,8 @@ interface ComparasionDashboard {
   projects: Project[];
   cost: Cost[];
   parameters: Parameters[];
-  handleCost: (selectedCost: Cost) => void;
+  handleCost: (selectedCost: Cost, selectedParameters: Parameters) => void;
+  divider: dividerType;
 }
 
 export default function ComparasionElement({
@@ -16,6 +17,7 @@ export default function ComparasionElement({
   cost,
   parameters,
   handleCost,
+  divider,
 }: ComparasionDashboard) {
   const [selectedProject, setSelectedProject] = useState<Project>(null);
   const [selectedCost, setSelectedCost] = useState<Cost>(null);
@@ -32,11 +34,11 @@ export default function ComparasionElement({
     setSelectedProject(selProject);
     setSelectedCost(selCost);
     setSelectedParameters(selParameters);
-    handleCost(selCost);
+    handleCost(selCost, selParameters);
   }
 
   return (
-    <div>
+    <>
       <div className="p-8">
         <ComparasionSearchBar
           suggestions={projectsNames}
@@ -46,13 +48,13 @@ export default function ComparasionElement({
       <div>
         {selectedCost ? (
           <CostTable
-            divider={dividerType.INDICATORS}
+            divider={divider}
             cost={selectedCost}
             parameters={selectedParameters}
             tableName={`${selectedProject.name} - wskaźniki miarodajne`}
           />
         ) : null}
       </div>
-    </div>
+    </>
   );
 }
