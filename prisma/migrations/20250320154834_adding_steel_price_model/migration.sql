@@ -92,6 +92,19 @@ CREATE TABLE "Cost" (
     CONSTRAINT "Cost_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "SteelPrice" (
+    "id" TEXT NOT NULL,
+    "week" TEXT NOT NULL,
+    "min_PUDS" INTEGER NOT NULL,
+    "max_PUDS" INTEGER NOT NULL,
+    "avg_PUDS" INTEGER NOT NULL,
+    "prefabricated" INTEGER NOT NULL,
+    "complete" INTEGER NOT NULL,
+
+    CONSTRAINT "SteelPrice_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "User_username_key" ON "User"("username");
 

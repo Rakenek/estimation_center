@@ -103,3 +103,14 @@ model Cost {
   project_id                     String  @unique
   project                        Project @relation(fields: [project_id], references: [id])
 }
+
+model SteelPrice{
+  id          Int     @id @default(autoincrement())
+  year Int
+  week String
+  min_PUDS Int
+  max_PUDS Int
+  avg_PUDS Int
+  prefabricated Int
+  complete Int
+}

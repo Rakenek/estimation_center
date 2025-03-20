@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { Line } from 'react-chartjs-2';
+import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,8 +10,8 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
-import type { ChartOptions } from 'chart.js';
+} from "chart.js";
+import type { ChartOptions } from "chart.js";
 
 ChartJS.register(
   CategoryScale,
@@ -25,26 +25,26 @@ ChartJS.register(
 
 const ChartComponent = () => {
   const data = {
-    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+    labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6"],
     datasets: [
       {
-        label: 'Steel Cost ($)',
+        label: "Steel Cost ($)",
         data: [1200, 1250, 1190, 1300, 1350, 1280],
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.2)",
       },
     ],
   };
 
-  const options: ChartOptions<'line'> = {
+  const options: ChartOptions<"line"> = {
     responsive: true,
     plugins: {
       legend: {
-        position: 'top' as const,
+        position: "top" as const,
       },
       title: {
         display: true,
-        text: 'Weekly Steel Cost Data',
+        text: "Weekly Steel Cost Data",
       },
     },
   };
