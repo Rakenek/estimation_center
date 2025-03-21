@@ -1,7 +1,7 @@
-import { prisma } from '@/lib/prisma';
-import React from 'react';
+import { prisma } from "@/lib/prisma";
+import React, { Suspense } from "react";
 
-import ComparasionDashboard from '@/components/ComparasionDashboard';
+import ComparasionDashboard from "@/components/ComparasionDashboard";
 
 export default async function ComparisonPage() {
   try {
@@ -10,11 +10,13 @@ export default async function ComparisonPage() {
     const parameters = await prisma.parameters.findMany();
 
     return (
-      <ComparasionDashboard
-        projects={projects}
-        cost={cost}
-        parameters={parameters}
-      />
+      <Suspense fallback={<div>Loading...</div>}>
+        <ComparasionDashboard
+          projects={projects}
+          cost={cost}
+          parameters={parameters}
+        />
+      </Suspense>
     );
   } catch (e) {
     console.error(e);
