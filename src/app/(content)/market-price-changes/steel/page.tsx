@@ -13,7 +13,7 @@ export default async function SteelPage() {
         <SteelPriceChart steelPrice={steelPrice} />
       </Suspense>
       <div className="pt-10">
-        <LinkButton href={"/maket-price-changes/steel/add-data"}>
+        <LinkButton href={"/market-price-changes/steel/add-data"}>
           Dodaj dane
         </LinkButton>
       </div>

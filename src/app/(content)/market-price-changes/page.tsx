@@ -6,7 +6,7 @@ export default function MarketPriceChangesPage() {
   return (
     <div className="flex justify-center pt-32">
       <div className="p-10">
-        <Link href="/maket-price-changes/steel">
+        <Link href="/market-price-changes/steel">
           <div className="relative group">
             {/* Image */}
             <Image
@@ -25,7 +25,7 @@ export default function MarketPriceChangesPage() {
       </div>
 
       <div className="p-10">
-        <Link href="/maket-price-changes/materials">
+        <Link href="/market-price-changes/materials">
           <div className="relative group">
             {/* Image */}
             <Image

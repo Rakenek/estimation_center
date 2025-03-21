@@ -1,16 +1,16 @@
-import { Cost, Parameters, Project } from '@prisma/client';
-import { prisma } from './prisma';
+import { Cost, Parameters, Project } from "@prisma/client";
+import { prisma } from "./prisma";
 
 export function snakeToTitleCase(str: string): string {
   return str
-    .split('_') // Split the string by underscores
+    .split("_") // Split the string by underscores
     .map(
       (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() // Capitalize first letter, lowercase the rest
     )
-    .join(' '); // Join the words with a space in between
+    .join(" "); // Join the words with a space in between
 }
 export function cn(...classes: (string | boolean)[]) {
-  return classes.filter(Boolean).join(' ');
+  return classes.filter(Boolean).join(" ");
 }
 
 export function remappingKeys(
@@ -30,7 +30,7 @@ export function divide(
   dataTable: { name: string; value: string | number }[],
   divider: number | number[]
 ) {
-  if (typeof divider === 'number') {
+  if (typeof divider === "number") {
     const newDataTable = dataTable.map((item) => {
       return {
         name: item.name,
@@ -79,11 +79,11 @@ export function subtractObjects<T extends Cost>(obj1: T, obj2: T): T {
 
   for (const key in obj1) {
     if (obj1.hasOwnProperty(key) && obj2.hasOwnProperty(key)) {
-      if (typeof obj1[key] === 'number' && typeof obj2[key] === 'number') {
+      if (typeof obj1[key] === "number" && typeof obj2[key] === "number") {
         result[key] = (obj1[key] - obj2[key]) as T[typeof key]; // Type assertion to maintain type safety
       } else if (
-        typeof obj1[key] === 'string' &&
-        typeof obj2[key] === 'string'
+        typeof obj1[key] === "string" &&
+        typeof obj2[key] === "string"
       ) {
         result[key] = obj1[key] as T[typeof key];
       }
@@ -125,103 +125,23 @@ export function combineArrays(arr1: Item[], arr2: Item[]): Item[] {
   return result;
 }
 
-// export async function generateDefaultObject(modelName: string) {
-//   // Fetch column names and types dynamically from the database
-//   const modelFields = await prisma.$queryRaw<
-//     { column_name: string; data_type: string }[]
-//   >`
-//     SELECT column_name, data_type
-//     FROM information_schema.columns
-//     WHERE table_name = ${modelName}
-//   `;
+interface SteelPrice {
+  year: number;
+  week: string;
+  min_PUDS: number;
+  max_PUDS: number;
+  avg_PUDS: number;
+  prefabricated: number;
+  complete: number;
+}
 
-//   // Generate object with defaults
-//   const defaultObject = Object.fromEntries(
-//     modelFields
-//       .map(({ column_name, data_type }) => ({ column_name, data_type }))
-//       .filter(({ column_name }) => !column_name.includes("id")) // Exclude fields with "id" in the name
-//       .map(({ column_name, data_type }) => [
-//         column_name,
-//         data_type.includes("double") ||
-//         data_type.includes("numeric") ||
-//         data_type.includes("float")
-//           ? 0 // Set Float fields to 0
-//           : "", // Set String fields to ""
-//       ])
-//   );
-
-//   return defaultObject;
-// }
-
-// function moveFirstPropToLast(
-//   obj: Record<string, unknown>
-// ): Record<string, unknown> {
-//   // Get the first key in the object
-//   const firstKey = Object.keys(obj)[0];
-
-//   // Create a new object with the first property moved to the end
-//   const { [firstKey]: firstValue, ...rest } = obj;
-
-//   // Return a new object with the first property at the end
-//   return {
-//     ...rest,
-//     [firstKey]: firstValue,
-//   };
-// }
-
-// export async function generateFlattenedDefaultObject(modelNames: string[]) {
-//   // Helper function to generate default object for a single model
-//   const generateDefaultObject = async (modelName: string) => {
-//     // Fetch column names and types dynamically from the database
-//     const modelFields = await prisma.$queryRaw<
-//       { column_name: string; data_type: string }[]
-//     >`
-//       SELECT column_name, data_type
-//       FROM information_schema.columns
-//       WHERE table_name = ${modelName}
-//     `;
-
-//     // Generate object with defaults
-//     return Object.fromEntries(
-//       modelFields
-//         .map(({ column_name, data_type }) => ({ column_name, data_type }))
-//         .filter(({ column_name }) => !column_name.includes("id")) // Exclude fields with "id" in the name
-//         .map(({ column_name, data_type }) => [
-//           column_name,
-//           data_type.includes("double") ||
-//           data_type.includes("numeric") ||
-//           data_type.includes("float")
-//             ? 0 // Set Float fields to 0
-//             : "", // Set String fields to ""
-//         ])
-//     );
-//   };
-
-//   // Create a single object with all model properties flattened
-//   //@ts-expect-error: Doesnt have id props
-//   const flattenedObject: Project & Parameters & Cost = {};
-
-//   for (const modelName of modelNames) {
-//     const defaultObject = moveFirstPropToLast(
-//       await generateDefaultObject(modelName)
-//     );
-
-//     // Flatten the model object and add to the final object
-//     Object.assign(flattenedObject, defaultObject);
-//   }
-
-//   // console.log(flattenedObject);
-//   return flattenedObject;
-// }
-
-// export async function getEmptyDatabaseObject() {
-//   const costObject = await generateFlattenedDefaultObject([
-//     "Project",
-//     "Parameters",
-//     "Cost",
-//   ]);
-//   costObject.image_url =
-//     "https://res-console.cloudinary.com/duv2kieyz/thumbnails/v1/image/upload/v1740656853/bXktbmV4dGpzLXByb2plY3Qvc2cwNWNubTdsY3E5Y2N1Mmp5dmI=/preview";
-
-//   return costObject;
-// }
+export const transformSteelPrices = (steelPrices: SteelPrice[]) => {
+  return steelPrices.map((item) => ({
+    yearAndWeek: `${item.week} - ${item.year}`,
+    min_PUDS: item.min_PUDS,
+    max_PUDS: item.max_PUDS,
+    avg_PUDS: item.avg_PUDS,
+    prefabricated: item.prefabricated,
+    complete: item.complete,
+  }));
+};

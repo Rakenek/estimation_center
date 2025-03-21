@@ -94,7 +94,8 @@ CREATE TABLE "Cost" (
 
 -- CreateTable
 CREATE TABLE "SteelPrice" (
-    "id" TEXT NOT NULL,
+    "id" SERIAL NOT NULL,
+    "year" INTEGER NOT NULL,
     "week" TEXT NOT NULL,
     "min_PUDS" INTEGER NOT NULL,
     "max_PUDS" INTEGER NOT NULL,

@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Ignore the seed.ts file in the prisma folder
+/prisma/seed.ts

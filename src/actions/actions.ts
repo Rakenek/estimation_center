@@ -5,6 +5,7 @@ import { hashPasswordWithSalt } from "@/lib/bcryptFunctions";
 import { getPublicIdFromUrl } from "@/lib/customFunctions";
 import { PrismaClient, Role } from "@prisma/client";
 import { revalidatePath } from "next/cache";
+import { FullSteelPriceData } from "@/lib/data";
 
 const prisma = new PrismaClient(); // ✅ Use a single Prisma instance
 
@@ -490,7 +491,6 @@ export async function createUserAction(
   prevState: { errors?: { form: string }; success?: string },
   formData: FormData
 ) {
-  console.log(prevState, formData);
   try {
     const formDataObject = Object.fromEntries(formData.entries());
     const user = await prisma.user.create({
@@ -503,6 +503,42 @@ export async function createUserAction(
     });
 
     return { success: "Projekt z sukcesem utworzony" };
+  } catch (error) {
+    console.error("❌ Database error:", error);
+    return {
+      errors: { form: "Coś poszło nie tak, spróbuj później" },
+    };
+  }
+}
+
+export async function addSteelPriceData(
+  prevState: { errors?: { form: string }; success?: string },
+  formData: FormData
+) {
+  try {
+    const formDataObject = Object.fromEntries(formData.entries());
+    const avg =
+      (parseFloat(formDataObject.minPUDS as string) +
+        parseFloat(formDataObject.maxPUDS as string)) /
+      2;
+    const pref = Math.round((avg + 800) / 25) * 25;
+    const compl = pref + 2000;
+
+    // await prisma.steelPrice.createMany({ data: FullSteelPriceData });
+
+    const steelData = await prisma.steelPrice.create({
+      data: {
+        year: parseFloat(formDataObject.year as string),
+        week: formDataObject.week as string,
+        min_PUDS: parseFloat(formDataObject.minPUDS as string),
+        max_PUDS: parseFloat(formDataObject.maxPUDS as string),
+        avg_PUDS: avg,
+        prefabricated: pref,
+        complete: compl,
+      },
+    });
+
+    return { success: "Dane kosztu stali z sukcesem dodane" };
   } catch (error) {
     console.error("❌ Database error:", error);
     return {
