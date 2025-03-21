@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 import React, { Suspense } from "react";
 
 import ComparasionDashboard from "@/components/ComparasionDashboard";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 export default async function ComparisonPage() {
   try {
@@ -10,7 +11,7 @@ export default async function ComparisonPage() {
     const parameters = await prisma.parameters.findMany();
 
     return (
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<LoadingSpinner />}>
         <ComparasionDashboard
           projects={projects}
           cost={cost}
