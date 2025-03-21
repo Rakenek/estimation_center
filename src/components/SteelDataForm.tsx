@@ -39,11 +39,6 @@ const SteelDataForm = ({ steelPrice, action }: SteelDataFormProps) => {
   };
 
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(formData);
-    // Add your form submission logic here
-  };
 
   if (state.success.length > 0) {
     redirect("/market-price-changes/steel");
