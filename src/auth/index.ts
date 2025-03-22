@@ -44,7 +44,11 @@ const authOptions: NextAuthConfig = {
   pages: {
     signIn: "/auth/signin", // 🔥 Custom login page
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET, // Secret is defined here for encryption
+  session: {
+    strategy: "jwt", // Use JWT for session management
+    maxAge: 5 * 24 * 60 * 60, // Session will last 30 days (in seconds)
+  },
 };
 
 export const { handlers, auth, signIn, signOut } = NextAuth(authOptions);
