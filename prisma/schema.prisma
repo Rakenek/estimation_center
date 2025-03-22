@@ -114,3 +114,29 @@ model SteelPrice{
   prefabricated Int
   complete Int
 }
+
+model MaterialPrice{
+  id          Int     @id @default(autoincrement())
+  year Int
+  month Int
+  sciany_kominy Float
+  izolacje_wodochronne Float
+  dachy_rynny Float
+  izolacje_termiczne Float
+  chemia_budowlana Float
+  stolarka Float
+  sucha_zabudowa Float
+  plyty_osb Float
+  narzedzia Float
+  cement_wapno Float
+  farby_lakiery Float
+  plytki_lazienki_kuchnie Float
+  instalacje_ogrzewania Float
+  wyposazenie_agd Float
+  ogrod_hobby Float
+  dekoracje Float
+  motoryzacja Float
+  wykonczenia Float
+  elektryka_oswietlenie Float
+  otoczenie_domu Float
+}

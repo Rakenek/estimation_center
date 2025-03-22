@@ -1,4 +1,4 @@
-import { Cost, Parameters, Project } from "@prisma/client";
+import { Cost, MaterialPrice, Parameters, Project } from "@prisma/client";
 import { prisma } from "./prisma";
 
 export function snakeToTitleCase(str: string): string {
@@ -145,3 +145,41 @@ export const transformSteelPrices = (steelPrices: SteelPrice[]) => {
     complete: item.complete,
   }));
 };
+
+export const transformMaterialPrice = (materialPrice: MaterialPrice[]) => {
+  return materialPrice.map((item) => ({
+    yearAndMonth: `${item.month}-${item.year} `,
+    sciany_kominy: item.sciany_kominy,
+    izolacje_wodochronne: item.izolacje_wodochronne,
+    dachy_rynny: item.dachy_rynny,
+    izolacje_termiczne: item.izolacje_termiczne,
+    chemia_budowlana: item.chemia_budowlana,
+    stolarka: item.stolarka,
+    sucha_zabudowa: item.sucha_zabudowa,
+    plyty_osb: item.plyty_osb,
+    narzedzia: item.narzedzia,
+    cement_wapno: item.cement_wapno,
+    farby_lakiery: item.farby_lakiery,
+    plytki_lazienki_kuchnie: item.plytki_lazienki_kuchnie,
+    instalacje_ogrzewania: item.instalacje_ogrzewania,
+    wyposazenie_agd: item.wyposazenie_agd,
+    ogrod_hobby: item.ogrod_hobby,
+    dekoracje: item.dekoracje,
+    motoryzacja: item.motoryzacja,
+    wykonczenia: item.wykonczenia,
+    elektryka_oswietlenie: item.elektryka_oswietlenie,
+    otoczenie_domu: item.otoczenie_domu,
+  }));
+};
+
+export function getUniqueYearsTable(data: MaterialPrice[]) {
+  // Extract years from the data array
+  const years = data.map((item) => item.year);
+
+  // Get unique years using Set
+  const uniqueYears = [...new Set(years)];
+
+  // Create a table-like array of objects with only the year field
+
+  return uniqueYears;
+}

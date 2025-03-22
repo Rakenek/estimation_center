@@ -106,6 +106,35 @@ CREATE TABLE "SteelPrice" (
     CONSTRAINT "SteelPrice_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "MaterialPrice" (
+    "id" SERIAL NOT NULL,
+    "year" INTEGER NOT NULL,
+    "month" INTEGER NOT NULL,
+    "sciany_kominy" DOUBLE PRECISION NOT NULL,
+    "izolacje_wodochronne" DOUBLE PRECISION NOT NULL,
+    "dachy_rynny" DOUBLE PRECISION NOT NULL,
+    "izolacje_termiczne" DOUBLE PRECISION NOT NULL,
+    "chemia_budowlana" DOUBLE PRECISION NOT NULL,
+    "stolarka" DOUBLE PRECISION NOT NULL,
+    "sucha_zabudowa" DOUBLE PRECISION NOT NULL,
+    "plyty_osb" DOUBLE PRECISION NOT NULL,
+    "narzedzia" DOUBLE PRECISION NOT NULL,
+    "cement_wapno" DOUBLE PRECISION NOT NULL,
+    "farby_lakiery" DOUBLE PRECISION NOT NULL,
+    "plytki_lazienki_kuchnie" DOUBLE PRECISION NOT NULL,
+    "instalacje_ogrzewania" DOUBLE PRECISION NOT NULL,
+    "wyposazenie_agd" DOUBLE PRECISION NOT NULL,
+    "ogrod_hobby" DOUBLE PRECISION NOT NULL,
+    "dekoracje" DOUBLE PRECISION NOT NULL,
+    "motoryzacja" DOUBLE PRECISION NOT NULL,
+    "wykonczenia" DOUBLE PRECISION NOT NULL,
+    "elektryka_oswietlenie" DOUBLE PRECISION NOT NULL,
+    "otoczenie_domu" DOUBLE PRECISION NOT NULL,
+
+    CONSTRAINT "MaterialPrice_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "User_username_key" ON "User"("username");
 

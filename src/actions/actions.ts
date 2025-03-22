@@ -5,7 +5,7 @@ import { hashPasswordWithSalt } from "@/lib/bcryptFunctions";
 import { getPublicIdFromUrl } from "@/lib/customFunctions";
 import { PrismaClient, Role } from "@prisma/client";
 import { revalidatePath } from "next/cache";
-import { FullSteelPriceData } from "@/lib/data";
+import { FullSteelPriceData, MaterialPriceData } from "@/lib/data";
 
 const prisma = new PrismaClient(); // ✅ Use a single Prisma instance
 
@@ -524,7 +524,23 @@ export async function addSteelPriceData(
     const pref = Math.round((avg + 800) / 25) * 25;
     const compl = pref + 2000;
 
-    // await prisma.steelPrice.createMany({ data: FullSteelPriceData });
+    // const user1 = await prisma.user.create({
+    //   data: {
+    //     username: "Kamil",
+    //     email: "kam@gmail.com",
+    //     password: process.env.USER_PASS, // Normally you would hash the password
+    //     role: Role.ADMIN, // Assuming Role is an enum with values like USER, ADMIN, etc.
+    //     image: "",
+    //   },
+    // });
+
+    // const steelPrice = await prisma.steelPrice.createMany({
+    //   data: FullSteelPriceData,
+    // });
+
+    // const materialPrice = await prisma.materialPrice.createMany({
+    //   data: MaterialPriceData,
+    // });
 
     const steelData = await prisma.steelPrice.create({
       data: {

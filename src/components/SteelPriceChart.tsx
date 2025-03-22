@@ -39,7 +39,7 @@ const SteelPriceChart = ({ steelPrice }: SteelPriceChartProps) => {
       </div>
       <div className="w-full p-4 bg-white shadow-md rounded-2xl text-black">
         <h2 className="text-xl font-semibold text-gray-700 mb-4 flex justify-center items-center">
-          Pręt żebrowany fi 12.
+          Pręt żebrowany fi 12 [PLN/t].
         </h2>
         <ResponsiveContainer width="100%" height={400}>
           <LineChart data={transformedSteelPrices}>
