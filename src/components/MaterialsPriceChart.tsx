@@ -15,6 +15,8 @@ import {
   transformMaterialPrice,
 } from "@/lib/customFunctions";
 import Button from "./Button";
+import { MaterialPriceData } from "@/lib/data";
+import MaterialPriceTable from "./MaterialPriceTable";
 
 interface MaterialPriceChartProps {
   materialPriceData: MaterialPrice[];
@@ -124,6 +126,9 @@ const MaterialsPriceChart = ({
             />
           </BarChart>
         </ResponsiveContainer>
+      </div>
+      <div>
+        <MaterialPriceTable materialPriceData={filteredYear} />
       </div>
     </>
   );
