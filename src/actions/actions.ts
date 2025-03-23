@@ -562,3 +562,56 @@ export async function addSteelPriceData(
     };
   }
 }
+
+export async function addMaterialPriceData(
+  prevState: { errors?: { form: string }; success?: string },
+  formData: FormData
+) {
+  try {
+    const formDataObject = Object.fromEntries(formData.entries());
+    // console.log(formDataObject);
+    const materialData = await prisma.materialPrice.create({
+      data: {
+        year: parseFloat(formDataObject.year as string),
+        month: parseFloat(formDataObject.month as string),
+        sciany_kominy: parseFloat(formDataObject.sciany_kominy as string),
+        izolacje_wodochronne: parseFloat(
+          formDataObject.izolacje_wodochronne as string
+        ),
+        dachy_rynny: parseFloat(formDataObject.dachy_rynny as string),
+        izolacje_termiczne: parseFloat(
+          formDataObject.izolacje_termiczne as string
+        ),
+        chemia_budowlana: parseFloat(formDataObject.chemia_budowlana as string),
+        stolarka: parseFloat(formDataObject.stolarka as string),
+        sucha_zabudowa: parseFloat(formDataObject.sucha_zabudowa as string),
+        plyty_osb: parseFloat(formDataObject.plyty_osb as string),
+        narzedzia: parseFloat(formDataObject.narzedzia as string),
+        cement_wapno: parseFloat(formDataObject.cement_wapno as string),
+        farby_lakiery: parseFloat(formDataObject.farby_lakiery as string),
+        plytki_lazienki_kuchnie: parseFloat(
+          formDataObject.plytki_lazienki_kuchnie as string
+        ),
+        instalacje_ogrzewania: parseFloat(
+          formDataObject.instalacje_ogrzewania as string
+        ),
+        wyposazenie_agd: parseFloat(formDataObject.wyposazenie_agd as string),
+        ogrod_hobby: parseFloat(formDataObject.ogrod_hobby as string),
+        dekoracje: parseFloat(formDataObject.dekoracje as string),
+        motoryzacja: parseFloat(formDataObject.motoryzacja as string),
+        wykonczenia: parseFloat(formDataObject.wykonczenia as string),
+        elektryka_oswietlenie: parseFloat(
+          formDataObject.elektryka_oswietlenie as string
+        ),
+        otoczenie_domu: parseFloat(formDataObject.otoczenie_domu as string),
+      },
+    });
+
+    return { success: "Dane kosztu stali z sukcesem dodane" };
+  } catch (error) {
+    console.error("❌ Database error:", error);
+    return {
+      errors: { form: "Coś poszło nie tak, spróbuj później" },
+    };
+  }
+}

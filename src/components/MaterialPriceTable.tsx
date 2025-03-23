@@ -7,6 +7,31 @@ interface MaterialPriceTableProps {
   materialPriceData: MaterialPrice[];
 }
 
+const labels = [
+  "Rok",
+  "Miesiąc",
+  "Ściany Kominy",
+  "Izolacje Wodochronne",
+  "Dachy Rynny",
+  "Izolacje Termiczne",
+  "Chemia Budowlana",
+  "Stolarka",
+  "Sucha Zabudowa",
+  "Płyty OSB",
+  "Narzędzia",
+  "Cement Wapno",
+  "Farby Lakiery",
+  "Płytki Łazienki Kuchnie",
+  "Instalacje Ogrzewania",
+  "Wyposaenie AGD",
+  "Ogród Hobby",
+  "Dekoracje",
+  "Motoryzacja",
+  "Wykończenia",
+  "Elektryka Oświetlenie",
+  "Otoczenie Domu",
+];
+
 export default function MaterialPriceTable({
   materialPriceData,
 }: MaterialPriceTableProps) {
@@ -15,6 +40,7 @@ export default function MaterialPriceTable({
     const { id, ...rest } = obj; // Destructure to separate id from other properties
     return rest; // Return object without id
   });
+  // console.log(filteredData);
 
   // Define the type for the accumulator based on MaterialPrice, excluding 'id', 'year', and 'month'
   type SummaryObject = Partial<Omit<MaterialPrice, "id" | "year" | "month">>;
@@ -49,22 +75,32 @@ export default function MaterialPriceTable({
 
   // Step 4: Calculate the average
   const average = sum / count;
-  console.log(average);
+
+  const finalData = [
+    ...filteredData,
+    { ...summaryObject[0], year: 0, month: 0 },
+  ];
 
   // Define categories by excluding 'id', 'year', and 'month' from MaterialPrice keys
-  const categories = Object.keys(filteredData[0]).filter(
+  const categories = Object.keys(finalData[0]).filter(
     (key) => key !== "year" && key !== "month"
   ) as (keyof Omit<MaterialPrice, "id" | "year" | "month">)[];
 
   return (
     <>
+      <span
+        className={`${
+          average > 0 ? "text-red-600" : "text-green-500"
+        } flex items-center justify-center pt-9`}
+      >
+        Średnio w roku {filteredData[0].year} ceny{" "}
+        {average > 0 ? "wzrosły" : "spadły"} o {average.toFixed(1)} %
+      </span>
       <div className="overflow-x-auto p-4 text-black">
         <table className="min-w-full border border-gray-300 text-sm">
           <thead>
             <tr className="bg-gray-200">
-              <th className="border border-gray-300 p-2">Year</th>
-              <th className="border border-gray-300 p-2">Month</th>
-              {categories.map((category) => (
+              {labels.map((category) => (
                 <th
                   key={category}
                   className="border border-gray-300 p-2 capitalize"
@@ -75,19 +111,19 @@ export default function MaterialPriceTable({
             </tr>
           </thead>
           <tbody>
-            {filteredData.map((row, index) => (
+            {finalData.map((row, index) => (
               <tr key={index} className="odd:bg-gray-100 even:bg-white">
                 <td className="border border-gray-300 p-2 text-center">
-                  {row.year}
+                  {row.year !== 0 ? row.year : "Suma"}
                 </td>
                 <td className="border border-gray-300 p-2 text-center">
-                  {row.month}
+                  {row.month !== 0 ? row.month : "1-12"}
                 </td>
                 {categories.map((category) => (
                   <td
                     key={category}
                     className={`border border-gray-300 p-2 text-center ${
-                      row[category] < 0 ? "text-red-500" : "text-green-600"
+                      row[category] < 0 ? "text-green-500" : "text-red-600"
                     }`}
                   >
                     {row[category].toFixed(1)}%
@@ -98,10 +134,6 @@ export default function MaterialPriceTable({
           </tbody>
         </table>
       </div>
-      <span>
-        Średnio w roku ${filteredData[0].year} ceny wzrosły o{" "}
-        {average.toFixed(1)} %
-      </span>
     </>
   );
 }

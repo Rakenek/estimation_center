@@ -31,7 +31,9 @@ const MaterialsPriceChart = ({
   const filteredYear = materialPriceData.filter(
     (item) => item.year === pickedYear
   );
-  const transformedData = transformMaterialPrice(filteredYear);
+
+  const sorted = filteredYear.sort((a, b) => a.id - b.id);
+  const transformedData = transformMaterialPrice(sorted);
 
   return (
     <>
@@ -62,15 +64,15 @@ const MaterialsPriceChart = ({
             <Legend wrapperStyle={{ fontSize: "14px" }} />
             <Bar
               dataKey="sciany_kominy"
-              fill="#8884d8"
+              fill="#423f6b"
               name="Ściany i Kominy"
             />
             <Bar
               dataKey="izolacje_wodochronne"
-              fill="#82ca9d"
+              fill="#234630"
               name="Izolacje Wodochronne"
             />
-            <Bar dataKey="dachy_rynny" fill="#ffc658" name="Dachy i Rynny" />
+            <Bar dataKey="dachy_rynny" fill="#dc9402" name="Dachy i Rynny" />
             <Bar
               dataKey="izolacje_termiczne"
               fill="#58f9ff"
@@ -87,9 +89,9 @@ const MaterialsPriceChart = ({
               fill="#ff8558"
               name="Sucha Zabudowa"
             />
-            <Bar dataKey="plyty_osb" fill="#05ee72" name="Płyty OSB" />
+            <Bar dataKey="plyty_osb" fill="#216440" name="Płyty OSB" />
             <Bar dataKey="narzedzia" fill="#b07808" name="Narzędzia" />
-            <Bar dataKey="cement_wapno" fill="#ffee58" name="Cement i Wapno" />
+            <Bar dataKey="cement_wapno" fill="#a69606" name="Cement i Wapno" />
             <Bar
               dataKey="farby_lakiery"
               fill="#b158ff"
@@ -113,10 +115,10 @@ const MaterialsPriceChart = ({
             <Bar dataKey="ogrod_hobby" fill="#056417" name="Ogród i Hobby" />
             <Bar dataKey="dekoracje" fill="#5a0909" name="Dekoracje" />
             <Bar dataKey="motoryzacja" fill="#080a86" name="Motoryzacja" />
-            <Bar dataKey="wykonczenia" fill="#e4e400" name="Wykończenia" />
+            <Bar dataKey="wykonczenia" fill="#720c80" name="Wykończenia" />
             <Bar
               dataKey="elektryka_oswietlenie"
-              fill="#70f8c1"
+              fill="#25855e"
               name="Elektryka i Oświetlenie"
             />
             <Bar
