@@ -1,20 +1,22 @@
-"use client";
-import React, { useState } from "react";
-import Sidebar from "./Sidebar";
-import ParametersTable from "./ParametersTable";
-import { Cost, Parameters } from "@prisma/client";
-import CostTable, { dividerType } from "./CostTable";
-import { redirect } from "next/navigation";
-import { useParams } from "next/navigation";
+'use client';
+import React, { useState } from 'react';
+import Sidebar from './Sidebar';
+import ParametersTable from './ParametersTable';
+import { Cost, Parameters } from '@prisma/client';
+import CostTable, { dividerType } from './CostTable';
+import { redirect } from 'next/navigation';
+import { useParams } from 'next/navigation';
 
 interface ProjectDetailsPageProp {
   parameters: Parameters;
   cost: Cost;
+  projectName: string;
 }
 
 export default function ProjectDetailsPage({
   parameters,
   cost,
+  projectName,
 }: ProjectDetailsPageProp) {
   const [isCostShown, setIsCostShown] = useState(true);
   const [isCostToPumShown, setIsCostToPumShown] = useState(false);
@@ -57,13 +59,13 @@ export default function ProjectDetailsPage({
   ];
 
   const labels = [
-    "Koszt inwestycji [PLN]",
-    "Koszt do PUM [PLN/PUM]",
-    "Koszt do Netto [PLN/Netto]",
-    "Miarodajne wskaźniki",
-    "Parametry inwestycji",
-    "Edytuj",
-    "Usuń",
+    'Koszt inwestycji [PLN]',
+    'Koszt do PUM [PLN/PUM]',
+    'Koszt do Netto [PLN/Netto]',
+    'Miarodajne wskaźniki',
+    'Parametry inwestycji',
+    'Edytuj',
+    'Usuń',
   ];
 
   const sidebarData = togglers.map((toggler, index) => {
@@ -73,39 +75,46 @@ export default function ProjectDetailsPage({
   return (
     <>
       <Sidebar sidebarData={sidebarData} />
-      <div className="flex flex-wrap gap-4 items-start justify-center">
-        {isCostShown ? (
-          <CostTable
-            cost={cost}
-            parameters={parameters}
-            tableName="Koszt inwestycji [PLN]"
-          />
-        ) : null}
-        {isCostToPumShown ? (
-          <CostTable
-            cost={cost}
-            parameters={parameters}
-            tableName="Koszt inwestycji do PUM [PLN/PUM]"
-            divider={dividerType.PUMPUU}
-          />
-        ) : null}
-        {isCostToNettShown ? (
-          <CostTable
-            cost={cost}
-            parameters={parameters}
-            tableName="Koszt inwestycji do Netto [PLN/NETTO]"
-            divider={dividerType.NETTO}
-          />
-        ) : null}
-        {isIndicatorShown ? (
-          <CostTable
-            cost={cost}
-            parameters={parameters}
-            tableName="Wskaźniki miarodajne"
-            divider={dividerType.INDICATORS}
-          />
-        ) : null}
-        {isParameterShown ? <ParametersTable parameters={parameters} /> : null}
+      <div>
+        <div className=" flex h-20 text-4xl grow items-center justify-center">
+          <h1>{projectName}</h1>
+        </div>
+        <div className="flex flex-wrap gap-4 items-start justify-center">
+          {isCostShown ? (
+            <CostTable
+              cost={cost}
+              parameters={parameters}
+              tableName="Koszt inwestycji [PLN]"
+            />
+          ) : null}
+          {isCostToPumShown ? (
+            <CostTable
+              cost={cost}
+              parameters={parameters}
+              tableName="Koszt inwestycji do PUM [PLN/PUM]"
+              divider={dividerType.PUMPUU}
+            />
+          ) : null}
+          {isCostToNettShown ? (
+            <CostTable
+              cost={cost}
+              parameters={parameters}
+              tableName="Koszt inwestycji do Netto [PLN/NETTO]"
+              divider={dividerType.NETTO}
+            />
+          ) : null}
+          {isIndicatorShown ? (
+            <CostTable
+              cost={cost}
+              parameters={parameters}
+              tableName="Wskaźniki miarodajne"
+              divider={dividerType.INDICATORS}
+            />
+          ) : null}
+          {isParameterShown ? (
+            <ParametersTable parameters={parameters} />
+          ) : null}
+        </div>
       </div>
     </>
   );

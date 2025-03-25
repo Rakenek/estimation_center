@@ -1,6 +1,6 @@
-"use client";
-import React from "react";
-import SidebarButton from "./SidebarButton";
+'use client';
+import React from 'react';
+import SidebarButton from './SidebarButton';
 
 interface SidebarProps {
   sidebarData: {
@@ -11,7 +11,7 @@ interface SidebarProps {
 
 export default function Sidebar({ sidebarData }: SidebarProps) {
   return (
-    <aside>
+    <aside className="bg-background min-h-screen pt-20">
       {sidebarData.map((item, index) => {
         const active = index === 0;
         return (

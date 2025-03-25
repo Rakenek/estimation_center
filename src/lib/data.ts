@@ -1,9 +1,9 @@
-import { SteelPrice } from "@prisma/client";
+import { SteelPrice } from '@prisma/client';
 
 export const SteelPriceData = [
   {
     year: 2025,
-    week: "Tydzień 1",
+    week: 'Tydzień 1',
     min_PUDS: 2583,
     max_PUDS: 2770,
     avg_PUDS: 2677,
@@ -12,7 +12,7 @@ export const SteelPriceData = [
   },
   {
     year: 2025,
-    week: "Tydzień 2",
+    week: 'Tydzień 2',
     min_PUDS: 2652,
     max_PUDS: 2860,
     avg_PUDS: 2756,
@@ -21,7 +21,7 @@ export const SteelPriceData = [
   },
   {
     year: 2025,
-    week: "Tydzień 3",
+    week: 'Tydzień 3',
     min_PUDS: 2668,
     max_PUDS: 2895,
     avg_PUDS: 2782,
@@ -30,7 +30,7 @@ export const SteelPriceData = [
   },
   {
     year: 2025,
-    week: "Tydzień 4",
+    week: 'Tydzień 4',
     min_PUDS: 2663,
     max_PUDS: 2828,
     avg_PUDS: 2746,
@@ -39,7 +39,7 @@ export const SteelPriceData = [
   },
   {
     year: 2025,
-    week: "Tydzień 5",
+    week: 'Tydzień 5',
     min_PUDS: 2660,
     max_PUDS: 2795,
     avg_PUDS: 2728,
@@ -48,7 +48,7 @@ export const SteelPriceData = [
   },
   {
     year: 2025,
-    week: "Tydzień 6",
+    week: 'Tydzień 6',
     min_PUDS: 2675,
     max_PUDS: 2840,
     avg_PUDS: 2758,
@@ -57,7 +57,7 @@ export const SteelPriceData = [
   },
   {
     year: 2025,
-    week: "Tydzień 7",
+    week: 'Tydzień 7',
     min_PUDS: 2659,
     max_PUDS: 2838,
     avg_PUDS: 2749,
@@ -66,7 +66,7 @@ export const SteelPriceData = [
   },
   {
     year: 2025,
-    week: "Tydzień 8",
+    week: 'Tydzień 8',
     min_PUDS: 2660,
     max_PUDS: 2820,
     avg_PUDS: 2740,
@@ -75,7 +75,7 @@ export const SteelPriceData = [
   },
   {
     year: 2025,
-    week: "Tydzień 9",
+    week: 'Tydzień 9',
     min_PUDS: 2658,
     max_PUDS: 2837,
     avg_PUDS: 2748,
@@ -84,7 +84,7 @@ export const SteelPriceData = [
   },
   {
     year: 2025,
-    week: "Tydzień 10",
+    week: 'Tydzień 10',
     min_PUDS: 2658,
     max_PUDS: 2805,
     avg_PUDS: 2732,
@@ -93,7 +93,7 @@ export const SteelPriceData = [
   },
   {
     year: 2025,
-    week: "Tydzień 11",
+    week: 'Tydzień 11',
     min_PUDS: 2717,
     max_PUDS: 2847,
     avg_PUDS: 2782,
@@ -105,7 +105,7 @@ export const SteelPriceData = [
 export const FullSteelPriceData = [
   {
     year: 2020,
-    week: "Tydzień 47",
+    week: 'Tydzień 47',
     min_PUDS: 2300,
     max_PUDS: 2450,
     avg_PUDS: 2375,
@@ -114,7 +114,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2020,
-    week: "Tydzień 48",
+    week: 'Tydzień 48',
     min_PUDS: 2300,
     max_PUDS: 2450,
     avg_PUDS: 2375,
@@ -123,7 +123,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2020,
-    week: "Tydzień 49",
+    week: 'Tydzień 49',
     min_PUDS: 2370,
     max_PUDS: 2520,
     avg_PUDS: 2445,
@@ -132,7 +132,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2020,
-    week: "Tydzień 50",
+    week: 'Tydzień 50',
     min_PUDS: 2370,
     max_PUDS: 2520,
     avg_PUDS: 2445,
@@ -141,7 +141,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2020,
-    week: "Tydzień 51",
+    week: 'Tydzień 51',
     min_PUDS: 2370,
     max_PUDS: 2520,
     avg_PUDS: 2445,
@@ -150,7 +150,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2020,
-    week: "Tydzień 52",
+    week: 'Tydzień 52',
     min_PUDS: 2393,
     max_PUDS: 3144,
     avg_PUDS: 2769,
@@ -159,7 +159,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 1",
+    week: 'Tydzień 1',
     min_PUDS: 2393,
     max_PUDS: 3185,
     avg_PUDS: 2789,
@@ -168,7 +168,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 2",
+    week: 'Tydzień 2',
     min_PUDS: 2692,
     max_PUDS: 3107,
     avg_PUDS: 2899,
@@ -177,7 +177,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 3",
+    week: 'Tydzień 3',
     min_PUDS: 2692,
     max_PUDS: 3107,
     avg_PUDS: 2899,
@@ -186,7 +186,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 4",
+    week: 'Tydzień 4',
     min_PUDS: 2692,
     max_PUDS: 3107,
     avg_PUDS: 2899,
@@ -195,7 +195,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 5",
+    week: 'Tydzień 5',
     min_PUDS: 2692,
     max_PUDS: 3107,
     avg_PUDS: 2899,
@@ -204,7 +204,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 6",
+    week: 'Tydzień 6',
     min_PUDS: 2692,
     max_PUDS: 3107,
     avg_PUDS: 2899,
@@ -213,7 +213,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 7",
+    week: 'Tydzień 7',
     min_PUDS: 2692,
     max_PUDS: 3107,
     avg_PUDS: 2899,
@@ -222,7 +222,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 8",
+    week: 'Tydzień 8',
     min_PUDS: 2692,
     max_PUDS: 3107,
     avg_PUDS: 2899,
@@ -231,7 +231,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 9",
+    week: 'Tydzień 9',
     min_PUDS: 2692,
     max_PUDS: 3107,
     avg_PUDS: 2899,
@@ -240,7 +240,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 10",
+    week: 'Tydzień 10',
     min_PUDS: 2692,
     max_PUDS: 3107,
     avg_PUDS: 2899,
@@ -249,7 +249,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 11",
+    week: 'Tydzień 11',
     min_PUDS: 2692,
     max_PUDS: 3107,
     avg_PUDS: 2899,
@@ -258,7 +258,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 12",
+    week: 'Tydzień 12',
     min_PUDS: 2692,
     max_PUDS: 3107,
     avg_PUDS: 2899,
@@ -267,7 +267,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 13",
+    week: 'Tydzień 13',
     min_PUDS: 2953,
     max_PUDS: 3079,
     avg_PUDS: 3011,
@@ -276,7 +276,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 14",
+    week: 'Tydzień 14',
     min_PUDS: 2953,
     max_PUDS: 3079,
     avg_PUDS: 3011,
@@ -285,7 +285,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 15",
+    week: 'Tydzień 15',
     min_PUDS: 2953,
     max_PUDS: 3079,
     avg_PUDS: 3011,
@@ -294,7 +294,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 16",
+    week: 'Tydzień 16',
     min_PUDS: 2953,
     max_PUDS: 3079,
     avg_PUDS: 3011,
@@ -303,7 +303,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 17",
+    week: 'Tydzień 17',
     min_PUDS: 2953,
     max_PUDS: 3079,
     avg_PUDS: 3011,
@@ -312,7 +312,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 18",
+    week: 'Tydzień 18',
     min_PUDS: 3046,
     max_PUDS: 3143,
     avg_PUDS: 3094,
@@ -321,7 +321,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 19",
+    week: 'Tydzień 19',
     min_PUDS: 3243,
     max_PUDS: 3354,
     avg_PUDS: 3299,
@@ -330,7 +330,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 20",
+    week: 'Tydzień 20',
     min_PUDS: 3759,
     max_PUDS: 3773,
     avg_PUDS: 3766,
@@ -339,7 +339,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 21",
+    week: 'Tydzień 21',
     min_PUDS: 3912,
     max_PUDS: 4052,
     avg_PUDS: 3982,
@@ -348,7 +348,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 22",
+    week: 'Tydzień 22',
     min_PUDS: 3955,
     max_PUDS: 4168,
     avg_PUDS: 4061,
@@ -357,7 +357,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 23",
+    week: 'Tydzień 23',
     min_PUDS: 4055,
     max_PUDS: 4213,
     avg_PUDS: 4134,
@@ -366,7 +366,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 24",
+    week: 'Tydzień 24',
     min_PUDS: 4055,
     max_PUDS: 4213,
     avg_PUDS: 4134,
@@ -375,7 +375,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 25",
+    week: 'Tydzień 25',
     min_PUDS: 4055,
     max_PUDS: 4213,
     avg_PUDS: 4134,
@@ -384,7 +384,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 26",
+    week: 'Tydzień 26',
     min_PUDS: 4255,
     max_PUDS: 4465,
     avg_PUDS: 4360,
@@ -393,7 +393,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 27",
+    week: 'Tydzień 27',
     min_PUDS: 4244,
     max_PUDS: 4386,
     avg_PUDS: 4315,
@@ -402,7 +402,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 28",
+    week: 'Tydzień 28',
     min_PUDS: 4201,
     max_PUDS: 4331,
     avg_PUDS: 4266,
@@ -411,7 +411,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 29",
+    week: 'Tydzień 29',
     min_PUDS: 4194,
     max_PUDS: 4340,
     avg_PUDS: 4267,
@@ -420,7 +420,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 30",
+    week: 'Tydzień 30',
     min_PUDS: 4179,
     max_PUDS: 4340,
     avg_PUDS: 4259,
@@ -429,7 +429,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 31",
+    week: 'Tydzień 31',
     min_PUDS: 4179,
     max_PUDS: 4340,
     avg_PUDS: 4259,
@@ -438,7 +438,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 32",
+    week: 'Tydzień 32',
     min_PUDS: 4145,
     max_PUDS: 4278,
     avg_PUDS: 4212,
@@ -447,7 +447,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 33",
+    week: 'Tydzień 33',
     min_PUDS: 4145,
     max_PUDS: 4256,
     avg_PUDS: 4199,
@@ -456,7 +456,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 34",
+    week: 'Tydzień 34',
     min_PUDS: 4105,
     max_PUDS: 4233,
     avg_PUDS: 4164,
@@ -465,7 +465,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 35",
+    week: 'Tydzień 35',
     min_PUDS: 4046,
     max_PUDS: 4194,
     avg_PUDS: 4120,
@@ -474,7 +474,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 36",
+    week: 'Tydzień 36',
     min_PUDS: 3965,
     max_PUDS: 4145,
     avg_PUDS: 4054,
@@ -483,7 +483,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 37",
+    week: 'Tydzień 37',
     min_PUDS: 3895,
     max_PUDS: 4081,
     avg_PUDS: 3988,
@@ -492,7 +492,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 38",
+    week: 'Tydzień 38',
     min_PUDS: 3895,
     max_PUDS: 4081,
     avg_PUDS: 3988,
@@ -501,7 +501,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 39",
+    week: 'Tydzień 39',
     min_PUDS: 3783,
     max_PUDS: 3980,
     avg_PUDS: 3882,
@@ -510,7 +510,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 40",
+    week: 'Tydzień 40',
     min_PUDS: 3748,
     max_PUDS: 3900,
     avg_PUDS: 3824,
@@ -519,7 +519,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 41",
+    week: 'Tydzień 41',
     min_PUDS: 3698,
     max_PUDS: 3860,
     avg_PUDS: 3779,
@@ -528,7 +528,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 42",
+    week: 'Tydzień 42',
     min_PUDS: 3623,
     max_PUDS: 3857,
     avg_PUDS: 3740,
@@ -537,7 +537,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 43",
+    week: 'Tydzień 43',
     min_PUDS: 3714,
     max_PUDS: 3856,
     avg_PUDS: 3785,
@@ -546,7 +546,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 44",
+    week: 'Tydzień 44',
     min_PUDS: 3725,
     max_PUDS: 3841,
     avg_PUDS: 3783,
@@ -555,7 +555,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 45",
+    week: 'Tydzień 45',
     min_PUDS: 3725,
     max_PUDS: 3841,
     avg_PUDS: 3783,
@@ -564,7 +564,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 46",
+    week: 'Tydzień 46',
     min_PUDS: 3720,
     max_PUDS: 3843,
     avg_PUDS: 3782,
@@ -573,7 +573,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 47",
+    week: 'Tydzień 47',
     min_PUDS: 3718,
     max_PUDS: 3818,
     avg_PUDS: 3768,
@@ -582,7 +582,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 48",
+    week: 'Tydzień 48',
     min_PUDS: 3716,
     max_PUDS: 3828,
     avg_PUDS: 3772,
@@ -591,7 +591,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 49",
+    week: 'Tydzień 49',
     min_PUDS: 3723,
     max_PUDS: 3844,
     avg_PUDS: 3784,
@@ -600,7 +600,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 50",
+    week: 'Tydzień 50',
     min_PUDS: 3748,
     max_PUDS: 3850,
     avg_PUDS: 3799,
@@ -609,7 +609,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 51",
+    week: 'Tydzień 51',
     min_PUDS: 3726,
     max_PUDS: 3825,
     avg_PUDS: 3775,
@@ -618,7 +618,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2021,
-    week: "Tydzień 52",
+    week: 'Tydzień 52',
     min_PUDS: 3760,
     max_PUDS: 3823,
     avg_PUDS: 3792,
@@ -627,7 +627,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 1",
+    week: 'Tydzień 1',
     min_PUDS: 3902,
     max_PUDS: 4085,
     avg_PUDS: 3994,
@@ -636,7 +636,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 2",
+    week: 'Tydzień 2',
     min_PUDS: 3902,
     max_PUDS: 4085,
     avg_PUDS: 3994,
@@ -645,7 +645,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 3",
+    week: 'Tydzień 3',
     min_PUDS: 3848,
     max_PUDS: 4050,
     avg_PUDS: 3949,
@@ -654,7 +654,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 4",
+    week: 'Tydzień 4',
     min_PUDS: 3873,
     max_PUDS: 4011,
     avg_PUDS: 3942,
@@ -663,7 +663,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 5",
+    week: 'Tydzień 5',
     min_PUDS: 3832,
     max_PUDS: 4004,
     avg_PUDS: 3918,
@@ -672,7 +672,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 6",
+    week: 'Tydzień 6',
     min_PUDS: 3902,
     max_PUDS: 4085,
     avg_PUDS: 3994,
@@ -681,7 +681,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 7",
+    week: 'Tydzień 7',
     min_PUDS: 3904,
     max_PUDS: 4044,
     avg_PUDS: 3974,
@@ -690,7 +690,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 8",
+    week: 'Tydzień 8',
     min_PUDS: 3892,
     max_PUDS: 4004,
     avg_PUDS: 3948,
@@ -699,7 +699,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 9",
+    week: 'Tydzień 9',
     min_PUDS: 3992,
     max_PUDS: 4170,
     avg_PUDS: 4081,
@@ -708,7 +708,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 10",
+    week: 'Tydzień 10',
     min_PUDS: 5525,
     max_PUDS: 5940,
     avg_PUDS: 5733,
@@ -717,7 +717,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 11",
+    week: 'Tydzień 11',
     min_PUDS: 6156,
     max_PUDS: 6471,
     avg_PUDS: 6314,
@@ -726,7 +726,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 12",
+    week: 'Tydzień 12',
     min_PUDS: 6156,
     max_PUDS: 6471,
     avg_PUDS: 6314,
@@ -735,7 +735,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 13",
+    week: 'Tydzień 13',
     min_PUDS: 6156,
     max_PUDS: 6471,
     avg_PUDS: 6314,
@@ -744,7 +744,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 14",
+    week: 'Tydzień 14',
     min_PUDS: 6046,
     max_PUDS: 6300,
     avg_PUDS: 6173,
@@ -753,7 +753,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 15",
+    week: 'Tydzień 15',
     min_PUDS: 5946,
     max_PUDS: 6230,
     avg_PUDS: 6088,
@@ -762,7 +762,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 16",
+    week: 'Tydzień 16',
     min_PUDS: 5795,
     max_PUDS: 6086,
     avg_PUDS: 5940,
@@ -771,7 +771,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 17",
+    week: 'Tydzień 17',
     min_PUDS: 5640,
     max_PUDS: 5952,
     avg_PUDS: 5796,
@@ -780,7 +780,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 18",
+    week: 'Tydzień 18',
     min_PUDS: 5500,
     max_PUDS: 5810,
     avg_PUDS: 5655,
@@ -789,7 +789,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 19",
+    week: 'Tydzień 19',
     min_PUDS: 5500,
     max_PUDS: 5810,
     avg_PUDS: 5655,
@@ -798,7 +798,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 20",
+    week: 'Tydzień 20',
     min_PUDS: 5490,
     max_PUDS: 5800,
     avg_PUDS: 5645,
@@ -807,7 +807,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 21",
+    week: 'Tydzień 21',
     min_PUDS: 5490,
     max_PUDS: 5800,
     avg_PUDS: 5645,
@@ -816,7 +816,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 22",
+    week: 'Tydzień 22',
     min_PUDS: 4650,
     max_PUDS: 4810,
     avg_PUDS: 4730,
@@ -825,7 +825,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 23",
+    week: 'Tydzień 23',
     min_PUDS: 4290,
     max_PUDS: 4625,
     avg_PUDS: 4458,
@@ -834,7 +834,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 24",
+    week: 'Tydzień 24',
     min_PUDS: 3890,
     max_PUDS: 4210,
     avg_PUDS: 4050,
@@ -843,7 +843,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 25",
+    week: 'Tydzień 25',
     min_PUDS: 3890,
     max_PUDS: 4210,
     avg_PUDS: 4050,
@@ -852,7 +852,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 26",
+    week: 'Tydzień 26',
     min_PUDS: 3890,
     max_PUDS: 4210,
     avg_PUDS: 4050,
@@ -861,7 +861,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 27",
+    week: 'Tydzień 27',
     min_PUDS: 3910,
     max_PUDS: 4180,
     avg_PUDS: 4045,
@@ -870,7 +870,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 28",
+    week: 'Tydzień 28',
     min_PUDS: 3910,
     max_PUDS: 4180,
     avg_PUDS: 4045,
@@ -879,7 +879,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 29",
+    week: 'Tydzień 29',
     min_PUDS: 3920,
     max_PUDS: 4250,
     avg_PUDS: 4135,
@@ -888,7 +888,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 30",
+    week: 'Tydzień 30',
     min_PUDS: 4000,
     max_PUDS: 4220,
     avg_PUDS: 4110,
@@ -897,7 +897,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 31",
+    week: 'Tydzień 31',
     min_PUDS: 4000,
     max_PUDS: 4220,
     avg_PUDS: 4110,
@@ -906,7 +906,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 32",
+    week: 'Tydzień 32',
     min_PUDS: 4000,
     max_PUDS: 4220,
     avg_PUDS: 4110,
@@ -915,7 +915,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 33",
+    week: 'Tydzień 33',
     min_PUDS: 4000,
     max_PUDS: 4220,
     avg_PUDS: 4110,
@@ -924,7 +924,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 34",
+    week: 'Tydzień 34',
     min_PUDS: 3900,
     max_PUDS: 4100,
     avg_PUDS: 4000,
@@ -933,7 +933,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 35",
+    week: 'Tydzień 35',
     min_PUDS: 3900,
     max_PUDS: 4100,
     avg_PUDS: 4000,
@@ -942,7 +942,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 36",
+    week: 'Tydzień 36',
     min_PUDS: 3900,
     max_PUDS: 4100,
     avg_PUDS: 4000,
@@ -951,7 +951,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 37",
+    week: 'Tydzień 37',
     min_PUDS: 3900,
     max_PUDS: 4100,
     avg_PUDS: 4000,
@@ -960,7 +960,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 38",
+    week: 'Tydzień 38',
     min_PUDS: 3900,
     max_PUDS: 4100,
     avg_PUDS: 4000,
@@ -969,7 +969,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 39",
+    week: 'Tydzień 39',
     min_PUDS: 3900,
     max_PUDS: 4100,
     avg_PUDS: 4000,
@@ -978,7 +978,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 40",
+    week: 'Tydzień 40',
     min_PUDS: 3900,
     max_PUDS: 4100,
     avg_PUDS: 4000,
@@ -987,7 +987,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 41",
+    week: 'Tydzień 41',
     min_PUDS: 4197,
     max_PUDS: 4413,
     avg_PUDS: 4305,
@@ -996,7 +996,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 42",
+    week: 'Tydzień 42',
     min_PUDS: 4083,
     max_PUDS: 4308,
     avg_PUDS: 4196,
@@ -1005,7 +1005,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 43",
+    week: 'Tydzień 43',
     min_PUDS: 3941,
     max_PUDS: 4053,
     avg_PUDS: 3997,
@@ -1014,7 +1014,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 44",
+    week: 'Tydzień 44',
     min_PUDS: 3920,
     max_PUDS: 4050,
     avg_PUDS: 3985,
@@ -1023,7 +1023,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 45",
+    week: 'Tydzień 45',
     min_PUDS: 3850,
     max_PUDS: 3950,
     avg_PUDS: 3900,
@@ -1032,7 +1032,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 46",
+    week: 'Tydzień 46',
     min_PUDS: 3760,
     max_PUDS: 3850,
     avg_PUDS: 3805,
@@ -1041,7 +1041,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 47",
+    week: 'Tydzień 47',
     min_PUDS: 3646,
     max_PUDS: 3721,
     avg_PUDS: 3683,
@@ -1050,7 +1050,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 48",
+    week: 'Tydzień 48',
     min_PUDS: 3476,
     max_PUDS: 3721,
     avg_PUDS: 3599,
@@ -1059,7 +1059,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 49",
+    week: 'Tydzień 49',
     min_PUDS: 3520,
     max_PUDS: 3708,
     avg_PUDS: 3614,
@@ -1068,7 +1068,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 50",
+    week: 'Tydzień 50',
     min_PUDS: 3526,
     max_PUDS: 3708,
     avg_PUDS: 3617,
@@ -1077,7 +1077,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 51",
+    week: 'Tydzień 51',
     min_PUDS: 3564,
     max_PUDS: 3655,
     avg_PUDS: 3609,
@@ -1086,7 +1086,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2022,
-    week: "Tydzień 52",
+    week: 'Tydzień 52',
     min_PUDS: 3557,
     max_PUDS: 3625,
     avg_PUDS: 3591,
@@ -1095,7 +1095,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 1",
+    week: 'Tydzień 1',
     min_PUDS: 3515,
     max_PUDS: 3660,
     avg_PUDS: 3588,
@@ -1104,7 +1104,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 2",
+    week: 'Tydzień 2',
     min_PUDS: 3524,
     max_PUDS: 3620,
     avg_PUDS: 3572,
@@ -1113,7 +1113,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 3",
+    week: 'Tydzień 3',
     min_PUDS: 3520,
     max_PUDS: 3633,
     avg_PUDS: 3577,
@@ -1122,7 +1122,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 4",
+    week: 'Tydzień 4',
     min_PUDS: 3520,
     max_PUDS: 3633,
     avg_PUDS: 3577,
@@ -1131,7 +1131,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 5",
+    week: 'Tydzień 5',
     min_PUDS: 3444,
     max_PUDS: 3668,
     avg_PUDS: 3556,
@@ -1140,7 +1140,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 6",
+    week: 'Tydzień 6',
     min_PUDS: 3416,
     max_PUDS: 3600,
     avg_PUDS: 3508,
@@ -1149,7 +1149,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 7",
+    week: 'Tydzień 7',
     min_PUDS: 3420,
     max_PUDS: 3602,
     avg_PUDS: 3511,
@@ -1158,7 +1158,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 8",
+    week: 'Tydzień 8',
     min_PUDS: 3403,
     max_PUDS: 3540,
     avg_PUDS: 3472,
@@ -1167,7 +1167,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 9",
+    week: 'Tydzień 9',
     min_PUDS: 3403,
     max_PUDS: 3540,
     avg_PUDS: 3472,
@@ -1176,7 +1176,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 10",
+    week: 'Tydzień 10',
     min_PUDS: 3403,
     max_PUDS: 3540,
     avg_PUDS: 3472,
@@ -1185,7 +1185,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 11",
+    week: 'Tydzień 11',
     min_PUDS: 3403,
     max_PUDS: 3540,
     avg_PUDS: 3472,
@@ -1194,7 +1194,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 12",
+    week: 'Tydzień 12',
     min_PUDS: 3403,
     max_PUDS: 3540,
     avg_PUDS: 3472,
@@ -1203,7 +1203,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 13",
+    week: 'Tydzień 13',
     min_PUDS: 3433,
     max_PUDS: 3600,
     avg_PUDS: 3517,
@@ -1212,7 +1212,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 14",
+    week: 'Tydzień 14',
     min_PUDS: 3423,
     max_PUDS: 3600,
     avg_PUDS: 3512,
@@ -1221,7 +1221,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 15",
+    week: 'Tydzień 15',
     min_PUDS: 3430,
     max_PUDS: 3583,
     avg_PUDS: 3507,
@@ -1230,7 +1230,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 16",
+    week: 'Tydzień 16',
     min_PUDS: 3370,
     max_PUDS: 3533,
     avg_PUDS: 3452,
@@ -1239,7 +1239,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 17",
+    week: 'Tydzień 17',
     min_PUDS: 3340,
     max_PUDS: 3513,
     avg_PUDS: 3427,
@@ -1248,7 +1248,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 18",
+    week: 'Tydzień 18',
     min_PUDS: 3290,
     max_PUDS: 3460,
     avg_PUDS: 3375,
@@ -1257,7 +1257,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 19",
+    week: 'Tydzień 19',
     min_PUDS: 3290,
     max_PUDS: 3460,
     avg_PUDS: 3375,
@@ -1266,7 +1266,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 20",
+    week: 'Tydzień 20',
     min_PUDS: 3290,
     max_PUDS: 3460,
     avg_PUDS: 3375,
@@ -1275,7 +1275,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 21",
+    week: 'Tydzień 21',
     min_PUDS: 3290,
     max_PUDS: 3460,
     avg_PUDS: 3375,
@@ -1284,7 +1284,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 22",
+    week: 'Tydzień 22',
     min_PUDS: 2959,
     max_PUDS: 3169,
     avg_PUDS: 3064,
@@ -1293,7 +1293,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 23",
+    week: 'Tydzień 23',
     min_PUDS: 2875,
     max_PUDS: 3060,
     avg_PUDS: 2967,
@@ -1302,7 +1302,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 24",
+    week: 'Tydzień 24',
     min_PUDS: 2790,
     max_PUDS: 2950,
     avg_PUDS: 2870,
@@ -1311,7 +1311,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 25",
+    week: 'Tydzień 25',
     min_PUDS: 2754,
     max_PUDS: 2988,
     avg_PUDS: 2871,
@@ -1320,7 +1320,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 26",
+    week: 'Tydzień 26',
     min_PUDS: 2744,
     max_PUDS: 2979,
     avg_PUDS: 2862,
@@ -1329,7 +1329,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 27",
+    week: 'Tydzień 27',
     min_PUDS: 2740,
     max_PUDS: 2985,
     avg_PUDS: 2863,
@@ -1338,7 +1338,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 28",
+    week: 'Tydzień 28',
     min_PUDS: 2740,
     max_PUDS: 2985,
     avg_PUDS: 2863,
@@ -1347,7 +1347,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 29",
+    week: 'Tydzień 29',
     min_PUDS: 2740,
     max_PUDS: 2985,
     avg_PUDS: 2863,
@@ -1356,7 +1356,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 30",
+    week: 'Tydzień 30',
     min_PUDS: 2793,
     max_PUDS: 2970,
     avg_PUDS: 2882,
@@ -1365,7 +1365,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 31",
+    week: 'Tydzień 31',
     min_PUDS: 2764,
     max_PUDS: 2878,
     avg_PUDS: 2821,
@@ -1374,7 +1374,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 32",
+    week: 'Tydzień 32',
     min_PUDS: 2764,
     max_PUDS: 2878,
     avg_PUDS: 2821,
@@ -1383,7 +1383,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 33",
+    week: 'Tydzień 33',
     min_PUDS: 2764,
     max_PUDS: 2878,
     avg_PUDS: 2821,
@@ -1392,7 +1392,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 34",
+    week: 'Tydzień 34',
     min_PUDS: 2764,
     max_PUDS: 2878,
     avg_PUDS: 2821,
@@ -1401,7 +1401,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 35",
+    week: 'Tydzień 35',
     min_PUDS: 2743,
     max_PUDS: 2890,
     avg_PUDS: 2817,
@@ -1410,7 +1410,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 36",
+    week: 'Tydzień 36',
     min_PUDS: 2743,
     max_PUDS: 2890,
     avg_PUDS: 2817,
@@ -1419,7 +1419,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 37",
+    week: 'Tydzień 37',
     min_PUDS: 2745,
     max_PUDS: 2888,
     avg_PUDS: 2817,
@@ -1428,7 +1428,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 38",
+    week: 'Tydzień 38',
     min_PUDS: 2800,
     max_PUDS: 2898,
     avg_PUDS: 2859,
@@ -1437,7 +1437,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 39",
+    week: 'Tydzień 39',
     min_PUDS: 2800,
     max_PUDS: 2898,
     avg_PUDS: 2859,
@@ -1446,7 +1446,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 40",
+    week: 'Tydzień 40',
     min_PUDS: 2800,
     max_PUDS: 2898,
     avg_PUDS: 2859,
@@ -1455,7 +1455,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 41",
+    week: 'Tydzień 41',
     min_PUDS: 2832,
     max_PUDS: 2970,
     avg_PUDS: 2901,
@@ -1464,7 +1464,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 42",
+    week: 'Tydzień 42',
     min_PUDS: 2843,
     max_PUDS: 2942,
     avg_PUDS: 2893,
@@ -1473,7 +1473,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 43",
+    week: 'Tydzień 43',
     min_PUDS: 2818,
     max_PUDS: 2908,
     avg_PUDS: 2863,
@@ -1482,7 +1482,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 44",
+    week: 'Tydzień 44',
     min_PUDS: 2810,
     max_PUDS: 2908,
     avg_PUDS: 2859,
@@ -1491,7 +1491,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 45",
+    week: 'Tydzień 45',
     min_PUDS: 2810,
     max_PUDS: 2908,
     avg_PUDS: 2859,
@@ -1500,7 +1500,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 46",
+    week: 'Tydzień 46',
     min_PUDS: 2810,
     max_PUDS: 2908,
     avg_PUDS: 2859,
@@ -1509,7 +1509,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 47",
+    week: 'Tydzień 47',
     min_PUDS: 2800,
     max_PUDS: 2895,
     avg_PUDS: 2848,
@@ -1518,7 +1518,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 48",
+    week: 'Tydzień 48',
     min_PUDS: 2798,
     max_PUDS: 2890,
     avg_PUDS: 2844,
@@ -1527,7 +1527,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 49",
+    week: 'Tydzień 49',
     min_PUDS: 2798,
     max_PUDS: 2890,
     avg_PUDS: 2844,
@@ -1536,7 +1536,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 50",
+    week: 'Tydzień 50',
     min_PUDS: 2823,
     max_PUDS: 2930,
     avg_PUDS: 2876,
@@ -1545,7 +1545,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 51",
+    week: 'Tydzień 51',
     min_PUDS: 2823,
     max_PUDS: 2935,
     avg_PUDS: 2879,
@@ -1554,7 +1554,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2023,
-    week: "Tydzień 52",
+    week: 'Tydzień 52',
     min_PUDS: 2823,
     max_PUDS: 2935,
     avg_PUDS: 2879,
@@ -1563,7 +1563,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 1",
+    week: 'Tydzień 1',
     min_PUDS: 2823,
     max_PUDS: 2935,
     avg_PUDS: 2879,
@@ -1572,7 +1572,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 2",
+    week: 'Tydzień 2',
     min_PUDS: 2845,
     max_PUDS: 2955,
     avg_PUDS: 2905,
@@ -1581,7 +1581,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 3",
+    week: 'Tydzień 3',
     min_PUDS: 2880,
     max_PUDS: 3030,
     avg_PUDS: 2955,
@@ -1590,7 +1590,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 4",
+    week: 'Tydzień 4',
     min_PUDS: 2882,
     max_PUDS: 3030,
     avg_PUDS: 2956,
@@ -1599,7 +1599,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 5",
+    week: 'Tydzień 5',
     min_PUDS: 2882,
     max_PUDS: 3030,
     avg_PUDS: 2956,
@@ -1608,7 +1608,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 6",
+    week: 'Tydzień 6',
     min_PUDS: 2880,
     max_PUDS: 3030,
     avg_PUDS: 2955,
@@ -1617,7 +1617,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 7",
+    week: 'Tydzień 7',
     min_PUDS: 2880,
     max_PUDS: 3030,
     avg_PUDS: 2955,
@@ -1626,7 +1626,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 8",
+    week: 'Tydzień 8',
     min_PUDS: 2880,
     max_PUDS: 3030,
     avg_PUDS: 2955,
@@ -1635,7 +1635,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 9",
+    week: 'Tydzień 9',
     min_PUDS: 2854,
     max_PUDS: 2944,
     avg_PUDS: 2899,
@@ -1644,7 +1644,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 10",
+    week: 'Tydzień 10',
     min_PUDS: 2803,
     max_PUDS: 2923,
     avg_PUDS: 2863,
@@ -1653,7 +1653,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 11",
+    week: 'Tydzień 11',
     min_PUDS: 2800,
     max_PUDS: 2908,
     avg_PUDS: 2854,
@@ -1662,7 +1662,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 12",
+    week: 'Tydzień 12',
     min_PUDS: 2750,
     max_PUDS: 2895,
     avg_PUDS: 2823,
@@ -1671,7 +1671,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 13",
+    week: 'Tydzień 13',
     min_PUDS: 2754,
     max_PUDS: 2919,
     avg_PUDS: 2837,
@@ -1680,7 +1680,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 14",
+    week: 'Tydzień 14',
     min_PUDS: 2754,
     max_PUDS: 2919,
     avg_PUDS: 2837,
@@ -1689,7 +1689,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 15",
+    week: 'Tydzień 15',
     min_PUDS: 2754,
     max_PUDS: 2919,
     avg_PUDS: 2837,
@@ -1698,7 +1698,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 16",
+    week: 'Tydzień 16',
     min_PUDS: 2754,
     max_PUDS: 2907,
     avg_PUDS: 2831,
@@ -1707,7 +1707,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 17",
+    week: 'Tydzień 17',
     min_PUDS: 2743,
     max_PUDS: 2896,
     avg_PUDS: 2820,
@@ -1716,7 +1716,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 18",
+    week: 'Tydzień 18',
     min_PUDS: 2745,
     max_PUDS: 2878,
     avg_PUDS: 2812,
@@ -1725,7 +1725,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 19",
+    week: 'Tydzień 19',
     min_PUDS: 2746,
     max_PUDS: 2878,
     avg_PUDS: 2812,
@@ -1734,7 +1734,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 20",
+    week: 'Tydzień 20',
     min_PUDS: 2746,
     max_PUDS: 2878,
     avg_PUDS: 2812,
@@ -1743,7 +1743,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 21",
+    week: 'Tydzień 21',
     min_PUDS: 2746,
     max_PUDS: 2878,
     avg_PUDS: 2812,
@@ -1752,7 +1752,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 22",
+    week: 'Tydzień 22',
     min_PUDS: 2746,
     max_PUDS: 2878,
     avg_PUDS: 2812,
@@ -1761,7 +1761,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 23",
+    week: 'Tydzień 23',
     min_PUDS: 2746,
     max_PUDS: 2878,
     avg_PUDS: 2812,
@@ -1770,7 +1770,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 24",
+    week: 'Tydzień 24',
     min_PUDS: 2746,
     max_PUDS: 2878,
     avg_PUDS: 2812,
@@ -1779,7 +1779,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 25",
+    week: 'Tydzień 25',
     min_PUDS: 2746,
     max_PUDS: 2878,
     avg_PUDS: 2812,
@@ -1788,7 +1788,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 26",
+    week: 'Tydzień 26',
     min_PUDS: 2746,
     max_PUDS: 2878,
     avg_PUDS: 2812,
@@ -1797,7 +1797,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 27",
+    week: 'Tydzień 27',
     min_PUDS: 2706,
     max_PUDS: 2893,
     avg_PUDS: 2800,
@@ -1806,7 +1806,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 28",
+    week: 'Tydzień 28',
     min_PUDS: 2700,
     max_PUDS: 2843,
     avg_PUDS: 2772,
@@ -1815,7 +1815,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 29",
+    week: 'Tydzień 29',
     min_PUDS: 2620,
     max_PUDS: 2810,
     avg_PUDS: 2715,
@@ -1824,7 +1824,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 30",
+    week: 'Tydzień 30',
     min_PUDS: 2620,
     max_PUDS: 2810,
     avg_PUDS: 2715,
@@ -1833,7 +1833,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 31",
+    week: 'Tydzień 31',
     min_PUDS: 2620,
     max_PUDS: 2810,
     avg_PUDS: 2715,
@@ -1842,7 +1842,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 32",
+    week: 'Tydzień 32',
     min_PUDS: 2620,
     max_PUDS: 2810,
     avg_PUDS: 2715,
@@ -1851,7 +1851,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 33",
+    week: 'Tydzień 33',
     min_PUDS: 2620,
     max_PUDS: 2810,
     avg_PUDS: 2715,
@@ -1860,7 +1860,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 34",
+    week: 'Tydzień 34',
     min_PUDS: 2620,
     max_PUDS: 2810,
     avg_PUDS: 2715,
@@ -1869,7 +1869,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 35",
+    week: 'Tydzień 35',
     min_PUDS: 2555,
     max_PUDS: 2765,
     avg_PUDS: 2660,
@@ -1878,7 +1878,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 36",
+    week: 'Tydzień 36',
     min_PUDS: 2555,
     max_PUDS: 2765,
     avg_PUDS: 2660,
@@ -1887,7 +1887,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 37",
+    week: 'Tydzień 37',
     min_PUDS: 2555,
     max_PUDS: 2765,
     avg_PUDS: 2660,
@@ -1896,7 +1896,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 38",
+    week: 'Tydzień 38',
     min_PUDS: 2555,
     max_PUDS: 2765,
     avg_PUDS: 2660,
@@ -1905,7 +1905,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 39",
+    week: 'Tydzień 39',
     min_PUDS: 2555,
     max_PUDS: 2765,
     avg_PUDS: 2660,
@@ -1914,7 +1914,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 40",
+    week: 'Tydzień 40',
     min_PUDS: 2555,
     max_PUDS: 2765,
     avg_PUDS: 2660,
@@ -1923,7 +1923,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 41",
+    week: 'Tydzień 41',
     min_PUDS: 2555,
     max_PUDS: 2765,
     avg_PUDS: 2660,
@@ -1932,7 +1932,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 42",
+    week: 'Tydzień 42',
     min_PUDS: 2555,
     max_PUDS: 2765,
     avg_PUDS: 2660,
@@ -1941,7 +1941,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 43",
+    week: 'Tydzień 43',
     min_PUDS: 2610,
     max_PUDS: 2865,
     avg_PUDS: 2738,
@@ -1950,7 +1950,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 44",
+    week: 'Tydzień 44',
     min_PUDS: 2610,
     max_PUDS: 2865,
     avg_PUDS: 2738,
@@ -1959,7 +1959,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 45",
+    week: 'Tydzień 45',
     min_PUDS: 2610,
     max_PUDS: 2865,
     avg_PUDS: 2738,
@@ -1968,7 +1968,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 46",
+    week: 'Tydzień 46',
     min_PUDS: 2610,
     max_PUDS: 2865,
     avg_PUDS: 2738,
@@ -1977,7 +1977,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 47",
+    week: 'Tydzień 47',
     min_PUDS: 2610,
     max_PUDS: 2865,
     avg_PUDS: 2738,
@@ -1986,7 +1986,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 48",
+    week: 'Tydzień 48',
     min_PUDS: 2610,
     max_PUDS: 2865,
     avg_PUDS: 2738,
@@ -1995,7 +1995,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 49",
+    week: 'Tydzień 49',
     min_PUDS: 2555,
     max_PUDS: 2765,
     avg_PUDS: 2660,
@@ -2004,7 +2004,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 50",
+    week: 'Tydzień 50',
     min_PUDS: 2555,
     max_PUDS: 2765,
     avg_PUDS: 2660,
@@ -2013,7 +2013,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 51",
+    week: 'Tydzień 51',
     min_PUDS: 2555,
     max_PUDS: 2765,
     avg_PUDS: 2660,
@@ -2022,7 +2022,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2024,
-    week: "Tydzień 52",
+    week: 'Tydzień 52',
     min_PUDS: 2555,
     max_PUDS: 2765,
     avg_PUDS: 2660,
@@ -2031,7 +2031,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2025,
-    week: "Tydzień 1",
+    week: 'Tydzień 1',
     min_PUDS: 2663,
     max_PUDS: 2828,
     avg_PUDS: 2746,
@@ -2040,7 +2040,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2025,
-    week: "Tydzień 2",
+    week: 'Tydzień 2',
     min_PUDS: 2660,
     max_PUDS: 2795,
     avg_PUDS: 2728,
@@ -2049,7 +2049,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2025,
-    week: "Tydzień 3",
+    week: 'Tydzień 3',
     min_PUDS: 2675,
     max_PUDS: 2840,
     avg_PUDS: 2758,
@@ -2058,7 +2058,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2025,
-    week: "Tydzień 4",
+    week: 'Tydzień 4',
     min_PUDS: 2659,
     max_PUDS: 2838,
     avg_PUDS: 2749,
@@ -2067,7 +2067,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2025,
-    week: "Tydzień 5",
+    week: 'Tydzień 5',
     min_PUDS: 2660,
     max_PUDS: 2820,
     avg_PUDS: 2740,
@@ -2076,7 +2076,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2025,
-    week: "Tydzień 6",
+    week: 'Tydzień 6',
     min_PUDS: 2658,
     max_PUDS: 2837,
     avg_PUDS: 2748,
@@ -2085,7 +2085,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2025,
-    week: "Tydzień 7",
+    week: 'Tydzień 7',
     min_PUDS: 2658,
     max_PUDS: 2805,
     avg_PUDS: 2732,
@@ -2094,7 +2094,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2025,
-    week: "Tydzień 8",
+    week: 'Tydzień 8',
     min_PUDS: 2717,
     max_PUDS: 2847,
     avg_PUDS: 2782,
@@ -2103,7 +2103,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2025,
-    week: "Tydzień 9",
+    week: 'Tydzień 9',
     min_PUDS: 2717,
     max_PUDS: 2847,
     avg_PUDS: 2782,
@@ -2112,7 +2112,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2025,
-    week: "Tydzień 10",
+    week: 'Tydzień 10',
     min_PUDS: 2717,
     max_PUDS: 2847,
     avg_PUDS: 2782,
@@ -2121,7 +2121,7 @@ export const FullSteelPriceData = [
   },
   {
     year: 2025,
-    week: "Tydzień 11",
+    week: 'Tydzień 11',
     min_PUDS: 2717,
     max_PUDS: 2847,
     avg_PUDS: 2782,
@@ -3579,23 +3579,23 @@ export const MaterialPriceData = [
     month: 1,
     sciany_kominy: -5.6,
     izolacje_wodochronne: -1.2,
-    dachy_rynny: -2.3,
-    izolacje_termiczne: 3.5,
-    chemia_budowlana: 3.6,
-    stolarka: -3.2,
-    sucha_zabudowa: -1.2,
-    plyty_osb: 4.9,
-    narzedzia: -0.3,
-    cement_wapno: 3.1,
+    dachy_rynny: -3.3,
+    izolacje_termiczne: 4.5,
+    chemia_budowlana: 4.7,
+    stolarka: -4.1,
+    sucha_zabudowa: -2.2,
+    plyty_osb: 1,
+    narzedzia: 0.7,
+    cement_wapno: 2.1,
     farby_lakiery: 1.1,
-    plytki_lazienki_kuchnie: 1.4,
-    instalacje_ogrzewania: 1.0,
+    plytki_lazienki_kuchnie: 0.3,
+    instalacje_ogrzewania: 0.0,
     wyposazenie_agd: 0.3,
-    ogrod_hobby: -0.4,
-    dekoracje: 1.3,
-    motoryzacja: -6.0,
-    wykonczenia: 3.0,
-    elektryka_oswietlenie: 0.4,
+    ogrod_hobby: -3.3,
+    dekoracje: 2.3,
+    motoryzacja: -5.1,
+    wykonczenia: 0.9,
+    elektryka_oswietlenie: 2.4,
     otoczenie_domu: 8.0,
   },
 ];

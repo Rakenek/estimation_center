@@ -1,5 +1,5 @@
-"use client";
-import React from "react";
+'use client';
+import React from 'react';
 import {
   BarChart,
   Bar,
@@ -8,15 +8,15 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
-} from "recharts";
-import { MaterialPrice } from "@prisma/client";
+} from 'recharts';
+import { MaterialPrice } from '@prisma/client';
 import {
   getUniqueYearsTable,
   transformMaterialPrice,
-} from "@/lib/customFunctions";
-import Button from "./Button";
-import { MaterialPriceData } from "@/lib/data";
-import MaterialPriceTable from "./MaterialPriceTable";
+} from '@/lib/customFunctions';
+import Button from './Button';
+import { MaterialPriceData } from '@/lib/data';
+import MaterialPriceTable from './MaterialPriceTable';
 
 interface MaterialPriceChartProps {
   materialPriceData: MaterialPrice[];
@@ -25,7 +25,7 @@ interface MaterialPriceChartProps {
 const MaterialsPriceChart = ({
   materialPriceData,
 }: MaterialPriceChartProps) => {
-  const [pickedYear, setPickedYear] = React.useState<number>(2024);
+  const [pickedYear, setPickedYear] = React.useState<number>(2025);
   const allYears = getUniqueYearsTable(materialPriceData);
 
   const filteredYear = materialPriceData.filter(
@@ -50,18 +50,18 @@ const MaterialsPriceChart = ({
         </h2>
         <ResponsiveContainer width="100%" height={400}>
           <BarChart data={transformedData} barSize={50}>
-            <XAxis dataKey="yearAndMonth" style={{ fontSize: "14px" }} />
-            <YAxis style={{ fontSize: "14px" }} />
+            <XAxis dataKey="yearAndMonth" style={{ fontSize: '14px' }} />
+            <YAxis style={{ fontSize: '14px' }} />
             <Tooltip
               itemStyle={{
-                fontSize: "14px",
+                fontSize: '14px',
                 margin: 0,
-                padding: "2px",
-                lineHeight: "1.2em",
+                padding: '2px',
+                lineHeight: '1.2em',
               }}
-              labelStyle={{ fontSize: "16px" }}
+              labelStyle={{ fontSize: '16px' }}
             />
-            <Legend wrapperStyle={{ fontSize: "14px" }} />
+            <Legend wrapperStyle={{ fontSize: '14px' }} />
             <Bar
               dataKey="sciany_kominy"
               fill="#423f6b"

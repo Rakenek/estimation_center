@@ -1,7 +1,7 @@
-import { prisma } from "@/lib/prisma";
-import React, { Suspense } from "react";
-import ProjectDetails from "@/components/ProjectDetails";
-import LoadingSpinner from "@/components/LoadingSpinner";
+import { prisma } from '@/lib/prisma';
+import React, { Suspense } from 'react';
+import ProjectDetails from '@/components/ProjectDetails';
+import LoadingSpinner from '@/components/LoadingSpinner';
 
 interface ProjectPageProps {
   params: Promise<{ projectId: string }>;
@@ -32,11 +32,11 @@ async function Details({ projectId }: DetailsProps) {
 
     return (
       <div className="grid grid-cols-[250px_1fr] gap-4">
-        <div className="col-span-2 flex h-20 text-4xl grow items-center justify-center">
-          <h1>{project?.name}</h1>
-        </div>
-
-        <ProjectDetails parameters={parameters} cost={cost} />
+        <ProjectDetails
+          parameters={parameters}
+          cost={cost}
+          projectName={project.name}
+        />
       </div>
     );
   } catch (e) {
