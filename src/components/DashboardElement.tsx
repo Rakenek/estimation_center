@@ -1,8 +1,8 @@
-"use client";
-import SearchBar from "@/components/SearchBar";
-import React, { useState } from "react";
-import ListOfInvestments from "@/components/ListOfInvestments";
-import { Project } from "@prisma/client";
+'use client';
+import SearchBar from '@/components/SearchBar';
+import React, { useState } from 'react';
+import ListOfInvestments from '@/components/ListOfInvestments';
+import { Project } from '@prisma/client';
 
 interface DashboardElementProps {
   projects: Project[];
@@ -19,7 +19,7 @@ export default function DashboardElement({ projects }: DashboardElementProps) {
   }
 
   return (
-    <div>
+    <div className="p-8">
       <SearchBar
         onSearch={(value) => {
           filterdata(value);

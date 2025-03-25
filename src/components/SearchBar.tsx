@@ -14,7 +14,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   };
 
   return (
-    <div className="w-full max-w-lg mx-auto mt-4 text-black">
+    <div className="w-full max-w-lg mx-auto  text-black">
       <input
         type="text"
         value={query}

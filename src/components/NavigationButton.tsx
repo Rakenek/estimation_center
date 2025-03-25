@@ -1,16 +1,36 @@
 'use client';
 
+import {
+  HousePlus,
+  LineChart,
+  LucideIcon,
+  Scale,
+  SearchCheck,
+} from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+
+const iconMap: Record<string, LucideIcon> = {
+  LineChart, // Map icon name to actual component
+  SearchCheck,
+  Scale,
+  HousePlus,
+};
 
 interface NavigationButtonProps {
   href: string;
   text: string;
+  iconName: keyof typeof iconMap;
 }
 
-const NavigationButton: React.FC<NavigationButtonProps> = ({ href, text }) => {
+const NavigationButton: React.FC<NavigationButtonProps> = ({
+  href,
+  text,
+  iconName,
+}) => {
   const pathname = usePathname();
-  const isActive = pathname === href;
+  const isActive = pathname.includes(href);
+  const Icon = iconMap[iconName];
 
   return (
     <Link
@@ -19,7 +39,10 @@ const NavigationButton: React.FC<NavigationButtonProps> = ({ href, text }) => {
         isActive ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700'
       }`}
     >
-      <span>{text}</span>
+      <span className="flex">
+        <Icon className="mr-2" />
+        {text}
+      </span>
     </Link>
   );
 };
