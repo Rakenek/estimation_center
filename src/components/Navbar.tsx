@@ -11,30 +11,31 @@ export default function Navbar() {
     <>
       <Link href="/search">
         <div className="px-5">
-          <Image src={logo} alt="logo" width={70} height={70} />
+          <Image src={logo} alt="logo" width={60} height={60} />
         </div>
       </Link>
-      <NavigationButton
-        href={`/search`}
-        text={'Wyszukiwarka Projektów'}
-        iconName="SearchCheck"
-      />
-      <NavigationButton
-        href={`/comparison`}
-        text={'Porównywarka'}
-        iconName="Scale"
-      />
-      <NavigationButton
-        href={`/market-price-changes`}
-        text={'Cenowe Trendy Rynkowe'}
-        iconName="LineChart"
-      />
-      <NavigationButton
-        href={`/add-project`}
-        text={'Dodaj projekt'}
-        iconName="HousePlus"
-      />
-
+      <div className="flex items-stretch">
+        <NavigationButton
+          href={`/search`}
+          text={'Wyszukiwarka Projektów'}
+          iconName="SearchCheck"
+        />
+        <NavigationButton
+          href={`/comparison`}
+          text={'Porównywarka'}
+          iconName="Scale"
+        />
+        <NavigationButton
+          href={`/market-price-changes`}
+          text={'Cenowe Trendy Rynkowe'}
+          iconName="LineChart"
+        />
+        <NavigationButton
+          href={`/add-project`}
+          text={'Dodaj projekt'}
+          iconName="HousePlus"
+        />
+      </div>
       <div className="px-5">
         <AuthButton />
       </div>

@@ -196,8 +196,6 @@ export default function DifferenceTable({
   );
   const updatedCostTableValues2 = divide(updatedCostTableName2, divideBy2);
 
-  console.log(updatedCostTableValues1, updatedCostTableValues2);
-
   const finalTable = combineArrays(
     updatedCostTableValues1,
     updatedCostTableValues2

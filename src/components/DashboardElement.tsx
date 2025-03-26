@@ -19,7 +19,7 @@ export default function DashboardElement({ projects }: DashboardElementProps) {
   }
 
   return (
-    <div className="p-8">
+    <div className="pt-24">
       <SearchBar
         onSearch={(value) => {
           filterdata(value);

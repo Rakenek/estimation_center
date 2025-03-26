@@ -65,7 +65,7 @@ export default function ComparasionDashboard({
   };
 
   return (
-    <div className="flex">
+    <div className="flex pt-16">
       <div className="w-1/3">
         <ComparasionElement
           projects={projects}
@@ -85,7 +85,7 @@ export default function ComparasionDashboard({
         />
       </div>
       <div className="w-1/3">
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center pt-8">
           <DropdownMenu options={dropdownOptions} onSelect={onDropdownChange} />
         </div>
         {selectedProject1 && selectedProject2 ? (

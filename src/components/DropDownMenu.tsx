@@ -21,7 +21,7 @@ const DropdownMenu: React.FC<DropdownProps> = ({ options, onSelect }) => {
   };
 
   return (
-    <div className="w-96 relative text-black pt-8">
+    <div className="w-96 relative text-black">
       <button
         onClick={toggleDropdown}
         className="bg-blue-500  p-2 rounded-md w-full focus:outline-none"

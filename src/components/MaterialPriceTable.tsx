@@ -1,35 +1,35 @@
-"use client";
+'use client';
 
-import { MaterialPrice } from "@prisma/client";
-import React from "react";
+import { MaterialPrice } from '@prisma/client';
+import React from 'react';
 
 interface MaterialPriceTableProps {
   materialPriceData: MaterialPrice[];
 }
 
 const labels = [
-  "Rok",
-  "Miesiąc",
-  "Ściany Kominy",
-  "Izolacje Wodochronne",
-  "Dachy Rynny",
-  "Izolacje Termiczne",
-  "Chemia Budowlana",
-  "Stolarka",
-  "Sucha Zabudowa",
-  "Płyty OSB",
-  "Narzędzia",
-  "Cement Wapno",
-  "Farby Lakiery",
-  "Płytki Łazienki Kuchnie",
-  "Instalacje Ogrzewania",
-  "Wyposaenie AGD",
-  "Ogród Hobby",
-  "Dekoracje",
-  "Motoryzacja",
-  "Wykończenia",
-  "Elektryka Oświetlenie",
-  "Otoczenie Domu",
+  'Rok',
+  'Miesiąc',
+  'Ściany Kominy',
+  'Izolacje Wodochronne',
+  'Dachy Rynny',
+  'Izolacje Termiczne',
+  'Chemia Budowlana',
+  'Stolarka',
+  'Sucha Zabudowa',
+  'Płyty OSB',
+  'Narzędzia',
+  'Cement Wapno',
+  'Farby Lakiery',
+  'Płytki Łazienki Kuchnie',
+  'Instalacje Ogrzewania',
+  'Wyposaenie AGD',
+  'Ogród Hobby',
+  'Dekoracje',
+  'Motoryzacja',
+  'Wykończenia',
+  'Elektryka Oświetlenie',
+  'Otoczenie Domu',
 ];
 
 export default function MaterialPriceTable({
@@ -40,17 +40,16 @@ export default function MaterialPriceTable({
     const { id, ...rest } = obj; // Destructure to separate id from other properties
     return rest; // Return object without id
   });
-  // console.log(filteredData);
 
   // Define the type for the accumulator based on MaterialPrice, excluding 'id', 'year', and 'month'
-  type SummaryObject = Partial<Omit<MaterialPrice, "id" | "year" | "month">>;
+  type SummaryObject = Partial<Omit<MaterialPrice, 'id' | 'year' | 'month'>>;
 
   // Compute the summary object with proper typing
   const summaryObject = [
     filteredData.reduce((acc: SummaryObject, curr) => {
       // Get all keys except 'year' and 'month'
       const keys = Object.keys(curr).filter(
-        (key) => key !== "year" && key !== "month"
+        (key) => key !== 'year' && key !== 'month'
       );
 
       // For each key, add its value to the accumulator
@@ -63,7 +62,7 @@ export default function MaterialPriceTable({
       return acc;
     }, {}),
   ];
-  console.log(summaryObject);
+
   const newObject = summaryObject[0];
   const values = Object.values(newObject);
 
@@ -83,18 +82,18 @@ export default function MaterialPriceTable({
 
   // Define categories by excluding 'id', 'year', and 'month' from MaterialPrice keys
   const categories = Object.keys(finalData[0]).filter(
-    (key) => key !== "year" && key !== "month"
-  ) as (keyof Omit<MaterialPrice, "id" | "year" | "month">)[];
+    (key) => key !== 'year' && key !== 'month'
+  ) as (keyof Omit<MaterialPrice, 'id' | 'year' | 'month'>)[];
 
   return (
     <>
       <span
         className={`${
-          average > 0 ? "text-red-600" : "text-green-500"
+          average > 0 ? 'text-red-600' : 'text-green-500'
         } flex items-center justify-center pt-9`}
       >
-        Średnio w roku {filteredData[0].year} ceny{" "}
-        {average > 0 ? "wzrosły" : "spadły"} o {average.toFixed(1)} %
+        Średnio w roku {filteredData[0].year} ceny{' '}
+        {average > 0 ? 'wzrosły' : 'spadły'} o {average.toFixed(1)} %
       </span>
       <div className="overflow-x-auto p-4 text-black">
         <table className="min-w-full border border-gray-300 text-sm">
@@ -105,7 +104,7 @@ export default function MaterialPriceTable({
                   key={category}
                   className="border border-gray-300 p-2 capitalize"
                 >
-                  {category.replace(/_/g, " ")}
+                  {category.replace(/_/g, ' ')}
                 </th>
               ))}
             </tr>
@@ -114,16 +113,16 @@ export default function MaterialPriceTable({
             {finalData.map((row, index) => (
               <tr key={index} className="odd:bg-gray-100 even:bg-white">
                 <td className="border border-gray-300 p-2 text-center">
-                  {row.year !== 0 ? row.year : "Suma"}
+                  {row.year !== 0 ? row.year : 'Suma'}
                 </td>
                 <td className="border border-gray-300 p-2 text-center">
-                  {row.month !== 0 ? row.month : "1-12"}
+                  {row.month !== 0 ? row.month : '1-12'}
                 </td>
                 {categories.map((category) => (
                   <td
                     key={category}
                     className={`border border-gray-300 p-2 text-center ${
-                      row[category] < 0 ? "text-green-500" : "text-red-600"
+                      row[category] < 0 ? 'text-green-500' : 'text-red-600'
                     }`}
                   >
                     {row[category].toFixed(1)}%

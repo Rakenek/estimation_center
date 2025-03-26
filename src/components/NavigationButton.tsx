@@ -35,7 +35,7 @@ const NavigationButton: React.FC<NavigationButtonProps> = ({
   return (
     <Link
       href={href}
-      className={`flex items-center gap-3 p-3 h-16 rounded-md transition-all duration-200 ${
+      className={`flex w-64 items-center justify-center gap-3 p-3 h-16  transition-all duration-200 ${
         isActive ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700'
       }`}
     >

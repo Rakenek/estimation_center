@@ -75,7 +75,7 @@ export default function ProjectDetailsPage({
   return (
     <>
       <Sidebar sidebarData={sidebarData} />
-      <div>
+      <div className="pt-16">
         <div className=" flex h-20 text-4xl grow items-center justify-center">
           <h1>{projectName}</h1>
         </div>

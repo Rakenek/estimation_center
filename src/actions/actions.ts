@@ -569,7 +569,7 @@ export async function addMaterialPriceData(
 ) {
   try {
     const formDataObject = Object.fromEntries(formData.entries());
-    // console.log(formDataObject);
+
     const materialData = await prisma.materialPrice.create({
       data: {
         year: parseFloat(formDataObject.year as string),
