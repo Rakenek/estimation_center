@@ -73,7 +73,7 @@ export default function ProjectDetailsPage({
   });
 
   return (
-    <>
+    <div className="grid grid-cols-[250px_1fr] gap-4">
       <Sidebar sidebarData={sidebarData} />
       <div className="pt-16">
         <div className=" flex h-20 text-4xl grow items-center justify-center">
@@ -116,6 +116,6 @@ export default function ProjectDetailsPage({
           ) : null}
         </div>
       </div>
-    </>
+    </div>
   );
 }

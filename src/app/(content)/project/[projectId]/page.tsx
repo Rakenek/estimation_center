@@ -3,6 +3,7 @@ import React, { Suspense } from 'react';
 import ProjectDetails from '@/components/ProjectDetails';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ProjectChartReport from '@/components/ProjectChartReport';
+import ProjectDashboard from '@/components/ProjectDashboard';
 
 interface ProjectPageProps {
   params: Promise<{ projectId: string }>;
@@ -32,15 +33,11 @@ async function Details({ projectId }: DetailsProps) {
       );
 
     return (
-      <>
-        <div className="grid grid-cols-[250px_1fr] gap-4">
-          <ProjectDetails
-            parameters={parameters}
-            cost={cost}
-            projectName={project.name}
-          />
-        </div>
-      </>
+      <ProjectDashboard
+        parameters={parameters}
+        cost={cost}
+        projectName={project.name}
+      />
     );
   } catch (e) {
     console.error(e);
