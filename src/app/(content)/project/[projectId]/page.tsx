@@ -2,6 +2,7 @@ import { prisma } from '@/lib/prisma';
 import React, { Suspense } from 'react';
 import ProjectDetails from '@/components/ProjectDetails';
 import LoadingSpinner from '@/components/LoadingSpinner';
+import ProjectChartReport from '@/components/ProjectChartReport';
 
 interface ProjectPageProps {
   params: Promise<{ projectId: string }>;
@@ -31,13 +32,15 @@ async function Details({ projectId }: DetailsProps) {
       );
 
     return (
-      <div className="grid grid-cols-[250px_1fr] gap-4">
-        <ProjectDetails
-          parameters={parameters}
-          cost={cost}
-          projectName={project.name}
-        />
-      </div>
+      <>
+        <div className="grid grid-cols-[250px_1fr] gap-4">
+          <ProjectDetails
+            parameters={parameters}
+            cost={cost}
+            projectName={project.name}
+          />
+        </div>
+      </>
     );
   } catch (e) {
     console.error(e);
