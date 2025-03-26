@@ -19,9 +19,9 @@ export default function ProjectDetailsPage({
   projectName,
 }: ProjectDetailsPageProp) {
   const [isCostShown, setIsCostShown] = useState(true);
-  const [isCostToPumShown, setIsCostToPumShown] = useState(false);
-  const [isCostToNettShown, setIsCostToNettShown] = useState(false);
-  const [isIndicatorShown, setIsIndicatorShown] = useState(false);
+  const [isCostToPumShown, setIsCostToPumShown] = useState(true);
+  const [isCostToNettShown, setIsCostToNettShown] = useState(true);
+  const [isIndicatorShown, setIsIndicatorShown] = useState(true);
   const [isParameterShown, setIsParameterShown] = useState(false);
   const params = useParams<{ projectId: string }>();
   const { projectId } = params;

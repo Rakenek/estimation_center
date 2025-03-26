@@ -13,7 +13,7 @@ export default function Sidebar({ sidebarData }: SidebarProps) {
   return (
     <aside className="bg-background min-h-screen pt-40">
       {sidebarData.map((item, index) => {
-        const active = index === 0;
+        const active = index !== 4;
         return (
           <SidebarButton
             key={item.label}
