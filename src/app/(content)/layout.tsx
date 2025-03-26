@@ -13,7 +13,7 @@ export default function DashboardLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <div className="flex flex-col ">
-      <div className="flex justify-between items-center">
+      <div id="hello" className="flex justify-between items-center h-16">
         <Navbar />
       </div>
       <div></div>

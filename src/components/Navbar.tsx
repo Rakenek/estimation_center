@@ -5,14 +5,13 @@ import Link from 'next/link';
 import NavigationButton from './NavigationButton';
 
 import AuthButton from './AuthButton.server';
-import { LineChart } from 'lucide-react';
 
 export default function Navbar() {
   return (
     <>
       <Link href="/search">
         <div className="px-5">
-          <Image src={logo} alt="sdf" width={100} height={100} />
+          <Image src={logo} alt="logo" width={70} height={70} />
         </div>
       </Link>
       <NavigationButton

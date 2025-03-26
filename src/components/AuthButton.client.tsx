@@ -1,8 +1,9 @@
-"use client";
-import { useSession, signIn, signOut } from "next-auth/react";
+'use client';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 // import { signIn, signOut } from "@/auth/helpers";
-import Button from "@/components/Button";
+import Button from '@/components/Button';
+import { Smile } from 'lucide-react';
 
 export default function AuthButtonClient() {
   const session = useSession();
@@ -14,7 +15,7 @@ export default function AuthButtonClient() {
         // await signIn();
       }}
     >
-      {session?.data?.user?.name} : Sign Out
+      <Smile className="mr-2" /> {session?.data?.user?.name} : Sign Out
     </Button>
   ) : (
     <Button onClick={async () => await signIn()}>Sign In</Button>
