@@ -20,7 +20,7 @@ const Card: React.FC<CardProps> = ({
   n03,
 }) => {
   return (
-    <Link href={`/projects/${id}`} className="group">
+    <Link href={`/project/${id}`} className="group">
       <div className="w-sm rounded-2xl overflow-hidden shadow-lg bg-white transition-transform transform group-hover:scale-105 duration-300 ease-in-out">
         <Image
           className="w-full h-48 object-cover"
