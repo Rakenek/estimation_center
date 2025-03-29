@@ -1,9 +1,7 @@
-import { prisma } from '@/lib/prisma';
-import React, { Suspense } from 'react';
-import ProjectDetails from '@/components/ProjectDetails';
-import LoadingSpinner from '@/components/LoadingSpinner';
-import ProjectChartReport from '@/components/ProjectChartReport';
-import ProjectDashboard from '@/components/ProjectDashboard';
+import { prisma } from "@/lib/prisma";
+import React, { Suspense } from "react";
+import LoadingSpinner from "@/components/LoadingSpinner";
+import ProjectDashboard from "@/components/ProjectDashboard";
 
 interface ProjectPageProps {
   params: Promise<{ projectId: string }>;

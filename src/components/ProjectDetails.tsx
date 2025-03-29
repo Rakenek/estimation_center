@@ -1,11 +1,12 @@
-'use client';
-import React, { useState } from 'react';
-import Sidebar from './Sidebar';
-import ParametersTable from './ParametersTable';
-import { Cost, Parameters } from '@prisma/client';
-import CostTable, { dividerType } from './CostTable';
-import { redirect } from 'next/navigation';
-import { useParams } from 'next/navigation';
+"use client";
+import React, { useState } from "react";
+import Sidebar from "./Sidebar";
+import ParametersTable from "./ParametersTable";
+import { Cost, Parameters } from "@prisma/client";
+import CostTable, { dividerType } from "./CostTable";
+import { redirect } from "next/navigation";
+import { useParams } from "next/navigation";
+import Button from "./Button";
 
 interface ProjectDetailsPageProp {
   parameters: Parameters;
@@ -42,10 +43,10 @@ export default function ProjectDetailsPage({
     setIsParameterShown(!isParameterShown);
   };
   const toggleEdit = () => {
-    redirect(`/projects/${projectId}/edit-project`);
+    redirect(`/project/${projectId}/edit-project`);
   };
   const toggleDelete = () => {
-    redirect(`/projects/${projectId}/delete-project`);
+    redirect(`/project/${projectId}/delete-project`);
   };
 
   const togglers = [
@@ -59,13 +60,13 @@ export default function ProjectDetailsPage({
   ];
 
   const labels = [
-    'Koszt inwestycji [PLN]',
-    'Koszt do PUM [PLN/PUM]',
-    'Koszt do Netto [PLN/Netto]',
-    'Miarodajne wskaźniki',
-    'Parametry inwestycji',
-    'Edytuj',
-    'Usuń',
+    "Koszt inwestycji [PLN]",
+    "Koszt do PUM [PLN/PUM]",
+    "Koszt do Netto [PLN/Netto]",
+    "Miarodajne wskaźniki",
+    "Parametry inwestycji",
+    "Edytuj",
+    "Usuń",
   ];
 
   const sidebarData = togglers.map((toggler, index) => {
@@ -75,11 +76,13 @@ export default function ProjectDetailsPage({
   return (
     <div className="grid grid-cols-[250px_1fr] gap-4">
       <Sidebar sidebarData={sidebarData} />
-      <div className="pt-16">
-        <div className=" flex h-20 text-4xl grow items-center justify-center">
-          <h1>{projectName}</h1>
+      <div className="pt-20">
+        <div className="text-4xl grow items-center justify-center">
+          <div className="flex items-center justify-center">
+            <h1 className="text-4xl">{projectName}</h1>
+          </div>
         </div>
-        <div className="flex flex-wrap gap-4 items-start justify-center">
+        <div className="flex flex-wrap gap-4 items-start justify-center pt-5">
           {isCostShown ? (
             <CostTable
               cost={cost}
