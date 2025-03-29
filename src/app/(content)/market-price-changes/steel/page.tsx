@@ -7,7 +7,7 @@ export default async function SteelPage() {
   const steelPrice = await prisma.steelPrice.findMany();
 
   return (
-    <div className="flex flex-col items-center justify-center text-2xl p-10">
+    <div className="flex flex-col items-center justify-center text-4xl p-10">
       <h1 className="p-10">Cena Stali zbrojeniowej</h1>
       <Suspense fallback={<div>Loading...</div>}>
         <SteelPriceChart steelPrice={steelPrice} />

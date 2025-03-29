@@ -183,3 +183,13 @@ export function getUniqueYearsTable(data: MaterialPrice[]) {
 
   return uniqueYears;
 }
+
+export async function getAllProjectsData() {
+  const allProjectsData = await prisma.project.findMany({
+    include: {
+      cost: true,
+      parameter: true,
+    },
+  });
+  return allProjectsData;
+}

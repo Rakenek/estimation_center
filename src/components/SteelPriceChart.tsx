@@ -30,12 +30,42 @@ const SteelPriceChart = ({ steelPrice }: SteelPriceChartProps) => {
   return (
     <>
       <div className="flex justify-center space-x-4 p-2">
-        <Button onClick={setHowMuchLastWeeks.bind(null, 26)}>6msc</Button>
-        <Button onClick={setHowMuchLastWeeks.bind(null, 52)}>1 rok</Button>
-        <Button onClick={setHowMuchLastWeeks.bind(null, 104)}>2 lata</Button>
-        <Button onClick={setHowMuchLastWeeks.bind(null, 156)}>3 lata</Button>
-        <Button onClick={setHowMuchLastWeeks.bind(null, 208)}>4 lata</Button>
-        <Button onClick={setHowMuchLastWeeks.bind(null, 0)}>Całość</Button>
+        <Button
+          onClick={setHowMuchLastWeeks.bind(null, 26)}
+          className="text-lg p-2"
+        >
+          6msc
+        </Button>
+        <Button
+          onClick={setHowMuchLastWeeks.bind(null, 52)}
+          className="text-lg p-2"
+        >
+          1 rok
+        </Button>
+        <Button
+          onClick={setHowMuchLastWeeks.bind(null, 104)}
+          className="text-lg p-2"
+        >
+          2 lata
+        </Button>
+        <Button
+          onClick={setHowMuchLastWeeks.bind(null, 156)}
+          className="text-lg p-2"
+        >
+          3 lata
+        </Button>
+        <Button
+          onClick={setHowMuchLastWeeks.bind(null, 208)}
+          className="text-lg p-2"
+        >
+          4 lata
+        </Button>
+        <Button
+          onClick={setHowMuchLastWeeks.bind(null, 0)}
+          className="text-lg p-2"
+        >
+          Całość
+        </Button>
       </div>
       <div className="w-full p-4 bg-white shadow-md rounded-2xl text-black">
         <h2 className="text-xl font-semibold text-gray-700 mb-4 flex justify-center items-center">

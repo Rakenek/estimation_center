@@ -7,7 +7,7 @@ export default async function MaterialsPage() {
   const materialPriceData = await prisma.materialPrice.findMany();
 
   return (
-    <div className="flex flex-col items-center justify-center text-2xl p-10">
+    <div className="flex flex-col items-center justify-center text-4xl p-10">
       <h1 className="p-10">Zmiany Cen Materiałów Budowlanych</h1>
       <Suspense fallback={<div>Loading...</div>}>
         <MaterialsPriceChart materialPriceData={materialPriceData} />

@@ -10,7 +10,7 @@ export default async function AddMaterialPriceDataPage() {
     },
   });
   return (
-    <div>
+    <div className="pt-24">
       <MaterialDataForm
         materialPrice={materialPrice}
         action={addMaterialPriceData}

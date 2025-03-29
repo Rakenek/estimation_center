@@ -1,12 +1,11 @@
-import React from 'react';
-import logo from '@/../public/logo.png';
-import Image from 'next/image';
-import Link from 'next/link';
-import NavigationButton from './NavigationButton';
+import React from "react";
+import logo from "@/../public/logo.png";
+import Image from "next/image";
+import Link from "next/link";
+import NavigationButton from "./NavigationButton";
+import AuthButton from "./AuthButton.server";
 
-import AuthButton from './AuthButton.server';
-
-export default function Navbar() {
+export default async function Navbar() {
   return (
     <>
       <Link href="/search">
@@ -17,22 +16,22 @@ export default function Navbar() {
       <div className="flex items-stretch">
         <NavigationButton
           href={`/search`}
-          text={'Wyszukiwarka Projektów'}
+          text={"Wyszukiwarka Projektów"}
           iconName="SearchCheck"
         />
         <NavigationButton
           href={`/comparison`}
-          text={'Porównywarka'}
+          text={"Porównywarka 1 vs 1"}
           iconName="Scale"
         />
         <NavigationButton
           href={`/market-price-changes`}
-          text={'Cenowe Trendy Rynkowe'}
+          text={"Cenowe Trendy Rynkowe"}
           iconName="LineChart"
         />
         <NavigationButton
           href={`/add-project`}
-          text={'Dodaj projekt'}
+          text={"Dodaj projekt"}
           iconName="HousePlus"
         />
       </div>
