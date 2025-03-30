@@ -25,6 +25,11 @@ export default async function Navbar() {
           iconName="Scale"
         />
         <NavigationButton
+          href={`/all-projects-summary`}
+          text={"Zestawienie projektów"}
+          iconName="ChartColumn"
+        />
+        <NavigationButton
           href={`/market-price-changes`}
           text={"Cenowe Trendy Rynkowe"}
           iconName="LineChart"
