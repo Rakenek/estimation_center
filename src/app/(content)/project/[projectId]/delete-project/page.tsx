@@ -1,6 +1,6 @@
-import DeleteProjectButton from '@/components/DeleteProjectButton';
-import { prisma } from '@/lib/prisma';
-import React from 'react';
+import DeleteProjectButton from "@/components/DeleteProjectButton";
+import { prisma } from "@/lib/prisma";
+import React, { Suspense } from "react";
 
 export default async function DeleteProjectPage({
   params,
@@ -15,11 +15,13 @@ export default async function DeleteProjectPage({
   });
 
   return (
-    <div className="flex flex-col mt-64 items-center justify-center">
-      <h1 className="text-4xl mb-10">
-        Czy jesteś pewny że chcesz usunąć projekt {project?.name}?
-      </h1>
-      <DeleteProjectButton />
-    </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className="flex flex-col mt-64 items-center justify-center">
+        <h1 className="text-4xl mb-10">
+          Czy jesteś pewny że chcesz usunąć projekt {project?.name}?
+        </h1>
+        <DeleteProjectButton />
+      </div>
+    </Suspense>
   );
 }
