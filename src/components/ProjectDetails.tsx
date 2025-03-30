@@ -22,6 +22,7 @@ export default function ProjectDetailsPage({
   const [isCostShown, setIsCostShown] = useState(true);
   const [isCostToPumShown, setIsCostToPumShown] = useState(true);
   const [isCostToNettShown, setIsCostToNettShown] = useState(true);
+  const [isApartmentShown, setIsApartmentShown] = useState(false);
   const [isIndicatorShown, setIsIndicatorShown] = useState(true);
   const [isParameterShown, setIsParameterShown] = useState(false);
   const params = useParams<{ projectId: string }>();
@@ -35,6 +36,9 @@ export default function ProjectDetailsPage({
   };
   const toggleCostToNettShown = () => {
     setIsCostToNettShown(!isCostToNettShown);
+  };
+  const toggleCostToApartments = () => {
+    setIsApartmentShown(!isApartmentShown);
   };
   const toggleIndicatorShown = () => {
     setIsIndicatorShown(!isIndicatorShown);
@@ -53,6 +57,7 @@ export default function ProjectDetailsPage({
     toggleCostShown,
     toggleCostToPumShown,
     toggleCostToNettShown,
+    toggleCostToApartments,
     toggleIndicatorShown,
     toggleParameterShown,
     toggleEdit,
@@ -63,6 +68,7 @@ export default function ProjectDetailsPage({
     "Koszt inwestycji [PLN]",
     "Koszt do PUM [PLN/PUM]",
     "Koszt do Netto [PLN/Netto]",
+    "Koszt do liczby mieszkań",
     "Miarodajne wskaźniki",
     "Parametry inwestycji",
     "Edytuj",
@@ -104,6 +110,14 @@ export default function ProjectDetailsPage({
               parameters={parameters}
               tableName="Koszt inwestycji do Netto [PLN/NETTO]"
               divider={dividerType.NETTO}
+            />
+          ) : null}
+          {isApartmentShown ? (
+            <CostTable
+              cost={cost}
+              parameters={parameters}
+              tableName="Koszt do liczby mieszkań"
+              divider={dividerType.APARTMENTS}
             />
           ) : null}
           {isIndicatorShown ? (

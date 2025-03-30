@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 type CardProps = {
   id: string;
@@ -33,13 +33,13 @@ const Card: React.FC<CardProps> = ({
           <h2 className="text-xl font-semibold text-gray-900">{name}</h2>
           <p className="mt-2 text-gray-600">{city}</p>
           <p className="mt-2 text-gray-600">
-            N03: {Math.round(n03).toLocaleString('fr-FR')} PLN
+            N03: {Math.round(n03).toLocaleString("fr-FR")} PLN
           </p>
           <p
             className={`mt-2 text-gray-600 ${
-              status === 'Wycena' ? 'text-green-600' : ''
-            } ${status === 'Kontraktacja' ? 'text-purple-600' : ''}
-            ${status === 'Zakończono' ? 'text-red-600' : ''}`}
+              status === "Wycena" ? "text-green-600" : ""
+            } ${status === "Kontraktacja" ? "text-purple-600" : ""}
+            ${status === "Zakończono" ? "text-red-600" : ""}`}
           >
             Status: {status}
           </p>

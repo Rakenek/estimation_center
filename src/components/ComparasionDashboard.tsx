@@ -1,11 +1,10 @@
-'use client';
-import React, { useState } from 'react';
-import ComparasionElement from './ComparasionElement';
-import { Cost, Parameters, Project } from '@prisma/client';
-import { subtractObjects } from '@/lib/customFunctions';
-import DifferenceTable from './DifferenceTable';
-import { dividerType } from './CostTable';
-import DropdownMenu from './DropDownMenu';
+"use client";
+import React, { useState } from "react";
+import ComparasionElement from "./ComparasionElement";
+import { Cost, Parameters, Project } from "@prisma/client";
+import DifferenceTable from "./DifferenceTable";
+import { dividerType } from "./CostTable";
+import DropdownMenu from "./DropDownMenu";
 
 interface ComparasionDashboardProps {
   projects: Project[];
@@ -46,20 +45,23 @@ export default function ComparasionDashboard({
   };
 
   const dropdownOptions = [
-    '[PLN]',
-    '[PLN/(PUM i PUU)]',
-    '[PLN/NETTO]',
-    'Wskaźniki miarodajne',
+    "[PLN]",
+    "[PLN/(PUM i PUU)]",
+    "[PLN/NETTO]",
+    "Do liczby mieszkań",
+    "Wskaźniki miarodajne",
   ];
 
   const onDropdownChange = (option: string) => {
-    if (option === '[PLN]') {
+    if (option === "[PLN]") {
       setIndicatorType(dividerType.NONE);
-    } else if (option === '[PLN/(PUM i PUU)]') {
+    } else if (option === "[PLN/(PUM i PUU)]") {
       setIndicatorType(dividerType.PUMPUU);
-    } else if (option === '[PLN/NETTO]') {
+    } else if (option === "[PLN/NETTO]") {
       setIndicatorType(dividerType.NETTO);
-    } else if (option === 'Wskaźniki miarodajne') {
+    } else if (option === "Do liczby mieszkań") {
+      setIndicatorType(dividerType.APARTMENTS);
+    } else if (option === "Wskaźniki miarodajne") {
       setIndicatorType(dividerType.INDICATORS);
     }
   };
@@ -86,7 +88,11 @@ export default function ComparasionDashboard({
       </div>
       <div className="w-1/3">
         <div className="flex justify-center items-center pt-8">
-          <DropdownMenu options={dropdownOptions} onSelect={onDropdownChange} />
+          <DropdownMenu
+            options={dropdownOptions}
+            onSelect={onDropdownChange}
+            defaultOption={dropdownOptions[4]}
+          />
         </div>
         {selectedProject1 && selectedProject2 ? (
           <div className="pt-[34px]">
@@ -97,7 +103,9 @@ export default function ComparasionDashboard({
             />
           </div>
         ) : (
-          <p>Proszę wybierz dwa projekty do porównania</p> // Add a fallback or loading state
+          <div className="flex justify-center items-center pt-4">
+            <p>Proszę wybierz dwa projekty do porównania</p>
+          </div>
         )}
       </div>
     </div>

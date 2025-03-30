@@ -11,6 +11,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import DropdownMenu from "./DropDownMenu";
 
 type AllProjectsData = {
   id: string;
@@ -68,6 +69,19 @@ export default function ChartComponent({
 
   return (
     <>
+      <div className="flex items-center justify-center gap-10 mb-20">
+        <DropdownMenu
+          options={["1", "2"]}
+          onSelect={() => {}}
+          defaultOption={"1"}
+        />
+        <DropdownMenu
+          options={["1", "2"]}
+          onSelect={() => {}}
+          defaultOption={"1"}
+        />
+      </div>
+
       <ResponsiveContainer width="100%" height={600}>
         <BarChart
           data={transformedData}
