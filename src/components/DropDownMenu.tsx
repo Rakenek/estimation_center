@@ -1,4 +1,3 @@
-// app/components/Dropdown.tsx
 "use client";
 
 import { useState } from "react";
@@ -29,13 +28,13 @@ const DropdownMenu: React.FC<DropdownProps> = ({
     <div className="w-96 relative text-white">
       <button
         onClick={toggleDropdown}
-        className="bg-blue-500  p-2 rounded-md w-full focus:outline-none"
+        className="bg-blue-500 p-2 rounded-md w-full focus:outline-none"
       >
         {selectedOption ? selectedOption : defaultOption}
       </button>
 
       {isOpen && (
-        <ul className="absolute left-0 mt-2 w-full bg-white shadow-lg rounded-md border border-gray-300 z-10 text-black">
+        <ul className="absolute left-0 mt-2 w-full bg-white shadow-lg rounded-md border border-gray-300 z-10 text-black max-h-96 overflow-y-auto">
           {options.map((option) => (
             <li
               key={option}

@@ -12,7 +12,6 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import DropdownMenu from "./DropDownMenu";
-import { dividerType } from "./CostTable";
 
 type AllProjectsData = {
   id: string;
@@ -68,21 +67,17 @@ const CustomTick = (props: CustomTickProps) => {
 export default function ChartComponent({
   allProjectsData,
 }: ChartComponentProps) {
-  const [selectedPackage, setSelectedPackage] =
-    useState<PackageKeys>("roboty_ziemne");
+  const [selectedPackage, setSelectedPackage] = useState<PackageKeys>("n03");
   const dropdownDividerOptions = [
     "w [PLN]",
     "w [PLN/(PUM i PUU)]",
     "w [PLN/NETTO]",
     "do liczby mieszkań",
+    "do miarodajne wskaźniki",
   ];
   const [selectedDivider, setSelectedDivider] = useState(
-    dropdownDividerOptions[0]
+    dropdownDividerOptions[1]
   );
-
-  const handleSelectPackage = (option: string) => {
-    setSelectedPackage(option as PackageKeys);
-  };
 
   const handleSelectDivider = (option: string) => {
     setSelectedDivider(option);
@@ -98,7 +93,7 @@ export default function ChartComponent({
 
   const transformedData = allProjectsData
     .map((data) => {
-      let divider = 1;
+      let divider;
       const cost = data.cost as Cost;
       const parameters = data.parameter as Parameters;
 
@@ -115,19 +110,96 @@ export default function ChartComponent({
         case "do liczby mieszkań":
           divider = parameters.ilosc_mieszkan;
           break;
+        case "do miarodajne wskaźniki":
+          divider = {
+            n01: parameters.pum_i_puu,
+            n03: parameters.pum_i_puu,
+            roboty_ziemne:
+              parameters.liczba_kondygnacji_podziemnych === 1
+                ? parameters.powierzchnia_zabudowy_podziemia +
+                  parameters.powierzchnia_zabudowy_nadziemia_poza_obrysem_podziemia
+                : parameters.powierzchnia_netto_podziemia,
+            zabezpieczenie_wykopow: parameters.powierzchnia_zabudowy_podziemia,
+            sciany_szczelinowe: parameters.powierzchnia_zabudowy_podziemia,
+            roboty_palowe:
+              parameters.powierzchnia_zabudowy_podziemia +
+              parameters.powierzchnia_zabudowy_nadziemia_poza_obrysem_podziemia,
+            prace_fundamentowe: parameters.powierzchnia_zabudowy_podziemia,
+            konstrukcja_podziemia: parameters.powierzchnia_netto_podziemia,
+            konstrukcja_nadziemia: parameters.powierzchnia_netto_nadziemia,
+            elewacje: parameters.powierzchnia_elewacji,
+            dachy: parameters.powierzchnia_dachow,
+            wykonczenie_podziemia: parameters.powierzchnia_netto_podziemia,
+            wykonczenie_nadziemia: parameters.powierzchnia_netto_nadziemia,
+            windy: parameters.pum_i_puu,
+            parklifty: parameters.pum_i_puu,
+            instalacje_klimatyzacyjne: parameters.powierzchnia_netto,
+            instalacje_wodno_kanalizacyjne: parameters.powierzchnia_netto,
+            instalacje_gazowe: parameters.powierzchnia_netto,
+            instalacje_elektryczne: parameters.powierzchnia_netto,
+            instalacje_teletechniczne: parameters.powierzchnia_netto,
+            infrastruktura: parameters.powierzchnia_netto,
+            dfa: parameters.powierzchnia_niezabudowana_dzialki,
+            zielen: parameters.powierzchnia_niezabudowana_dzialki,
+            sieci: parameters.powierzchnia_niezabudowana_dzialki,
+            koszty_budowy: parameters.pum_i_puu,
+            bhp: parameters.pum_i_puu,
+            offset_poza_dzialka: parameters.pum_i_puu,
+          };
+          break;
       }
 
-      return {
-        name: data.name,
-        value: Math.round((cost[selectedPackage] as number) / divider),
-      };
+      if (typeof divider === "number") {
+        return {
+          name: data.name,
+          value: Math.round((cost[selectedPackage] as number) / divider),
+        };
+      }
+      if (typeof divider === "object") {
+        return {
+          name: data.name,
+          value: Math.round(
+            (cost[selectedPackage] as number) / divider[selectedPackage]
+          ),
+        };
+      }
     })
     .filter((item) => item.value !== 0);
+
+  const dividerLabel = {
+    n01: "[PLN/PUM]",
+    n03: "[PLN/PUM]",
+    roboty_ziemne: "[PLN/POW FUNDAMENTÓW]",
+    zabezpieczenie_wykopow: "[PLN/ZABUDOWY PODZIEMIA]",
+    sciany_szczelinowe: "[PLN/ZABUDOWY PODZIEMIA]",
+    roboty_palowe: "[PLN/POW FUNDAMENTÓW]",
+    prace_fundamentowe: "[PLN/POW FUNDAMENTÓW]",
+    konstrukcja_podziemia: "[PLN/NETTO PODZIEMIA]",
+    konstrukcja_nadziemia: "[PLN/NETTO NADZIEMIA]",
+    elewacje: "[PLN/POW ELEWACJI]",
+    dachy: "[PLN/POW DACHÓW]",
+    wykonczenie_podziemia: "[PLN/NETTO PODZIEMIA]",
+    wykonczenie_nadziemia: "[PLN/NETTO NADZIEMIA]",
+    windy: "[PLN/PUM]",
+    parklifty: "[PLN/PUM]",
+    instalacje_klimatyzacyjne: "[PLN/NETTO]",
+    instalacje_wodno_kanalizacyjne: "[PLN/NETTO]",
+    instalacje_gazowe: "[PLN/NETTO]",
+    instalacje_elektryczne: "[PLN/NETTO]",
+    instalacje_teletechniczne: "[PLN/NETTO]",
+    infrastruktura: "[PLN/POW NIEZABUDOWANEJ]",
+    dfa: "[PLN/NIEZABUDOWANEJ]",
+    zielen: "[PLN/NIEZABUDOWANEJ]",
+    sieci: "[PLN/PUM]",
+    koszty_budowy: "[PLN/PUM]",
+    bhp: "[PLN/PUM]",
+    offset_poza_dzialka: "[PLN/PUM]",
+  };
 
   return (
     <>
       <div>
-        <h1 className="text-white flex items-center justify-center text-4xl pb-8">
+        <h1 className="text-white flex items-center justify-center text-4xl pb-4">
           Zestawienie kosztowe projektów
         </h1>
       </div>
@@ -147,12 +219,15 @@ export default function ChartComponent({
         <DropdownMenu
           options={dropdownDividerOptions}
           onSelect={handleSelectDivider}
-          defaultOption={dropdownDividerOptions[0]}
+          defaultOption={dropdownDividerOptions[1]}
         />
       </div>
       <div>
         <h2 className="text-white text-2xl flex justify-center items-center">
-          Zestawienie kosztów: {toTitleCase(selectedPackage)} {selectedDivider}
+          Zestawienie kosztów: {toTitleCase(selectedPackage)}{" "}
+          {selectedDivider === "do miarodajne wskaźniki"
+            ? dividerLabel[selectedPackage]
+            : selectedDivider}
         </h2>
       </div>
 
@@ -167,7 +242,10 @@ export default function ChartComponent({
             tick={{ fill: "#d1d0d0" }} // Brighter text for Y-axis (white)
           />
           <Tooltip
-            formatter={(value: number) => [value, toTitleCase(selectedPackage)]}
+            formatter={(value: number) => [
+              value.toLocaleString("fr-FR"),
+              toTitleCase(selectedPackage),
+            ]}
             labelFormatter={(name) => `Projekt: ${name}`}
           />
           <Bar dataKey="value" barSize={30} fill="#8884d8" />

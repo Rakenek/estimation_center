@@ -21,8 +21,10 @@ interface SteelPriceChartProps {
 
 const SteelPriceChart = ({ steelPrice }: SteelPriceChartProps) => {
   const [data, setData] = useState<SteelPrice[]>(steelPrice);
+  const [buttonClicked, setButtonClicked] = useState(6);
 
-  const setHowMuchLastWeeks = (numWeeks: number) => {
+  const setHowMuchLastWeeks = (numWeeks: number, numButton: number) => {
+    setButtonClicked(numButton);
     setData(steelPrice.slice(-numWeeks));
   };
   const transformedSteelPrices = transformSteelPrices(data);
@@ -31,38 +33,38 @@ const SteelPriceChart = ({ steelPrice }: SteelPriceChartProps) => {
     <>
       <div className="flex justify-center space-x-4 p-2">
         <Button
-          onClick={setHowMuchLastWeeks.bind(null, 26)}
-          className="text-lg p-2"
+          onClick={setHowMuchLastWeeks.bind(null, 26, 1)}
+          className={`text-lg p-2 ${buttonClicked === 1 ? "bg-blue-300" : ""}`}
         >
           6msc
         </Button>
         <Button
-          onClick={setHowMuchLastWeeks.bind(null, 52)}
-          className="text-lg p-2"
+          onClick={setHowMuchLastWeeks.bind(null, 52, 2)}
+          className={`text-lg p-2 ${buttonClicked === 2 ? "bg-blue-300" : ""}`}
         >
           1 rok
         </Button>
         <Button
-          onClick={setHowMuchLastWeeks.bind(null, 104)}
-          className="text-lg p-2"
+          onClick={setHowMuchLastWeeks.bind(null, 104, 3)}
+          className={`text-lg p-2 ${buttonClicked === 3 ? "bg-blue-300" : ""}`}
         >
           2 lata
         </Button>
         <Button
-          onClick={setHowMuchLastWeeks.bind(null, 156)}
-          className="text-lg p-2"
+          onClick={setHowMuchLastWeeks.bind(null, 156, 4)}
+          className={`text-lg p-2 ${buttonClicked === 4 ? "bg-blue-300" : ""}`}
         >
           3 lata
         </Button>
         <Button
-          onClick={setHowMuchLastWeeks.bind(null, 208)}
-          className="text-lg p-2"
+          onClick={setHowMuchLastWeeks.bind(null, 208, 5)}
+          className={`text-lg p-2 ${buttonClicked === 5 ? "bg-blue-300" : ""}`}
         >
           4 lata
         </Button>
         <Button
-          onClick={setHowMuchLastWeeks.bind(null, 0)}
-          className="text-lg p-2"
+          onClick={setHowMuchLastWeeks.bind(null, 0, 6)}
+          className={`text-lg p-2 ${buttonClicked === 6 ? "bg-blue-300" : ""}`}
         >
           Całość
         </Button>

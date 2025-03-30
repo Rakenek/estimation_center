@@ -41,7 +41,9 @@ const MaterialsPriceChart = ({
           <Button
             key={year}
             onClick={() => setPickedYear(year)}
-            className="text-lg p-2"
+            className={`text-lg p-2 ${
+              year === pickedYear ? "bg-blue-300" : ""
+            }`}
           >
             {year}
           </Button>
