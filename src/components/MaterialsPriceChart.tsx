@@ -37,17 +37,19 @@ const MaterialsPriceChart = ({
   return (
     <>
       <div className="flex justify-center space-x-4 p-2 ">
-        {allYears.map((year) => (
-          <Button
-            key={year}
-            onClick={() => setPickedYear(year)}
-            className={`text-lg p-2 ${
-              year === pickedYear ? "bg-blue-300" : ""
-            }`}
-          >
-            {year}
-          </Button>
-        ))}
+        {allYears.map((year) => {
+          return (
+            <Button
+              key={year}
+              onClick={() => setPickedYear(year)}
+              className={`text-lg p-2 ${
+                year === pickedYear ? "bg-blue-200" : ""
+              }`}
+            >
+              {year}
+            </Button>
+          );
+        })}
       </div>
       <div className="w-full p-4 bg-white shadow-md rounded-2xl text-black">
         <h2 className="text-xl font-semibold text-gray-700 mb-4 flex justify-center items-center">
