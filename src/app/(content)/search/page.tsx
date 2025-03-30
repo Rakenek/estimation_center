@@ -14,7 +14,7 @@ async function Dashboard() {
   }
 }
 
-export default async function DashboardPage() {
+export default function DashboardPage() {
   return (
     <Suspense fallback={<LoadingSpinner />}>
       <Dashboard />
