@@ -8,7 +8,6 @@ interface ButtonProps {
 }
 
 export default function Button({ onClick, children, className }: ButtonProps) {
-  console.log(className);
   return (
     <button
       className={`p-3 rounded flex hover:bg-blue-300 ${
