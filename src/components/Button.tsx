@@ -1,5 +1,5 @@
-"use client";
-import React, { ReactNode } from "react";
+'use client';
+import React, { ReactNode } from 'react';
 
 interface ButtonProps {
   onClick: () => void;
@@ -11,7 +11,9 @@ export default function Button({ onClick, children, className }: ButtonProps) {
   console.log(className);
   return (
     <button
-      className={`p-3 rounded bg-blue-500 flex hover:bg-blue-300 ${className}`}
+      className={`p-3 rounded flex hover:bg-blue-300 ${
+        className?.includes('bg-blue-300') ? '' : 'bg-blue-500'
+      } ${className}`}
       onClick={onClick}
     >
       {children}
