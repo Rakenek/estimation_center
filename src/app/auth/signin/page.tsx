@@ -23,12 +23,14 @@ export default function SignInPage() {
       password,
       redirect: false, // Prevent default redirect
     });
+    console.log(result);
 
     if (result?.error) {
       setError('Invalid username or password');
       setLoading(false);
     } else {
       router.push(callbackUrl); // Redirect manually
+      setLoading(false);
     }
   };
 
@@ -60,8 +62,8 @@ export default function SignInPage() {
               loading ? 'bg-blue-950' : ''
             }`}
           >
-            Zaloguj się
-            {/* {loading ? 'Loguje...' : 'Zaloguj się'} */}
+            {/* Zaloguj się */}
+            {loading ? 'Loguje...' : 'Zaloguj się'}
           </button>
         </form>
       </div>
