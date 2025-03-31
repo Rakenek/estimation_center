@@ -23,7 +23,6 @@ export default function SignInPage() {
       password,
       redirect: false, // Prevent default redirect
     });
-    console.log(result);
 
     if (result?.error) {
       setError('Invalid username or password');
@@ -58,6 +57,7 @@ export default function SignInPage() {
           />
           <button
             type="submit"
+            disabled={loading}
             className={`bg-blue-500 text-white p-2 rounded  ${
               loading ? 'bg-blue-950' : ''
             }`}
