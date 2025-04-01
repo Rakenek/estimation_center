@@ -13,6 +13,7 @@ import {
   LabelList,
 } from "recharts";
 import DropdownMenu from "./DropDownMenu";
+import Checkbox from "./Checkbox";
 
 type AllProjectsData = {
   id: string;
@@ -69,6 +70,10 @@ export default function ChartComponent({
   allProjectsData,
 }: ChartComponentProps) {
   const [selectedPackage, setSelectedPackage] = useState<PackageKeys>("n03");
+  const [showEstimated, setShowEstimated] = useState(true);
+  const [showInContracting, setShowInContracting] = useState(true);
+  const [showFinalized, setShowFinalized] = useState(true);
+
   const dropdownDividerOptions = [
     "w [PLN]",
     "w [PLN/(PUM i PUU)]",
@@ -93,6 +98,13 @@ export default function ChartComponent({
     }));
 
   const transformedData = allProjectsData
+    .filter((item) => {
+      return (
+        (item.status === "Wycena" && showEstimated) ||
+        (item.status === "Zakończono" && showFinalized) ||
+        (item.status === "Kontraktacja" && showInContracting)
+      );
+    })
     .map((data) => {
       let divider;
       const cost = data.cost as Cost;
@@ -204,7 +216,7 @@ export default function ChartComponent({
           Zestawienie kosztowe projektów
         </h1>
       </div>
-      <div className="flex items-center justify-center gap-10 mb-20">
+      <div className="flex items-center justify-center gap-10 mb-4">
         <DropdownMenu
           options={dropdownPackageOptions.map((option) => option.label)}
           onSelect={(label) => {
@@ -221,6 +233,30 @@ export default function ChartComponent({
           options={dropdownDividerOptions}
           onSelect={handleSelectDivider}
           defaultOption={dropdownDividerOptions[1]}
+        />
+      </div>
+      <div className="flex text-white justify-center items-center mb-16 gap-4">
+        <span>Status:</span>
+        <Checkbox
+          label="Wycena"
+          checked={true}
+          onChange={() => {
+            setShowEstimated((prev) => !prev);
+          }}
+        />
+        <Checkbox
+          label="Kontraktacja"
+          checked={true}
+          onChange={() => {
+            setShowInContracting((prev) => !prev);
+          }}
+        />
+        <Checkbox
+          label="Zakończono"
+          checked={true}
+          onChange={() => {
+            setShowFinalized((prev) => !prev);
+          }}
         />
       </div>
       <div>
