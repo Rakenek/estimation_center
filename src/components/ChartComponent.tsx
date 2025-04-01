@@ -10,6 +10,7 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  LabelList,
 } from "recharts";
 import DropdownMenu from "./DropDownMenu";
 
@@ -238,9 +239,7 @@ export default function ChartComponent({
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" tick={<CustomTick />} interval={0} />
-          <YAxis
-            tick={{ fill: "#d1d0d0" }} // Brighter text for Y-axis (white)
-          />
+          <YAxis tick={{ fill: "#d1d0d0" }} />
           <Tooltip
             formatter={(value: number) => [
               value.toLocaleString("fr-FR"),
@@ -248,7 +247,14 @@ export default function ChartComponent({
             ]}
             labelFormatter={(name) => `Projekt: ${name}`}
           />
-          <Bar dataKey="value" barSize={30} fill="#8884d8" />
+          <Bar dataKey="value" barSize={30} fill="#8884d8">
+            <LabelList
+              dataKey="value" // The key from your data to display
+              position="top" // Position the label above the bar
+              fill="#ffffff" // Color of the text (white for visibility)
+              formatter={(value: number) => value.toLocaleString("fr-FR")} // Format the number
+            />
+          </Bar>
         </BarChart>
       </ResponsiveContainer>
     </>
