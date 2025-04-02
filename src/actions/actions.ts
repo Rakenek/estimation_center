@@ -397,7 +397,7 @@ export async function updateProject(
         ),
         infrastruktura: parseFloat(formDataObject.infrastruktura as string),
         dfa: parseFloat(formDataObject.dfa as string),
-        zielen: parseFloat(formDataObject.dfa as string),
+        zielen: parseFloat(formDataObject.zielen as string),
         sieci: parseFloat(formDataObject.sieci as string),
         koszty_budowy: parseFloat(formDataObject.koszty_budowy as string),
         bhp: parseFloat(formDataObject.bhp as string),
