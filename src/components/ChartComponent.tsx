@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { Cost, Parameters } from "@prisma/client";
-import React, { useState } from "react";
+import { Cost, Parameters } from '@prisma/client';
+import React, { useState } from 'react';
 import {
   BarChart,
   Bar,
@@ -11,9 +11,9 @@ import {
   Tooltip,
   ResponsiveContainer,
   LabelList,
-} from "recharts";
-import DropdownMenu from "./DropDownMenu";
-import Checkbox from "./Checkbox";
+} from 'recharts';
+import DropdownMenu from './DropDownMenu';
+import Checkbox from './Checkbox';
 
 type AllProjectsData = {
   id: string;
@@ -24,7 +24,7 @@ type AllProjectsData = {
   parameter: Parameters | null;
 }[];
 
-type CostFields = Omit<Cost, "id" | "project_id">;
+type CostFields = Omit<Cost, 'id' | 'project_id'>;
 type PackageKeys = keyof CostFields;
 
 interface ChartComponentProps {
@@ -42,9 +42,9 @@ interface CustomTickProps {
 // Utility function to convert snake_case to Title Case
 const toTitleCase = (str: string) => {
   return str
-    .split("_")
+    .split('_')
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(" ");
+    .join(' ');
 };
 
 const CustomTick = (props: CustomTickProps) => {
@@ -69,17 +69,17 @@ const CustomTick = (props: CustomTickProps) => {
 export default function ChartComponent({
   allProjectsData,
 }: ChartComponentProps) {
-  const [selectedPackage, setSelectedPackage] = useState<PackageKeys>("n03");
+  const [selectedPackage, setSelectedPackage] = useState<PackageKeys>('n03');
   const [showEstimated, setShowEstimated] = useState(true);
   const [showInContracting, setShowInContracting] = useState(true);
   const [showFinalized, setShowFinalized] = useState(true);
 
   const dropdownDividerOptions = [
-    "w [PLN]",
-    "w [PLN/(PUM i PUU)]",
-    "w [PLN/NETTO]",
-    "do liczby mieszkań",
-    "do miarodajne wskaźniki",
+    'w [PLN]',
+    'w [PLN/(PUM i PUU)]',
+    'w [PLN/NETTO]',
+    'do liczby mieszkań',
+    'do miarodajne wskaźniki',
   ];
   const [selectedDivider, setSelectedDivider] = useState(
     dropdownDividerOptions[1]
@@ -91,7 +91,7 @@ export default function ChartComponent({
 
   const testObject = allProjectsData[0].cost as Cost;
   const dropdownPackageOptions = Object.keys(testObject)
-    .filter((key) => key !== "id" && key !== "project_id")
+    .filter((key) => key !== 'id' && key !== 'project_id')
     .map((key) => ({
       value: key as PackageKeys,
       label: toTitleCase(key),
@@ -100,9 +100,9 @@ export default function ChartComponent({
   const transformedData = allProjectsData
     .filter((item) => {
       return (
-        (item.status === "Wycena" && showEstimated) ||
-        (item.status === "Zakończono" && showFinalized) ||
-        (item.status === "Kontraktacja" && showInContracting)
+        (item.status === 'Wycena' && showEstimated) ||
+        (item.status === 'Zakończono' && showFinalized) ||
+        (item.status === 'Kontraktacja' && showInContracting)
       );
     })
     .map((data) => {
@@ -111,19 +111,19 @@ export default function ChartComponent({
       const parameters = data.parameter as Parameters;
 
       switch (selectedDivider) {
-        case "w [PLN]":
+        case 'w [PLN]':
           divider = 1;
           break;
-        case "w [PLN/(PUM i PUU)]":
+        case 'w [PLN/(PUM i PUU)]':
           divider = parameters.pum_i_puu;
           break;
-        case "w [PLN/NETTO]":
+        case 'w [PLN/NETTO]':
           divider = parameters.powierzchnia_netto;
           break;
-        case "do liczby mieszkań":
+        case 'do liczby mieszkań':
           divider = parameters.ilosc_mieszkan;
           break;
-        case "do miarodajne wskaźniki":
+        case 'do miarodajne wskaźniki':
           divider = {
             n01: parameters.pum_i_puu,
             n03: parameters.pum_i_puu,
@@ -151,7 +151,7 @@ export default function ChartComponent({
             instalacje_gazowe: parameters.powierzchnia_netto,
             instalacje_elektryczne: parameters.powierzchnia_netto,
             instalacje_teletechniczne: parameters.powierzchnia_netto,
-            infrastruktura: parameters.powierzchnia_netto,
+            infrastruktura: parameters.powierzchnia_niezabudowana_dzialki,
             dfa: parameters.powierzchnia_niezabudowana_dzialki,
             zielen: parameters.powierzchnia_niezabudowana_dzialki,
             sieci: parameters.powierzchnia_niezabudowana_dzialki,
@@ -162,13 +162,13 @@ export default function ChartComponent({
           break;
       }
 
-      if (typeof divider === "number") {
+      if (typeof divider === 'number') {
         return {
           name: data.name,
           value: Math.round((cost[selectedPackage] as number) / divider),
         };
       }
-      if (typeof divider === "object") {
+      if (typeof divider === 'object') {
         return {
           name: data.name,
           value: Math.round(
@@ -180,33 +180,33 @@ export default function ChartComponent({
     .filter((item) => item.value !== 0);
 
   const dividerLabel = {
-    n01: "[PLN/PUM]",
-    n03: "[PLN/PUM]",
-    roboty_ziemne: "[PLN/POW FUNDAMENTÓW]",
-    zabezpieczenie_wykopow: "[PLN/ZABUDOWY PODZIEMIA]",
-    sciany_szczelinowe: "[PLN/ZABUDOWY PODZIEMIA]",
-    roboty_palowe: "[PLN/POW FUNDAMENTÓW]",
-    prace_fundamentowe: "[PLN/POW FUNDAMENTÓW]",
-    konstrukcja_podziemia: "[PLN/NETTO PODZIEMIA]",
-    konstrukcja_nadziemia: "[PLN/NETTO NADZIEMIA]",
-    elewacje: "[PLN/POW ELEWACJI]",
-    dachy: "[PLN/POW DACHÓW]",
-    wykonczenie_podziemia: "[PLN/NETTO PODZIEMIA]",
-    wykonczenie_nadziemia: "[PLN/NETTO NADZIEMIA]",
-    windy: "[PLN/PUM]",
-    parklifty: "[PLN/PUM]",
-    instalacje_klimatyzacyjne: "[PLN/NETTO]",
-    instalacje_wodno_kanalizacyjne: "[PLN/NETTO]",
-    instalacje_gazowe: "[PLN/NETTO]",
-    instalacje_elektryczne: "[PLN/NETTO]",
-    instalacje_teletechniczne: "[PLN/NETTO]",
-    infrastruktura: "[PLN/POW NIEZABUDOWANEJ]",
-    dfa: "[PLN/NIEZABUDOWANEJ]",
-    zielen: "[PLN/NIEZABUDOWANEJ]",
-    sieci: "[PLN/PUM]",
-    koszty_budowy: "[PLN/PUM]",
-    bhp: "[PLN/PUM]",
-    offset_poza_dzialka: "[PLN/PUM]",
+    n01: '[PLN/PUM]',
+    n03: '[PLN/PUM]',
+    roboty_ziemne: '[PLN/POW FUNDAMENTÓW]',
+    zabezpieczenie_wykopow: '[PLN/ZABUDOWY PODZIEMIA]',
+    sciany_szczelinowe: '[PLN/ZABUDOWY PODZIEMIA]',
+    roboty_palowe: '[PLN/POW FUNDAMENTÓW]',
+    prace_fundamentowe: '[PLN/POW FUNDAMENTÓW]',
+    konstrukcja_podziemia: '[PLN/NETTO PODZIEMIA]',
+    konstrukcja_nadziemia: '[PLN/NETTO NADZIEMIA]',
+    elewacje: '[PLN/POW ELEWACJI]',
+    dachy: '[PLN/POW DACHÓW]',
+    wykonczenie_podziemia: '[PLN/NETTO PODZIEMIA]',
+    wykonczenie_nadziemia: '[PLN/NETTO NADZIEMIA]',
+    windy: '[PLN/PUM]',
+    parklifty: '[PLN/PUM]',
+    instalacje_klimatyzacyjne: '[PLN/NETTO]',
+    instalacje_wodno_kanalizacyjne: '[PLN/NETTO]',
+    instalacje_gazowe: '[PLN/NETTO]',
+    instalacje_elektryczne: '[PLN/NETTO]',
+    instalacje_teletechniczne: '[PLN/NETTO]',
+    infrastruktura: '[PLN/POW NIEZABUDOWANEJ]',
+    dfa: '[PLN/NIEZABUDOWANEJ]',
+    zielen: '[PLN/NIEZABUDOWANEJ]',
+    sieci: '[PLN/PUM]',
+    koszty_budowy: '[PLN/PUM]',
+    bhp: '[PLN/PUM]',
+    offset_poza_dzialka: '[PLN/PUM]',
   };
 
   return (
@@ -261,8 +261,8 @@ export default function ChartComponent({
       </div>
       <div>
         <h2 className="text-white text-2xl flex justify-center items-center">
-          Zestawienie kosztów: {toTitleCase(selectedPackage)}{" "}
-          {selectedDivider === "do miarodajne wskaźniki"
+          Zestawienie kosztów: {toTitleCase(selectedPackage)}{' '}
+          {selectedDivider === 'do miarodajne wskaźniki'
             ? dividerLabel[selectedPackage]
             : selectedDivider}
         </h2>
@@ -275,10 +275,10 @@ export default function ChartComponent({
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" tick={<CustomTick />} interval={0} />
-          <YAxis tick={{ fill: "#d1d0d0" }} />
+          <YAxis tick={{ fill: '#d1d0d0' }} />
           <Tooltip
             formatter={(value: number) => [
-              value.toLocaleString("fr-FR"),
+              value.toLocaleString('fr-FR'),
               toTitleCase(selectedPackage),
             ]}
             labelFormatter={(name) => `Projekt: ${name}`}
@@ -288,7 +288,7 @@ export default function ChartComponent({
               dataKey="value" // The key from your data to display
               position="top" // Position the label above the bar
               fill="#ffffff" // Color of the text (white for visibility)
-              formatter={(value: number) => value.toLocaleString("fr-FR")} // Format the number
+              formatter={(value: number) => value.toLocaleString('fr-FR')} // Format the number
             />
           </Bar>
         </BarChart>
