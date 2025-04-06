@@ -156,7 +156,7 @@ export default function ChartComponent({
             infrastruktura: parameters.powierzchnia_niezabudowana_dzialki,
             dfa: parameters.powierzchnia_niezabudowana_dzialki,
             zielen: parameters.powierzchnia_niezabudowana_dzialki,
-            sieci: parameters.powierzchnia_niezabudowana_dzialki,
+            sieci: parameters.pum_i_puu,
             koszty_budowy: parameters.pum_i_puu,
             bhp: parameters.pum_i_puu,
             offset_poza_dzialka: parameters.pum_i_puu,
