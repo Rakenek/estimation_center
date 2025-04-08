@@ -64,6 +64,18 @@ export default function MaterialDataForm({
       <h2 className="flex items-center justify-center font-bold text-2xl pb-4 ">
         Dodaj dane zmiany ceny materiałów budowlanych
       </h2>
+      {state.errors?.form && (
+        <div className="bg-red-100 text-red-700 p-2 rounded mb-4">
+          {state.errors.form}
+        </div>
+      )}
+
+      {/* Display success message */}
+      {state.success && (
+        <div className="bg-green-100 text-green-700 p-2 rounded mb-4">
+          {state.success}
+        </div>
+      )}
       <form action={formAction} className="space-y-4">
         {Object.keys(formData).map((key) => (
           <div key={key} className="flex flex-col">
