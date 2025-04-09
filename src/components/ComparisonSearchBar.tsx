@@ -1,16 +1,16 @@
-'use client';
-import React, { useState } from 'react';
+"use client";
+import React, { useState } from "react";
 
 interface SearchBarProps {
   suggestions: string[];
   handleSelectedProject: (projectName: string) => void;
 }
 
-const ComparasionSearchBar: React.FC<SearchBarProps> = ({
+const ComparisonSearchBar: React.FC<SearchBarProps> = ({
   suggestions,
   handleSelectedProject,
 }) => {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -58,4 +58,4 @@ const ComparasionSearchBar: React.FC<SearchBarProps> = ({
   );
 };
 
-export default ComparasionSearchBar;
+export default ComparisonSearchBar;

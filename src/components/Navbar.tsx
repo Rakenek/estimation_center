@@ -25,6 +25,11 @@ export default async function Navbar() {
           iconName="Scale"
         />
         <NavigationButton
+          href={`/multiple-comparison`}
+          text={"Zestawienie wybranych"}
+          iconName="Table"
+        />
+        <NavigationButton
           href={`/all-projects-summary`}
           text={"Zestawienie projektów"}
           iconName="ChartColumn"

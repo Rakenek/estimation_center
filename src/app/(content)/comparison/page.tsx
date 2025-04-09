@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import React, { Suspense } from "react";
-import ComparasionDashboard from "@/components/ComparasionDashboard";
+import ComparisonDashboard from "@/components/ComparisonDashboard";
 import LoadingSpinner from "@/components/LoadingSpinner";
 
 // Child component that fetches data
@@ -10,7 +10,7 @@ async function DataFetcher() {
   const parameters = await prisma.parameters.findMany();
 
   return (
-    <ComparasionDashboard
+    <ComparisonDashboard
       projects={projects}
       cost={cost}
       parameters={parameters}

@@ -7,6 +7,7 @@ import {
   LucideIcon,
   Scale,
   SearchCheck,
+  Table,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -17,6 +18,7 @@ const iconMap: Record<string, LucideIcon> = {
   Scale,
   HousePlus,
   ChartColumn,
+  Table,
 };
 
 interface NavigationButtonProps {

@@ -1,10 +1,10 @@
-'use client';
-import React, { useState } from 'react';
-import ComparasionSearchBar from './ComparasionSearchBar';
-import { Cost, Parameters, Project } from '@prisma/client';
-import CostTable, { dividerType } from './CostTable';
+"use client";
+import React, { useState } from "react";
+import ComparisonSearchBar from "./ComparisonSearchBar";
+import { Cost, Parameters, Project } from "@prisma/client";
+import CostTable, { dividerType } from "./CostTable";
 
-interface ComparasionDashboard {
+interface ComparisonDashboard {
   projects: Project[];
   cost: Cost[];
   parameters: Parameters[];
@@ -12,13 +12,13 @@ interface ComparasionDashboard {
   divider: dividerType;
 }
 
-export default function ComparasionElement({
+export default function ComparisonElement({
   projects,
   cost,
   parameters,
   handleCost,
   divider,
-}: ComparasionDashboard) {
+}: ComparisonDashboard) {
   const [selectedProject, setSelectedProject] = useState<Project>(null);
   const [selectedCost, setSelectedCost] = useState<Cost>(null);
   const [selectedParameters, setSelectedParameters] =
@@ -40,7 +40,7 @@ export default function ComparasionElement({
   return (
     <>
       <div className="p-8">
-        <ComparasionSearchBar
+        <ComparisonSearchBar
           suggestions={projectsNames}
           handleSelectedProject={handleSelectedProject}
         />

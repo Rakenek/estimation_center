@@ -1,22 +1,22 @@
 "use client";
 import React, { useState } from "react";
-import ComparasionElement from "./ComparasionElement";
+import ComparisonElement from "./ComparisonElement";
 import { Cost, Parameters, Project } from "@prisma/client";
 import DifferenceTable from "./DifferenceTable";
 import { dividerType } from "./CostTable";
 import DropdownMenu from "./DropDownMenu";
 
-interface ComparasionDashboardProps {
+interface ComparisonDashboardProps {
   projects: Project[];
   cost: Cost[];
   parameters: Parameters[];
 }
 
-export default function ComparasionDashboard({
+export default function ComparisonDashboard({
   projects,
   cost,
   parameters,
-}: ComparasionDashboardProps) {
+}: ComparisonDashboardProps) {
   const [indicatorType, setIndicatorType] = useState<dividerType>(
     dividerType.INDICATORS
   );
@@ -69,7 +69,7 @@ export default function ComparasionDashboard({
   return (
     <div className="flex pt-16">
       <div className="w-1/3">
-        <ComparasionElement
+        <ComparisonElement
           projects={projects}
           cost={cost}
           parameters={parameters}
@@ -78,7 +78,7 @@ export default function ComparasionDashboard({
         />
       </div>
       <div className="w-1/3">
-        <ComparasionElement
+        <ComparisonElement
           projects={projects}
           cost={cost}
           parameters={parameters}
