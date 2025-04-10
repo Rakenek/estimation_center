@@ -1,4 +1,5 @@
 "use client";
+import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 
 interface SearchBarProps {
@@ -12,6 +13,7 @@ const ComparisonSearchBar: React.FC<SearchBarProps> = ({
 }) => {
   const [query, setQuery] = useState("");
   const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
+  const url = usePathname();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -27,7 +29,11 @@ const ComparisonSearchBar: React.FC<SearchBarProps> = ({
   };
 
   const handleSelect = (item: string) => {
-    setQuery(item);
+    if (url !== "/multiple-comparison") {
+      setQuery(item);
+    } else {
+      setQuery("");
+    }
     setFilteredSuggestions([]);
     handleSelectedProject(item);
   };
