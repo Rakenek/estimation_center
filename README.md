@@ -1,36 +1,133 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# 📊 Estimation Center
 
-First, run the development server:
+Estimation Center to aplikacja webowa typu fullstack do zarządzania i analizy projektów inwestycyjnych w budownictwie. Automatyzuje proces szacowania kosztów, umożliwia ocenę ryzyka finansowego i wizualizuje dane inwestycyjne w formie interaktywnych wykresów i dashboardów.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Zbudowana z użyciem **Next.js 15, TypeScript, TailwindCSS, NextAuth, Prisma, PostgreSQL i Cloudinary**.
+
+---
+
+## 🚀 Funkcjonalności
+
+✅ Rejestracja i logowanie użytkowników (NextAuth v5 – Credentials & OAuth)  
+✅ Operacje CRUD dla projektów, inwestycji i pozycji kosztowych  
+✅ Wizualizacja danych przy użyciu **Recharts** i **Chart.js**  
+✅ Bezpieczne haszowanie haseł z **bcryptjs**  
+✅ Upload plików i hosting obrazów w **Cloudinary**  
+✅ Import/eksport danych do Excela (**xlsx**)  
+✅ Responsywny interfejs użytkownika zbudowany w **TailwindCSS**  
+✅ Integracja z bazą danych PostgreSQL przez **Prisma ORM**  
+✅ Seedowanie bazy danych przy pomocy `prisma/seed.ts`  
+
+---
+
+## 🛠 Tech Stack
+
+| Warstwa        | Technologia                         |
+|----------------|--------------------------------------|
+| Frontend       | Next.js 15, React 19, TypeScript     |
+| Stylowanie     | TailwindCSS, lucide-react            |
+| Backend        | API Routes (Next.js), NextAuth v5    |
+| Baza danych    | PostgreSQL, Prisma ORM               |
+| Pliki          | Cloudinary, next-cloudinary          |
+| Wykresy        | Recharts, Chart.js                   |
+| Utils          | Zod (walidacja), bcryptjs (bezpieczeństwo)|
+| Deployment     | Vercel                               |
+
+---
+
+## 🚀 Rozpoczęcie pracy
+
+### Wymagania wstępne
+
+- Node.js >= 18
+- Baza danych PostgreSQL
+- Konto Cloudinary (dla hostingu plików)
+- Git
+
+### Instalacja
+
+1. Sklonuj repozytorium:
+   ```bash
+   git clone https://github.com/Rakenek/estimation_center.git
+   cd estimation_center
+   ```
+
+2. Zainstaluj zależności:
+   ```bash
+   npm install
+   ```
+
+3. Utwórz plik `.env` w katalogu głównym i skonfiguruj zmienne środowiskowe:
+   ```env
+   DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/DATABASE
+   NEXTAUTH_SECRET=your_secret
+   NEXTAUTH_URL=http://localhost:3000
+   CLOUDINARY_CLOUD_NAME=your_cloud_name
+   CLOUDINARY_API_KEY=your_api_key
+   CLOUDINARY_API_SECRET=your_api_secret
+   ```
+
+4. Wygeneruj klienta Prisma:
+   ```bash
+   npx prisma generate
+   ```
+
+5. Zastosuj migracje bazy danych:
+   ```bash
+   npx prisma migrate dev
+   ```
+
+6. (Opcjonalnie) Zasiej dane startowe:
+   ```bash
+   npm run seed
+   ```
+
+7. Uruchom serwer deweloperski:
+   ```bash
+   npm run dev
+   ```
+
+8. Otwórz [http://localhost:3000](http://localhost:3000) w przeglądarce 🚀
+
+---
+
+## 🗄️ Schemat bazy danych
+
+Fragment przykładowego modelu Prisma:
+
+```prisma
+model User {
+  id       String    @id @default(uuid())
+  username String    @unique
+  email    String    @unique
+  password String
+  role     Role
+  image    String?
+  projects Project[]
+}
+
+model Project {
+  id         String      @id @default(uuid())
+  name       String      @unique
+  city       String
+  image_url  String
+  status     String
+  n03_do_PUM Float
+  user_id    String
+  user       User        @relation(fields: [user_id], references: [id])
+  parameter  Parameters? @relation
+  cost       Cost?       @relation
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🙌 Autor
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+👤 Kamil Otawski  
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📄 Licencja
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Ten projekt jest objęty licencją MIT.
